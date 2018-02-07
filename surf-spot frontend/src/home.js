@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import App from './App'
+import {Card, CardTitle} from 'material-ui/Card';
 
 export default class Home extends Component {
-    constructor(props){
-       super(props)
-       this.state = {
-           beaches:[]
-       }
-   }
-
 
     render() {
         return (
             <div>
-                <p>{this.state.beaches.name}</p>
+            {this.props.beaches.map(function(element, key) {
+              return  <a key={key} href={`/beaches/${element.id}`}><Card key={key}>
+                      <CardTitle title={element.name} />
+                      </Card></a>
+                  })}
             </div>
         )
     }

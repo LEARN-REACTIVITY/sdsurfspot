@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Home from './home';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Home from './Home';
+import Beach from './Beach';
+
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {Card, CardTitle, CardText} from 'material-ui/Card';
-import AppBar from 'material-ui/AppBar';
-
-const AppBarExampleIcon = () => (
-  <AppBar
-    title="Title"
-    iconClassNameRight="muidocs-icon-navigation-expand-more"
-  />
-);
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 
@@ -26,7 +19,6 @@ class App extends Component {
        }
    }
 
-
     componentWillMount() {
         fetch(API).then((resp) => {
                 return resp.json()
@@ -34,29 +26,32 @@ class App extends Component {
                 console.log(beaches)
                     var beachname = []
                     beaches.forEach((beach)=>{
-                        beachname.push(beach.spot_name)
-                        console.log(beach.spot_name)
+                        beachname.push({
+                          id: beach.spot_id,
+                          name: beach.spot_name
+                        })
                     })
                     this.setState({beaches: beachname})
-                    console.log(beachname)
+                    console.log(this.state.beaches)
                 }
             )}
 
 
   render() {
     return (
-      <div className="App">
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <Router>
+        <div className="App">
+          <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+            <div>
+              <Route exact path="/" render={props => (
+                  <Home beaches={this.state.beaches} />
+              )}/>
+              <Route path="/beaches/:id" component={Beach} />
 
-        <div>
-            {this.state.beaches.map(function(element, key) {
-                return <Card key={key}>
-                  <CardTitle title={element} subtitle="Card subtitle" />
-                </Card>
-            })}
+            </div>
+          </MuiThemeProvider>
         </div>
-        </MuiThemeProvider>
-      </div>
+      </Router>
     );
   }
 }
