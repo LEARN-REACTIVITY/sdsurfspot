@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import {Card, CardTitle} from 'material-ui/Card';
-import App from './App';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+// import {ListGroup, ListGroupItem} from 'react-bootstrap'
+import "./App.css";
+
 
 export default class Home extends Component {
 
     render() {
         return (
-            <MuiThemeProvider>
+            <div>
+                <header className="masthead text-center text-white d-flex">
+                    <h1>SurfSpots</h1>
+                </header>
                 <div>
                 {this.props.beaches.map(function(element, key) {
-                    return  <a key={key} href={`/beaches/${element.id}`}><Card key={key}>
-                        <CardTitle title={element.name} />
-                        </Card ></a>
-                    })}
-                    <div>
-                      <h3 className='about'>About Our Staff</h3>
-                      <p>Christina, Leeann, Jordan, Max</p>
-                    </div>
+                  return  <a key={key} href={`/beaches/${element.id}`}><li key={key}>
+                          <h2> {element.name} </h2>
+                          </li></a>
+                      })}
                 </div>
-            </MuiThemeProvider>
+            </div>
         )
     }
 }
