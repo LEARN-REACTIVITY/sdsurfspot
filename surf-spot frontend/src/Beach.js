@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card, CardTitle, CardText} from 'material-ui/Card';
+
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/" //proxy url to bypass cross origin error
 const API = "http://api.spitcast.com/api/spot/forecast"
@@ -44,9 +44,7 @@ export default class Beach extends Component {
     render() {
         return (
             <div>
-                <Card>
-                  <CardTitle title={this.state.beach.name} subtitle="Card subtitle" />
-                  <CardText>
+                <h1>{this.state.beach.name}</h1>
                     <p> Date: {this.state.beach.date} </p>
                     <p> Time of report: {this.state.beach.hour} </p>
                     <h3>Swell Details</h3>
@@ -54,9 +52,6 @@ export default class Beach extends Component {
                     <p> size: {this.state.beach.size} </p>
                     <p> tide: {this.state.beach.tide} </p>
                     <p> wind: {this.state.beach.wind} </p>
-
-                  </CardText>
-                </Card>
             </div>
         )
     }

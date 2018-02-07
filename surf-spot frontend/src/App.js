@@ -4,10 +4,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './Home';
 import Beach from './Beach';
 
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 
 class App extends Component {
@@ -41,7 +37,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
             <div>
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} />
@@ -49,7 +44,6 @@ class App extends Component {
               <Route path="/beaches/:id" component={Beach} />
 
             </div>
-          </MuiThemeProvider>
         </div>
       </Router>
     );
