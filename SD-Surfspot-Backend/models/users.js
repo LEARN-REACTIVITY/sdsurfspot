@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
-      }
+          users.hasMany(models.beaches, {foreignKey: 'userId'})
+    }
     }
   });
   return users;

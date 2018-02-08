@@ -21,7 +21,16 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+     },
+      contactId: {
+          type: Sequelize.INTEGER,
+          onDelete: 'CASCADE',
+          references: {
+              model: 'users',
+              key: 'id',
+              as: 'userID'
+          }
+     }
     });
   },
   down: (queryInterface, Sequelize) => {

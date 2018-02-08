@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        beaches.belongsTo(models.users, {foreignKey: 'userId'})
       }
     }
   });
