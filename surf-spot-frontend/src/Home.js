@@ -18,6 +18,7 @@ export default class Home extends Component {
                       <h3 className='about'>About Our Staff</h3>
                       <p>Christina, Leeann, Jordan, Max</p>
                     </div>
+                    <div>extra</div>
                 </div>
             </MuiThemeProvider>
         )
