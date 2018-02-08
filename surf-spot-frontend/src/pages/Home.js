@@ -18,6 +18,10 @@ export default class Home extends Component {
                           </li></a>
                       })}
                 </div>
+                <div>
+                  <h3 className='about'>About Our Staff</h3>
+                  <p>Christina, Leeann, Jordan, Max</p>
+                </div>
             </div>
         )
     }
