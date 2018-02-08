@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Home from './Home';
-import Beach from './Beach';
+import Home from './pages/Home';
+import NavBar from './pages/NavBar';
+import Beach from './pages/Beach';
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 
@@ -36,8 +37,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-            <div>
+        <div>
+            <NavBar />
+            <div className="App">
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} />
               )}/>
