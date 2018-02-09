@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        Beach.hasMany(models.User, {foreignKey: 'userId'})
+        Beach.belongsToMany(models.User, {
+            through: models.user_beaches,
+            foreignKey: 'beach_id'})
       }
     }
   });

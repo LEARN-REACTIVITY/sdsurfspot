@@ -14,11 +14,11 @@ module.exports = {
       username: {
         type: Sequelize.STRING
       },
+      password: {
+          type: Sequelize.STRING
+      },
       email: {
         type: Sequelize.STRING
-      },
-      friends: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -27,16 +27,17 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      userId: {
-          type: Sequelize.INTEGER,
-          onDelete: 'CASCADE',
-          references: {
-              model: 'Users',
-              key: 'id',
-              as: 'userId'
-          }
-      }
+    }
+      // },
+      // user_id: {
+      //   type: Sequelize.INTEGER,
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //       model: 'Beach',
+      //       key: 'id',
+      //       as: 'user_id'
+      //   }
+      // }
     });
   },
   down: (queryInterface, Sequelize) => {

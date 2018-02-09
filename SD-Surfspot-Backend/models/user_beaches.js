@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        user_beaches.belongsToMany(models.Beach, {foreignKey: 'beach_id'})
-        user_beaches.belongsToMany(models.User, {foreignKey: 'user_Id'})
+        // user_beaches.belongsToMany(models.Beach, {foreignKey: 'beach_id'})
+        // user_beaches.belongsToMany(models.User, {foreignKey: 'user_Id'})
       }
     }
   });

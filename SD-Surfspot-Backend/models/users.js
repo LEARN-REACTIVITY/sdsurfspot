@@ -1,14 +1,17 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     name: DataTypes.STRING,
     username: DataTypes.STRING,
-    email: DataTypes.STRING,
-    friends: DataTypes.INTEGER
+    password: DataTypes.STRING,
+    email: DataTypes.STRING
   }, {
         classMethods: {
             associate: function(models) {
-                User.belongsTo(models.Beach, {foreignKey: 'userId'})
+                User.belongsToMany(models.Beach, {
+                    through: models.user_beaches,
+                    foreignKey: 'user_id'})
             }
         }
   });
