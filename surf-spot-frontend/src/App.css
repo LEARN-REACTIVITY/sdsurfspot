@@ -18,7 +18,28 @@
     background-color: black;
 }
 
+.locations {
+    background-color: #e5e5e5;
+}
 
+.checkInButton {
+    background-color: orange;
+    color: white;
+}
+
+.box {
+    display: inline-block;
+    position: inherit;
+    margin: 30px 20px 30px 20px;
+    max-width: 130px;
+}
+
+
+.locationImages {
+    margin-bottom: 10px;
+    max-width: 120px;
+    min-height: 110px;
+}
 /* .navbar-inverse {
     background-color: white;
     border-color: white;

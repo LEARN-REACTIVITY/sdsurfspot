@@ -169,7 +169,8 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   /* padding-bottom: calc(10rem - 56px); */
-  background-image: url("https://pixabay.com/get/e83db2092bf2073ed1534705fb0938c9bd22ffd41cb0194197f7c07fa5/beach-1836366_1920.jpg");
+  background-image: url("/images/LandingPage.jpg");
+  background-color: black;
   margin-top: 0px;
   background-position: center center;
   -webkit-background-size: cover;
