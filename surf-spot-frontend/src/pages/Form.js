@@ -31,6 +31,7 @@ export default class Form extends Component {
 
     handleSubmit() {
         this.props.onSubmit(this.state.form)
+        console.log(this.state.form)
     }
 
     errorsFor(attribute){

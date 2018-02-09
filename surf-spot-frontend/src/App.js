@@ -67,7 +67,7 @@ class App extends Component {
               <Route path="/form" render={props => (
                   <div>
                       <Form
-                        submitHandler={this.handleNewUser.bind(this)}
+                        onSubmit={this.handleNewUser.bind(this)}
                         errors={this.state.errors && this.state.errors.validations}
                       />
                       {this.state.newUserSuccess &&
