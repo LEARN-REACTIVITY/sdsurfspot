@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Home from './Home';
-import Beach from './Beach';
+import Home from './pages/Home';
+import Beach from './pages/Beach';
+import Form from './pages/Form';
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 
@@ -42,7 +43,7 @@ class App extends Component {
                   <Home beaches={this.state.beaches} />
               )}/>
               <Route path="/beaches/:id" component={Beach} />
-
+              <Route path="/form" component={Form} />
             </div>
         </div>
       </Router>
