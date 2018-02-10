@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Row, Col, Grid, Image, Button} from 'react-bootstrap'
+import CheckInCount from './CheckInCount.js'
 
 
 export default class Home extends Component {
+    constructor(props){
+       super(props);
+
+       this.state = {
+           checkedInCount: 0
+       };
+   }
+
+  clickHandler() {
+      this.setState({
+          checkedInCount: this.state.checkedInCount +1
+      });
+  }
 
     render() {
         return (
@@ -11,13 +26,13 @@ export default class Home extends Component {
             <h1 className="mainheader">San Diego Surf Spots</h1>
             <h3 className="secondheader">Check out the daily local surf report!</h3>
             </header>
-                {this.props.beaches.map(function(element, key) {
+                {this.props.beaches.map((element, key) => {
                 return  <div className= "box">
-                        <h4>{element.name}</h4>
-                            <a key={key}                            href={`/beaches/${element.id}`}>
-                                <Image className="locationImages" src={require("./default.jpg")} rounded />
-                                </a>
-                            <Button className="checkIn" bsSize="xsmall">Check In</Button>
+                            <a key={key} href={`/beaches/${element.id}`}>
+                                <h4 className="locationNames">{element.name}</h4>
+                            </a>
+                            <Button onClick={this.clickHandler.bind(this)} className="checkIn" bsSize="xsmall">Check In</Button>
+                            <p className="checkedIn">{this.state.checkedInCount} Surfers are checked in today</p>
                         </div>
                 })}
             </div>

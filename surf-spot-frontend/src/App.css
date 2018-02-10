@@ -4,8 +4,10 @@
 }
 
 .mainheader {
-    margin-top: 300px;
+    font-family: Univers, sans-serif;
+    font-weight: bold;
     position: absolute;
+    margin-top: 40%;
     margin-left: 44%;
     transform: rotate(-15deg);
     color: white;
@@ -32,6 +34,12 @@
     position: inherit;
     margin: 30px 20px 30px 20px;
     max-width: 130px;
+    background-color: #d3d3d3;
+    padding-left: 5px;
+    border: 2px;
+    border-style: solid;
+    border-color: gray;
+    padding-right: 5px;
 }
 
 

@@ -11,7 +11,7 @@ export default class Beach extends Component {
            beach:[]
        }
    }
-
+   
    componentWillMount(){
        const id = this.props.match.params.id
        fetch(`${proxyurl}${API}/${id}`)
