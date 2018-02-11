@@ -35,6 +35,12 @@ export default class Home extends Component {
                             <p className="checkedIn">{this.state.checkedInCount} Surfers are checked in today</p>
                         </div>
                 })}
+
+                <div>
+                  <h3 className='about'>About Our Staff</h3>
+                  <p>Christina, Leeann, Jordan, Max</p>
+                </div>
+
             </div>
         )
     }
