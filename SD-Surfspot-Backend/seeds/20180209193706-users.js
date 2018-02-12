@@ -7,32 +7,32 @@ module.exports = {
             {
                 name: 'Leeann',
                 username: 'dabo$$',
-                password: 'password',
                 email: 'dabo$$@gmail.com',
+                password: 'password',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 name: 'Christina',
                 username: 'chrissychrissy',
-                password: 'password',
                 email: 'chrissychrissy@gmail.com',
+                password: 'password',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 name: 'Jordan',
                 username: 'daRealBo$$',
-                password: 'password',
                 email: 'daRealBo$$@gmail.com',
+                password: 'password',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 name: 'Max',
                 username: 'maxattack',
-                password: 'password',
                 email: 'maxattack@gmail.com',
+                password: 'password',
                 createdAt: new Date(),
                 updatedAt: new Date()
             }
