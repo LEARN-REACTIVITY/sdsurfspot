@@ -51,6 +51,7 @@ class App extends Component {
             }).then((parsedResponse) => {
                 if(parsedResponse.errors){
                     this.setState({errors: parsedResponse.errors})
+                    console.log(this.state.errors)
                 } else {
                     const user = Object.assign([], this.state.user)
                     user.push(parsedResponse.user)
@@ -59,7 +60,7 @@ class App extends Component {
                         errors: null, // <- Clear out any errors if they exist
                         newUserSuccess: true // <- This is the new flag in state
                       })
-                                }
+                }
             }).catch(function() {
                 console.log('could not save new user')
             })
@@ -79,7 +80,7 @@ class App extends Component {
                   <div>
                       <Form
                         onSubmit={this.handleNewUser.bind(this)}
-                        errors={this.state.errors && this.state.errors.validations}
+                        errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)}
                       />
                       {this.state.newUserSuccess &&
                         <Redirect to="/" />

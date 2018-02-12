@@ -15,10 +15,10 @@ export default class Form extends Component {
         super(props)
         this.state = {
             form:{
-                name: " ",
-                username: " ",
-                password: " ",
-                email: " "
+                name: "",
+                username: "",
+                password: "",
+                email: ""
             }
         }
     }
@@ -45,7 +45,24 @@ export default class Form extends Component {
         return errorString === "" ? null : errorString
     }
 
+    serverErrors(attribute) {
+        var errorString = ""
+        if(this.props.errors) {
+
+                const error = this.props.errors[0].path
+                if(error === attribute) {
+                    if (error === "email") {
+                    errorString = "This email is already in use"
+                    } else if (error === "username") {
+                        errorString = "This username has been taken"
+                    }
+                }
+        }
+        return errorString === "" ? null : errorString
+    }
+
     render() {
+        console.log(this.props.errors)
         return(
             <div>
                 <h1 className="form-sign"> Sign up! </h1>
@@ -98,6 +115,9 @@ export default class Form extends Component {
                                             {this.errorsFor('username') &&
                                                 <HelpBlock id="username-help-block">{this.errorsFor('username')}</HelpBlock>
                                             }
+                                            {this.serverErrors('username') &&
+                                                <HelpBlock id="username-help-block">{this.serverErrors('username')}</HelpBlock>
+                                            }
                                         </FormGroup>
                                     </Col>
                                 </Row>
@@ -135,6 +155,9 @@ export default class Form extends Component {
                                             />
                                             {this.errorsFor('email') &&
                                                 <HelpBlock id="email-help-block">{this.errorsFor('email')}</HelpBlock>
+                                            }
+                                            {this.serverErrors('email') &&
+                                                <HelpBlock id="email-help-block">{this.serverErrors('email')}</HelpBlock>
                                             }
                                         </FormGroup>
                                     </Col>
