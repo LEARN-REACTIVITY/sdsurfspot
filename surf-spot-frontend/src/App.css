@@ -6,7 +6,7 @@
 .mainheader {
     font-family: Univers, sans-serif;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     margin-top: 40%;
     margin-left: 44%;
     transform: rotate(-15deg);
@@ -56,4 +56,14 @@
 
 .Navigation {
     margin-bottom: 0px;
+    margin-right: 0px;
+    position: fixed;
+    background-color: black;
+    min-width: 1024px;
+    width: 100vw;
+    min-width: 100vw;
+}
+
+.beach {
+  margin-top: 0px;
 }

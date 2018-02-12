@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import Home from './pages/Home';
 import Beach from './pages/Beach';
 import Form from './pages/Form';
+import NavBar from './pages/NavBar';
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -60,6 +61,7 @@ class App extends Component {
       <Router>
         <div className="App">
             <div>
+              <NavBar beaches={this.state.beaches} />
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} />
               )}/>
