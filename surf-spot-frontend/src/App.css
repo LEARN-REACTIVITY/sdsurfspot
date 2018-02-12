@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-
+  background-color: rgba(168, 187, 197, 0.589)
 }
 
 .mainheader {
-    margin-top: 300px;
+    margin-top: 10pt;
     position: absolute;
     margin-left: 44%;
     transform: rotate(-15deg);
@@ -27,4 +27,11 @@
 
 .Navigation {
     margin-bottom: 0px;
+}
+
+.container {
+    margin-bottom: stuck;
+    font-size: 2.5mm;
+    font-style: italic;
+    background-color: rgb(134, 189, 168);
 }

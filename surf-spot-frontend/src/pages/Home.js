@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import {ListGroup, ListGroupItem} from 'react-bootstrap'
 
 
 export default class Home extends Component {
@@ -19,10 +18,15 @@ export default class Home extends Component {
                       })}
                 </div>
                 <div>
-                  <h3 className='about'>About Our Staff</h3>
+                  <h3 className='about'>About</h3>
                   <p>Christina, Leeann, Jordan, Max</p>
                 </div>
+                <div>
+                    <h3 className='Credits'>Credits</h3>
+                    <p>all the shoutout goes out to our team</p>
+                </div>
             </div>
+            
         )
     }
 }

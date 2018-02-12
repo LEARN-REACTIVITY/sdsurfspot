@@ -71,7 +71,7 @@ section {
 }
 
 img::selection {
-  color: #fff;
+  color: ssrgb(230, 31, 31);
   background: transparent;
 }
 
