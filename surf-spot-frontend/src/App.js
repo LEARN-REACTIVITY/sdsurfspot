@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Beach from './pages/Beach';
 import Form from './pages/Form';
 import NavBar from './pages/NavBar';
+import Footer from './pages/Footer';
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -76,7 +77,7 @@ class App extends Component {
               )}/>
               <Route path="/beaches/:id" component={Beach} />
               <Route path="/form" render={props => (
-                  <div>
+                <div>
                       <Form
                         onSubmit={this.handleNewUser.bind(this)}
                         errors={this.state.errors && this.state.errors.validations}
@@ -84,8 +85,11 @@ class App extends Component {
                       {this.state.newUserSuccess &&
                         <Redirect to="/" />
                       }
-                  </div>
+                </div>
               )} />
+            </div>
+            <div>
+            <Footer/>     
             </div>
         </div>
       </Router>

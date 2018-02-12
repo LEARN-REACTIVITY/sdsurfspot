@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Row, Col, Grid, Image, Button} from 'react-bootstrap'
 import CheckInCount from './CheckInCount.js'
 
-
 export default class Home extends Component {
     constructor(props){
        super(props);
@@ -39,7 +38,10 @@ export default class Home extends Component {
                   <h3 className='about'>About Our Staff</h3>
                   <p>Christina, Leeann, Jordan, Max</p>
                 </div>
-
+                    <div>
+                        <div className Footer="Footer"/>
+                            
+                    </div>
             </div>
         )
     }
