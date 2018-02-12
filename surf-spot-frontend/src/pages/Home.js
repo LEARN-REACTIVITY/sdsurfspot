@@ -21,9 +21,8 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className="locations">
+            <div className="locations" id="locations">
             <header className="masthead">
-            <h1 className="mainheader">San Diego Surf Spots</h1>
             <h3 className="secondheader">Check out the daily local surf report!</h3>
             </header>
                 {this.props.beaches.map((element, key) => {
