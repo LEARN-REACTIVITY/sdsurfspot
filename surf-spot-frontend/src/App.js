@@ -60,6 +60,7 @@ class App extends Component {
                         errors: null, // <- Clear out any errors if they exist
                         newUserSuccess: true // <- This is the new flag in state
                       })
+                      console.log(this.state.user)
                 }
             }).catch(function() {
                 console.log('could not save new user')
@@ -87,6 +88,7 @@ class App extends Component {
                       }
                   </div>
               )} />
+              
             </div>
         </div>
       </Router>

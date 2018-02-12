@@ -62,7 +62,6 @@ export default class Form extends Component {
     }
 
     render() {
-        console.log(this.props.errors)
         return(
             <div>
                 <h1 className="form-sign"> Sign up! </h1>

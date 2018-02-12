@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import {Row, Col, Grid, Image, Button} from 'react-bootstrap'
-import CheckInCount from './CheckInCount.js'
+import {Button} from 'react-bootstrap'
+
 
 
 export default class Home extends Component {
