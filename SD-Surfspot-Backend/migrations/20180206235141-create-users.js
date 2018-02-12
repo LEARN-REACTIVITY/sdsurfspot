@@ -9,16 +9,34 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+          type: Sequelize.STRING,
+          allowNull: false
       },
       username: {
-        type: Sequelize.STRING
-      },
-      password: {
-          type: Sequelize.STRING
+          type: Sequelize.STRING,
+          allowNull: false,
+          unique: true
       },
       email: {
-        type: Sequelize.STRING
+          type: Sequelize.STRING,
+          allowNull: false,
+          validate: {
+              isEmail: true
+          },
+          unique: true
+      },
+      encryptedPassword: {
+          type: Sequelize.STRING,
+          allowNull: false
+      },
+      authToken: {
+          type: Sequelize.STRING
+      },
+      authTokenExpiration: {
+          type: Sequelize.DATE
+      },
+      salt: {
+          type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

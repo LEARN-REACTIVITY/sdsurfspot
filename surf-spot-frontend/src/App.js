@@ -14,6 +14,7 @@ class App extends Component {
 
        this.state = {
            beaches:[],
+           user: [],
            newUserSuccess: false,
            errors: null
        }
@@ -49,7 +50,15 @@ class App extends Component {
             }).then((parsedResponse) => {
                 if(parsedResponse.errors){
                     this.setState({errors: parsedResponse.errors})
-                }
+                } else {
+                    const user = Object.assign([], this.state.user)
+                    user.push(parsedResponse.user)
+                    this.setState({
+                        user: user,  // <- Update cats in state
+                        errors: null, // <- Clear out any errors if they exist
+                        newUserSuccess: true // <- This is the new flag in state
+                      })
+                                }
             }).catch(function() {
                 console.log('could not save new user')
             })

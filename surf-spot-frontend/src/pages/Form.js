@@ -47,101 +47,110 @@ export default class Form extends Component {
 
     render() {
         return(
-            <form>
-
+            <div>
+                <h1 className="form-sign"> Sign up! </h1>
                 <Row>
-                    <Col>
-                        {this.props.errors &&
-                            <Alert bsStyle="danger">
-                                Please check form and try again.
-                            </Alert>
-                        }
+                    <Col md={4}>
+                    </Col>
+                    <Col md={4}>
+                        <form>
+                                <Row>
+                                    <Col xs={6}>
+                                        {this.props.errors &&
+                                            <Alert bsStyle="danger">
+                                                Please check form and try again.
+                                            </Alert>
+                                        }
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col xs={6}>
+                                        <FormGroup
+                                            id="name-form-group"
+                                            validationState={this.errorsFor('name') && 'error'}>
+                                            <ControlLabel id="name">Name</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                name="name"
+                                                onChange={this.handleChange.bind(this)}
+                                                value={this.state.form.name}
+                                            />
+                                            {this.errorsFor('name') &&
+                                                <HelpBlock id="name-help-block">{this.errorsFor('name')}</HelpBlock>
+                                            }
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col xs={6}>
+                                        <FormGroup
+                                            id="username-form-group"
+                                            validationState={this.errorsFor('username') && 'error'}>
+                                            <ControlLabel id="username">Username</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                name="username"
+                                                onChange={this.handleChange.bind(this)}
+                                                value={this.state.form.username}
+                                            />
+                                            {this.errorsFor('username') &&
+                                                <HelpBlock id="username-help-block">{this.errorsFor('username')}</HelpBlock>
+                                            }
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col xs={6}>
+                                        <FormGroup
+                                            id="password-form-group"
+                                            validationState={this.errorsFor('password') && 'error'}>
+                                            <ControlLabel id="password">Password</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                name="password"
+                                                onChange={this.handleChange.bind(this)}
+                                                value={this.state.form.password}
+                                            />
+                                            {this.errorsFor('password') &&
+                                                <HelpBlock id="password-help-block">{this.errorsFor('password')}</HelpBlock>
+                                            }
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col xs={6}>
+                                        <FormGroup
+                                            id="email-form-group"
+                                            validationState={this.errorsFor('email') && 'error'}>
+                                            <ControlLabel id="email">Email</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                name="email"
+                                                onChange={this.handleChange.bind(this)}
+                                                value={this.state.form.email}
+                                            />
+                                            {this.errorsFor('email') &&
+                                                <HelpBlock id="email-help-block">{this.errorsFor('email')}</HelpBlock>
+                                            }
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col xs={6}>
+                                        <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)} >Make an Account</Button>
+                                    </Col>
+                                </Row>
+                        </form>
+                    </Col>
+                    <Col md={4}>
                     </Col>
                 </Row>
-
-                <Row>
-                    <Col>
-                        <FormGroup
-                            id="name-form-group"
-                            validationState={this.errorsFor('name') && 'error'}>
-                            <ControlLabel id="name">Name</ControlLabel>
-                            <FormControl
-                                type="text"
-                                name="name"
-                                onChange={this.handleChange.bind(this)}
-                                value={this.state.form.name}
-                            />
-                            {this.errorsFor('name') &&
-                                <HelpBlock id="name-help-block">{this.errorsFor('name')}</HelpBlock>
-                            }
-                        </FormGroup>
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col>
-                        <FormGroup
-                            id="username-form-group"
-                            validationState={this.errorsFor('username') && 'error'}>
-                            <ControlLabel id="username">Username</ControlLabel>
-                            <FormControl
-                                type="text"
-                                name="username"
-                                onChange={this.handleChange.bind(this)}
-                                value={this.state.form.username}
-                            />
-                            {this.errorsFor('username') &&
-                                <HelpBlock id="username-help-block">{this.errorsFor('username')}</HelpBlock>
-                            }
-                        </FormGroup>
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col>
-                        <FormGroup
-                            id="password-form-group"
-                            validationState={this.errorsFor('password') && 'error'}>
-                            <ControlLabel id="password">Password</ControlLabel>
-                            <FormControl
-                                type="text"
-                                name="password"
-                                onChange={this.handleChange.bind(this)}
-                                value={this.state.form.password}
-                            />
-                            {this.errorsFor('password') &&
-                                <HelpBlock id="password-help-block">{this.errorsFor('password')}</HelpBlock>
-                            }
-                        </FormGroup>
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col>
-                        <FormGroup
-                            id="email-form-group"
-                            validationState={this.errorsFor('email') && 'error'}>
-                            <ControlLabel id="email">Email</ControlLabel>
-                            <FormControl
-                                type="text"
-                                name="email"
-                                onChange={this.handleChange.bind(this)}
-                                value={this.state.form.email}
-                            />
-                            {this.errorsFor('email') &&
-                                <HelpBlock id="email-help-block">{this.errorsFor('email')}</HelpBlock>
-                            }
-                        </FormGroup>
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col>
-                        <Button id="submit" onClick={this.handleSubmit.bind(this)} >Make an Account</Button>
-                    </Col>
-                </Row>
-
-            </form>
+            </div>
         )
     }
 }
