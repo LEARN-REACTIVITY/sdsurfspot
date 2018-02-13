@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Beach from './pages/Beach';
 import Form from './pages/Form';
 import NavBar from './pages/NavBar';
+import SignIn from './pages/SignIn';
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -17,7 +18,8 @@ class App extends Component {
            beaches:[],
            user: [],
            newUserSuccess: false,
-           errors: null
+           errors: null,
+           existingUserSuccess: false,
        }
    }
 
@@ -51,6 +53,7 @@ class App extends Component {
             }).then((parsedResponse) => {
                 if(parsedResponse.errors){
                     this.setState({errors: parsedResponse.errors})
+                    console.log(this.state.errors)
                 } else {
                     const user = Object.assign([], this.state.user)
                     user.push(parsedResponse.user)
@@ -59,7 +62,37 @@ class App extends Component {
                         errors: null, // <- Clear out any errors if they exist
                         newUserSuccess: true // <- This is the new flag in state
                       })
-                                }
+                      console.log(this.state.user)
+                }
+            }).catch(function() {
+                console.log('could not save new user')
+            })
+    }
+
+    handleExistingUser(params) {
+        fetch(`${backApi}/users`,
+            {
+                body:JSON.stringify(params),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: "POST"
+            }).then((rawResponse) => {
+                return rawResponse.json()
+            }).then((parsedResponse) => {
+                if(parsedResponse.errors){
+                    this.setState({errors: parsedResponse.errors})
+                    console.log(this.state.errors)
+                } else {
+                    const user = Object.assign([], this.state.user)
+                    user.push(parsedResponse.user)
+                    this.setState({
+                        user: user,  // <- Update cats in state
+                        errors: null, // <- Clear out any errors if they exist
+                        newExistingSuccess: true // <- This is the new flag in state
+                      })
+                      console.log(this.state.user)
+                }
             }).catch(function() {
                 console.log('could not save new user')
             })
@@ -81,14 +114,26 @@ class App extends Component {
                   <div>
                       <Form
                         onSubmit={this.handleNewUser.bind(this)}
-                        errors={this.state.errors && this.state.errors.validations}
+                        errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)}
                       />
                       {this.state.newUserSuccess &&
                         <Redirect to="/" />
                       }
                   </div>
               )} />
-                </div>
+
+              <Route path="/signin" render={props => (
+                  <div>
+                      <SignIn
+                        onSubmit={this.handleExistingUser.bind(this)}
+                        errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)}
+                      />
+                      {this.state.existingUserSuccess &&
+                        <Redirect to="/" />
+                      }
+                  </div>
+              )} />
+
         </div>
       </Router>
     );

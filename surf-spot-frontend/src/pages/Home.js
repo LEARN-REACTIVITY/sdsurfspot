@@ -5,6 +5,7 @@ import CheckInCount from './CheckInCount.js';
 import NavBar from './NavBar.js';
 
 
+
 export default class Home extends Component {
     constructor(props){
        super(props);

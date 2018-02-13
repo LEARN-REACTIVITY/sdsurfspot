@@ -36,27 +36,64 @@ function(request, response){
   response.json({user: request.currentUser})
 })
 
-app.post('/users', function(request, response){
-  User.create(
-    {
-      firstName: request.body.firstName,
-      lastName: request.body.lastName,
-      email: request.body.email,
-      password: request.body.password
-    }
-  ).then((user)=>{
-    response.json({
-      message: 'success',
-      user: user
+// app.post('/users', function(request, response){
+//   User.create(
+//     {
+//       firstName: request.body.firstName,
+//       lastName: request.body.lastName,
+//       email: request.body.email,
+//       password: request.body.password
+//     }
+//   ).then((user)=>{
+//     response.json({
+//       message: 'success',
+//       user: user
+//     })
+//   }).catch((error)=>{
+//     response.status(400)
+//     response.json({
+//       message: "Unable to create User",
+//       errors: error.errors
+//     })
+//   })
+// })
+
+
+
+app.post('/users', (req, res) => {
+    req.checkBody('name', 'Is required').notEmpty()
+    req.checkBody('username', 'Is required').notEmpty()
+    req.checkBody('email', 'Is required').notEmpty()
+    req.checkBody('password', 'Is required').notEmpty()
+
+    req.getValidationResult()
+    .then((validationErrors)=> {
+        if (validationErrors.isEmpty()) {
+            User.create({
+                name: req.body.name,
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password
+            }).then((user) => {
+                res.status(201)
+                res.json({
+                    message: 'success',
+                    user: user
+                })
+            })
+        } else {
+            res.status(400)
+            res.json({errors: {validations: validationErrors.array()}})
+        }
+    }).catch((error)=>{
+        res.status(400)
+        res.json({
+            message: "Unable to create User",
+             errors: error.errors
+        })
     })
-  }).catch((error)=>{
-    response.status(400)
-    response.json({
-      message: "Unable to create User",
-      errors: error.errors
-    })
-  })
 })
+
 
 app.listen(4000, function () {
  console.log('Todo Server listening on port 4000!');

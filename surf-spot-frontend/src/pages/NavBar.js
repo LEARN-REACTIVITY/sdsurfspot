@@ -52,7 +52,7 @@ export default class NavBar extends Component {
                   <NavItem eventKey={1} href='/form' >
                     Sign Up
                   </NavItem>
-                  <NavItem eventKey={2} href="#">
+                  <NavItem eventKey={2} href="#signin">
                     Sign In
                   </NavItem>
                 </Nav>
