@@ -45,14 +45,13 @@ export default class NavBar extends Component {
                     <MenuItem eventKey={2.24} href="/beaches/225">Ocean Beach Pier</MenuItem>
                     <MenuItem eventKey={2.25} href="/beaches/224">Sunset Cliffs</MenuItem>
                     <MenuItem eventKey={2.26} href="/beaches/223">Imperial Beach</MenuItem>
-                    <NavItem eventKey={3} href="#">Beaches</NavItem>
                   </NavDropdown>
                 </Nav>
                 <Nav pullRight>
                   <NavItem eventKey={1} href='/form' >
                     Sign Up
                   </NavItem>
-                  <NavItem eventKey={2} href="#signin">
+                  <NavItem eventKey={2} href='/signin'>
                     Sign In
                   </NavItem>
                 </Nav>

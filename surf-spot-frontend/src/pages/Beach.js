@@ -44,9 +44,11 @@ export default class Beach extends Component {
     render() {
         return (
             <div className="beach">
-                <h1>{this.state.beach.name}</h1>
-                    <p> Date: {this.state.beach.date} </p>
-                    <p> Time of report: {this.state.beach.hour} </p>
+                <h1 className="beachtitel">{this.state.beach.name}</h1>
+                    <div className="datetime">
+                        <p> Date: {this.state.beach.date} </p>
+                        <p> Time of report: {this.state.beach.hour} </p>
+                    </div>
                     <h3>Swell Details</h3>
                     <h4>  {this.state.beach.swell} </h4>
                     <p> size: {this.state.beach.size} </p>

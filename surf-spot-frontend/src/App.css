@@ -65,6 +65,7 @@
 }
 
 .beach {
+    margin-top: 40px;
 
 }
 
@@ -73,15 +74,21 @@
 }
 
 .form {
+    margin-top: 50px;
     position: fixed;
-    min-width: 500px;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.row {
-    justify-content: center;
+.signIn {
+    margin-top: 50px;
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
