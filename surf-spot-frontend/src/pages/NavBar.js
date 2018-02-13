@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
-import { HashLink as Link } from 'react-router-hash-link';
+
 import '../App.css'
 
 
@@ -49,12 +49,20 @@ export default class NavBar extends Component {
                   </NavDropdown>
                 </Nav>
                 <Nav pullRight>
-                  <NavItem eventKey={1} href='/form' >
-                    Sign Up
-                  </NavItem>
-                  <NavItem eventKey={2} href="#signin">
-                    Sign In
-                  </NavItem>
+                    {!this.props.isLoggedIn &&
+                        <Nav pullRight>
+                          <NavItem eventKey={1} href='/form' >
+                            Sign Up
+                          </NavItem>
+                          <NavItem eventKey={2} href="/signin">
+                            Sign In
+                          </NavItem>
+                        </Nav>
+                    }
+
+                  {this.props.isLoggedIn && <NavItem eventKey={3} href="/logout">
+                    Log Out
+                  </NavItem>}
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
