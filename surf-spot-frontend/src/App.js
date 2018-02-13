@@ -6,6 +6,8 @@ import Beach from './pages/Beach';
 import Form from './pages/Form';
 import NavBar from './pages/NavBar';
 import Footer from './pages/Footer';
+import UserMainPage from './pages/UserMainPage';
+
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -87,6 +89,7 @@ class App extends Component {
                       }
                 </div>
               )} />
+              <Route exact path="/profile" component={UserMainPage} />
             </div>
             <div>
             <Footer/>     

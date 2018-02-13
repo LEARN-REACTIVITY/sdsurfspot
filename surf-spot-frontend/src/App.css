@@ -17,7 +17,7 @@
 .secondheader {
     margin-top: 0px;
     color: white;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 
 .locations {
@@ -40,6 +40,9 @@
     border-style: solid;
     border-color: gray;
     padding-right: 5px;
+}
+.Footer {
+    background-color: aqua
 }
 
 
@@ -70,4 +73,12 @@
 
 .form-sign {
     text-align: center;
+}
+.userMainPage main { 
+    padding-bottom: 100%;
+    border: stike dotted blue;
+}
+.userMainPage main media.body {
+    border-color: rgb(179, 99, 99);
+    background-color: blanchedalmond;
 }

@@ -47,7 +47,7 @@ export default class NavBar extends Component {
                   </NavDropdown>
                 </Nav>
                 <Nav pullRight>
-                  <NavItem eventKey={1} path="/beaches/:id" >
+                  <NavItem eventKey={1} path="/beaches/:id">
                     Sign Up
                   </NavItem>
                   <NavItem eventKey={2} href="#">
