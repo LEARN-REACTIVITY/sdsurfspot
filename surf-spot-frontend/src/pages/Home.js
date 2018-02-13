@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import {Button} from 'react-bootstrap'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Row, Col, Grid, Image, Button} from 'react-bootstrap';
+import CheckInCount from './CheckInCount.js';
+import NavBar from './NavBar.js';
 
 
 
@@ -22,8 +25,8 @@ export default class Home extends Component {
         return (
             <div className="locations" id="locations">
             <header className="masthead">
-            <h3 className="secondheader">Check out the daily local surf report!</h3>
             </header>
+            <h3 id='spots' className="secondheader">Check out the daily local surf report!</h3>
                 {this.props.beaches.map((element, key) => {
                 return  <div className= "box">
                             <a key={key} href={`/beaches/${element.id}`}>
