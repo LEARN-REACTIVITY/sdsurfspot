@@ -129,7 +129,7 @@ export default class Form extends Component {
                                             validationState={this.errorsFor('password') && 'error'}>
                                             <ControlLabel id="password">Password</ControlLabel>
                                             <FormControl
-                                                type="text"
+                                                type="password"
                                                 name="password"
                                                 onChange={this.handleChange.bind(this)}
                                                 value={this.state.form.password}

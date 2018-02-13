@@ -98,6 +98,22 @@ app.post('/users', (req, res) => {
     })
 })
 
+// app.put('/user_beaches', (req, res) => {
+//     user_beaches.findById(req.params.id).then((user_beaches) => {
+//         user_beaches.update({
+//             user_id: req.body.user_id,
+//             beach_id: req.body.beach_id,
+//             check_in: req.body.check_in
+//             // check_out: req.body.check_out
+//         }).then((user_beaches) => {
+//             res.json({
+//                 message: 'complete'
+//                 // user_beaches:user_beaches
+//             })
+//         })
+//     })
+// })
+
 // app.post('/users', (req, res) => {
 //     User.create({
 //         name: req.body.name,
