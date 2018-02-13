@@ -8,7 +8,7 @@ module.exports = {
                 name: 'Leeann',
                 username: 'dabo$$',
                 email: 'dabo$$@gmail.com',
-                password: 'password',
+                encryptedPassword: 'password',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -16,7 +16,7 @@ module.exports = {
                 name: 'Christina',
                 username: 'chrissychrissy',
                 email: 'chrissychrissy@gmail.com',
-                password: 'password',
+                encryptedPassword: 'password',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -24,7 +24,7 @@ module.exports = {
                 name: 'Jordan',
                 username: 'daRealBo$$',
                 email: 'daRealBo$$@gmail.com',
-                password: 'password',
+                encryptedPassword: 'password',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -32,7 +32,7 @@ module.exports = {
                 name: 'Max',
                 username: 'maxattack',
                 email: 'maxattack@gmail.com',
-                password: 'password',
+                encryptedPassword: 'password',
                 createdAt: new Date(),
                 updatedAt: new Date()
             }

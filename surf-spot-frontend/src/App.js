@@ -108,7 +108,7 @@ class App extends Component {
                     const user = Object.assign([], this.state.user)
                     user.push(parsedResponse.user)
                     this.setState({
-                        user: user,  // <- Update cats in state
+                        user: user,  // <- Update users in state
                         errors: null, // <- Clear out any errors if they exist
                         logInSuccess: true, // <- This is the new flag in state
                         isLoggedIn: true
@@ -120,7 +120,6 @@ class App extends Component {
                 console.log('could not save new user')
             })
     }
-
 
 
   render() {
@@ -176,3 +175,13 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+//if(user_beaches.check_in && !user_beaches.check_out){
+//     user is checked in
+// } else if( user_beaches.check_in === true && user.beaches.check_out === true){
+//     user is checked out
+// } else{
+//     user is checked out
+// }

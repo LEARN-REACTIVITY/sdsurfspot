@@ -1,22 +1,37 @@
 import React, { Component } from 'react';
-
 import {Button} from 'react-bootstrap';
+
+
+const backApi =  "http://localhost:3000"
+
+
 
 
 export default class Home extends Component {
     constructor(props){
-       super(props);
-
+       super(props)
        this.state = {
-           checkedInCount: 0
-       };
+            checkedInCount: 0
+        };
    }
+   // 
+   // handleCheckIn(params) {
+   //     const id = this.props.match.params.id
+   //     fetch(`${backApi}/user_beaches/${id}`,
+   //         {
+   //             body:JSON.stringify(params),
+   //             headers: {
+   //                 'Content-Type': 'application/json'
+   //             },
+   //             method: "PUT"
+   //         })
+   // }
 
-  clickHandler() {
-      this.setState({
-          checkedInCount: this.state.checkedInCount +1
-      });
-  }
+   clickHandler() {
+         this.setState({
+             checkedInCount: this.state.checkedInCount +1
+         });
+     }
 
     render() {
         return (

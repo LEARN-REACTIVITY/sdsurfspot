@@ -11,23 +11,6 @@ describe("App", ()=>{
     })
 })
 
-it("Creates users", ()=> {
-    return request(app)
-    .post("/users")
-    .send({
-        name: "John",
-        username: "johndo",
-        password: "johndo",
-        email: "johndo@gmail.com"
-    })
-    .then(response => {
-        expect(response.statusCode).toBe(201)
-        expect(response.body.user.name).toBe("John")
-        expect(response.body.user.username).toBe("johndo")
-        expect(response.body.user.password).toBe("johndo")
-        expect(response.body.user.email).toBe("johndo@gmail.com")
-    })
-})
 
 it("Validates name when creating user", ()=>{
     return request(app)
