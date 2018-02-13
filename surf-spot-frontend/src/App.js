@@ -6,6 +6,7 @@ import Beach from './pages/Beach';
 import Form from './pages/Form';
 import NavBar from './pages/NavBar';
 import SignIn from './pages/SignIn';
+import Logout from './pages/Logout';
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -18,9 +19,22 @@ class App extends Component {
            beaches:[],
            user: [],
            newUserSuccess: false,
+           logInSuccess: false,
            errors: null,
-           existingUserSuccess: false,
+           isLoggedIn: false,
+           logOutSuccess: false
        }
+   }
+
+   loggedIn() {
+       if(localStorage.getItem('authToken') != null) {
+           this.setState({isLoggedIn: true})
+       }
+   }
+
+   logOut() {
+       localStorage.removeItem('authToken')
+       this.setState({isLoggedIn: false, logOutSuccess: true})
    }
 
     componentWillMount() {
@@ -37,8 +51,14 @@ class App extends Component {
                     })
                     this.setState({beaches: beachname})
                     console.log(this.state.beaches)
-                }
-            )}
+                }).then(() => {
+                    if(localStorage.getItem('authToken') != null) {
+                        this.setState({isLoggedIn: true})
+                    } else {
+                        this.setState({isLoggedIn: false})
+                    }
+                })
+            }
 
     handleNewUser(params){
         fetch(`${backApi}/users`,
@@ -60,17 +80,18 @@ class App extends Component {
                     this.setState({
                         user: user,  // <- Update cats in state
                         errors: null, // <- Clear out any errors if they exist
-                        newUserSuccess: true // <- This is the new flag in state
+                        newUserSuccess: true, // <- This is the new flag in state
+                        isLoggedIn: true //logged in
                       })
                       console.log(this.state.user)
+                      localStorage.setItem('authToken', this.state.user[0].authToken)
                 }
             }).catch(function() {
                 console.log('could not save new user')
             })
     }
-
     handleExistingUser(params) {
-        fetch(`${backApi}/users`,
+        fetch(`${backApi}/login`,
             {
                 body:JSON.stringify(params),
                 headers: {
@@ -89,20 +110,24 @@ class App extends Component {
                     this.setState({
                         user: user,  // <- Update cats in state
                         errors: null, // <- Clear out any errors if they exist
-                        newExistingSuccess: true // <- This is the new flag in state
+                        logInSuccess: true, // <- This is the new flag in state
+                        isLoggedIn: true
                       })
                       console.log(this.state.user)
+                      localStorage.setItem('authToken', this.state.user[0].authToken)
                 }
             }).catch(function() {
                 console.log('could not save new user')
             })
     }
 
+
+
   render() {
     return (
       <Router>
         <div className="App">
-            <NavBar beaches={this.state.beaches} />
+            <NavBar beaches={this.state.beaches} isLoggedIn={this.state.isLoggedIn}/>
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} />
               )}/>
@@ -128,9 +153,19 @@ class App extends Component {
                         onSubmit={this.handleExistingUser.bind(this)}
                         errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)}
                       />
-                      {this.state.existingUserSuccess &&
+                      {this.state.logInSuccess &&
                         <Redirect to="/" />
                       }
+                  </div>
+              )} />
+              <Route path="/logout" render={props => (
+                  <div>
+                        <Logout
+                            onSubmit={this.logOut.bind(this)}
+                        />
+                        {this.state.logOutSuccess &&
+                          <Redirect to="/" />
+                        }
                   </div>
               )} />
             </div>
