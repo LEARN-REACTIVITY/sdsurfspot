@@ -53,7 +53,7 @@ export default class Beach extends Component {
                     <p> tide: {this.state.beach.tide} </p>
                     <p> wind: {this.state.beach.wind} </p>
                     <div className="forecast">
-                      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="600" height="150" id="spitcast_chart_flash" align="middle"><param name="allowScriptAccess" value="always" /><param name="allowFullScreen" value="false" /><param name="movie" value={`http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval=${this.state.beach.id}&amp;dcat=week&amp;embed=1`} /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />
+                      <object classID="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="600" height="150" id="spitcast_chart_flash" align="middle"><param name="allowScriptAccess" value="always" /><param name="allowFullScreen" value="false" /><param name="movie" value={`http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval=${this.state.beach.id}&amp;dcat=week&amp;embed=1`} /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />
                       <embed src={`http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval=${this.state.beach.id}&amp;dcat=week&amp;embed=1`} quality="high" bgcolor="#ffffff" width="600" height="150" name="spitcast_chart_flash" align="middle" allowScriptAccess="always" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>
                     </div>
 

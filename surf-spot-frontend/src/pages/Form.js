@@ -10,6 +10,7 @@ import {
     HelpBlock
 } from 'react-bootstrap'
 
+
 export default class Form extends Component {
     constructor(props){
         super(props)
@@ -48,13 +49,13 @@ export default class Form extends Component {
     render() {
         return(
             <div>
-                <h1 className="form-sign"> Sign up! </h1>
-                <Row>
-                    <Col md={4}>
+                <Row >
+                    <Col xs={4}>
                     </Col>
-                    <Col md={4}>
-                        <form>
-                                <Row>
+                    <Col xs={4}>
+                        <form className="form">
+                            <h1 className="form-sign"> Sign up! </h1>
+                                <Row className="row">
                                     <Col xs={6}>
                                         {this.props.errors &&
                                             <Alert bsStyle="danger">
@@ -65,7 +66,7 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={6}>
+                                    <Col xs={12}>
                                         <FormGroup
                                             id="name-form-group"
                                             validationState={this.errorsFor('name') && 'error'}>
@@ -84,7 +85,7 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={6}>
+                                    <Col xs={12}>
                                         <FormGroup
                                             id="username-form-group"
                                             validationState={this.errorsFor('username') && 'error'}>
@@ -103,7 +104,7 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={6}>
+                                    <Col xs={12}>
                                         <FormGroup
                                             id="password-form-group"
                                             validationState={this.errorsFor('password') && 'error'}>
@@ -122,7 +123,7 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={6}>
+                                    <Col xs={12}>
                                         <FormGroup
                                             id="email-form-group"
                                             validationState={this.errorsFor('email') && 'error'}>
@@ -141,13 +142,13 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={6}>
+                                    <Col xs={12}>
                                         <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)} >Make an Account</Button>
                                     </Col>
                                 </Row>
                         </form>
                     </Col>
-                    <Col md={4}>
+                    <Col xs={4}>
                     </Col>
                 </Row>
             </div>

@@ -69,11 +69,13 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            <div>
-              <NavBar beaches={this.state.beaches} />
+            <NavBar beaches={this.state.beaches} />
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} />
               )}/>
+              <div className="container-fluid">
+              <br />
+              <br />
               <Route path="/beaches/:id" component={Beach} />
               <Route path="/form" render={props => (
                   <div>
@@ -86,7 +88,7 @@ class App extends Component {
                       }
                   </div>
               )} />
-            </div>
+                </div>
         </div>
       </Router>
     );

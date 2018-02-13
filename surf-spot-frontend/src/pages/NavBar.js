@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
 import { HashLink as Link } from 'react-router-hash-link';
+import '../App.css'
+
 
 export default class NavBar extends Component {
 
     render() {
         return (
             <Navbar inverse collapseOnSelect className="Navigation">
-              <Navbar.Header>
+              <Navbar.Header >
                 <Navbar.Brand>
                   <a href="/">SD Surf Spots</a>
                 </Navbar.Brand>
@@ -15,7 +17,7 @@ export default class NavBar extends Component {
               </Navbar.Header>
               <Navbar.Collapse>
                 <Nav>
-                  <NavItem eventKey={1} href="#locations">Surf Locations</NavItem>
+                  <NavItem eventKey={1}  href="#spots">Surf Locations</NavItem>
                   <NavDropdown eventKey={2} title="List of All" id="basic-nav-dropdown">
                     <MenuItem eventKey={2.1} href="/beaches/238"> Oceanside Harbor</MenuItem>
                     <MenuItem eventKey={2.2} href="/beaches/594"> Oceanside Pier</MenuItem>
@@ -47,7 +49,7 @@ export default class NavBar extends Component {
                   </NavDropdown>
                 </Nav>
                 <Nav pullRight>
-                  <NavItem eventKey={1} path="/beaches/:id" >
+                  <NavItem eventKey={1} href='/form' >
                     Sign Up
                   </NavItem>
                   <NavItem eventKey={2} href="#">
