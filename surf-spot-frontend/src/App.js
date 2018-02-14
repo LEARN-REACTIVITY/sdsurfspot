@@ -90,6 +90,7 @@ class App extends Component {
                 console.log('could not save new user')
             })
     }
+    
     handleExistingUser(params) {
         fetch(`${backApi}/login`,
             {

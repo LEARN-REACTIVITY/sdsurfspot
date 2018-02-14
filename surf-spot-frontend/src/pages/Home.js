@@ -14,7 +14,7 @@ export default class Home extends Component {
             checkedInCount: 0
         };
    }
-   // 
+   //
    // handleCheckIn(params) {
    //     const id = this.props.match.params.id
    //     fetch(`${backApi}/user_beaches/${id}`,
@@ -27,7 +27,23 @@ export default class Home extends Component {
    //         })
    // }
 
-   clickHandler() {
+    handleCheckIn(beach) {
+        var token = localStorage.getItem('authToken')
+        var params = {
+            name: beach,
+            authToken: token
+        }
+
+        fetch(`${backApi}/user_beaches`, {
+            body: JSON.stringify(params),  // <- we need to stringify the json for fetch
+            headers: {  // <- We specify that we're sending JSON, and expect JSON back
+              'Content-Type': 'application/json'
+            },
+            method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
+        })
+    }
+
+    clickHandler() {
          this.setState({
              checkedInCount: this.state.checkedInCount +1
          });
@@ -44,7 +60,7 @@ export default class Home extends Component {
                             <a key={key} href={`/beaches/${element.id}`}>
                                 <h4 className="locationNames">{element.name}</h4>
                             </a>
-                            <Button onClick={this.clickHandler.bind(this)} className="checkIn" bsSize="xsmall">Check In</Button>
+                            <Button onClick={this.handleCheckIn.bind(this, element.name)} className="checkIn" bsSize="xsmall">Check In</Button>
                             <p className="checkedIn">{this.state.checkedInCount} Surfers are checked in today</p>
                         </div>
                 })}
