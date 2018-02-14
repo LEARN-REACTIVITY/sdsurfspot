@@ -11,23 +11,45 @@ export default class Home extends Component {
     constructor(props){
        super(props)
        this.state = {
-            checkedInCount: 0
-        };
+            checkedInCount: [
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0},
+                {count: 0}
+            ]
+        }
    }
-   //
-   // handleCheckIn(params) {
-   //     const id = this.props.match.params.id
-   //     fetch(`${backApi}/user_beaches/${id}`,
-   //         {
-   //             body:JSON.stringify(params),
-   //             headers: {
-   //                 'Content-Type': 'application/json'
-   //             },
-   //             method: "PUT"
-   //         })
-   // }
 
-    handleCheckIn(beach) {
+
+    stateSetter() {
+        this.setState({
+            checkedInCount: this.props.beaches
+        })
+    }
+
+    handleCheckIn(beach, key) {
         var token = localStorage.getItem('authToken')
         var params = {
             name: beach,
@@ -41,6 +63,10 @@ export default class Home extends Component {
             },
             method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
         })
+        this.state.checkedInCount[key] = {count: this.state.checkedInCount[key].count +1}
+        this.setState({
+            checkedInCount: this.state.checkedInCount
+        })
     }
 
     clickHandler() {
@@ -50,6 +76,7 @@ export default class Home extends Component {
      }
 
     render() {
+        console.log(this.state.checkedInCount[0].count)
         return (
             <div className="locations" id="locations">
             <header className="masthead">
@@ -62,10 +89,8 @@ export default class Home extends Component {
                                 <h4 className="locationNames">{element.name}</h4>
                             </a>
 
-                            <Button onClick={this.handleCheckIn.bind(this, element.name)} className="checkIn" bsSize="xsmall">Check In</Button>
-                            <p className="checkedIn">{this.state.checkedInCount} Surfers are checked in today</p>
-
-         
+                            <Button onClick={this.handleCheckIn.bind(this, element.name, key)} className="checkIn" bsSize="xsmall">Check In</Button>
+                            <p className="checkedIn">{this.state.checkedInCount[key].count} Surfers are checked in today</p>
                         </div>
                 })}
 

@@ -41,7 +41,6 @@ class App extends Component {
         fetch(API).then((resp) => {
                 return resp.json()
             }).then((beaches) => {
-                console.log(beaches)
                     var beachname = []
                     beaches.forEach((beach)=>{
                         beachname.push({
@@ -50,7 +49,7 @@ class App extends Component {
                         })
                     })
                     this.setState({beaches: beachname})
-                    console.log(this.state.beaches)
+
                 }).then(() => {
                     if(localStorage.getItem('authToken') != null) {
                         this.setState({isLoggedIn: true})
@@ -90,7 +89,7 @@ class App extends Component {
                 console.log('could not save new user')
             })
     }
-    
+
     handleExistingUser(params) {
         fetch(`${backApi}/login`,
             {
