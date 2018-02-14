@@ -147,7 +147,7 @@ class App extends Component {
               )} />
 
               <Route path="/signin" render={props => (
-                  <div>
+                  <div className="SignIn">
                       <SignIn
                         onSubmit={this.handleExistingUser.bind(this)}
                         errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)}

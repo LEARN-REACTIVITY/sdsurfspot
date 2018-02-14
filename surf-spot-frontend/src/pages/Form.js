@@ -66,13 +66,13 @@ export default class Form extends Component {
         return(
             <div>
                 <Row >
-                    <Col xs={4}>
+                    <Col>
                     </Col>
-                    <Col xs={4}>
+                    <Col>
                         <form className="form">
                             <h1 className="form-sign"> Sign up! </h1>
                                 <Row className="row">
-                                    <Col xs={6}>
+                                    <Col>
                                         {this.props.errors &&
                                             <Alert bsStyle="danger">
                                                 Please check form and try again.
@@ -82,7 +82,7 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={12}>
+                                    <Col>
                                         <FormGroup
                                             id="name-form-group"
                                             validationState={this.errorsFor('name') && 'error'}>
@@ -101,7 +101,7 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={12}>
+                                    <Col>
                                         <FormGroup
                                             id="username-form-group"
                                             validationState={this.errorsFor('username') && 'error'}>
@@ -123,7 +123,7 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={12}>
+                                    <Col>
                                         <FormGroup
                                             id="password-form-group"
                                             validationState={this.errorsFor('password') && 'error'}>
@@ -142,7 +142,7 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={12}>
+                                    <Col>
                                         <FormGroup
                                             id="email-form-group"
                                             validationState={this.errorsFor('email') && 'error'}>
@@ -164,13 +164,13 @@ export default class Form extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={12}>
-                                        <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)} >Make an Account</Button>
+                                    <Col>
+                                        <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)} >Create an Account</Button>
                                     </Col>
                                 </Row>
                         </form>
                     </Col>
-                    <Col xs={4}>
+                    <Col>
                     </Col>
                 </Row>
             </div>
