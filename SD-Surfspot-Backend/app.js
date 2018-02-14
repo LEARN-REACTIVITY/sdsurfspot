@@ -5,6 +5,8 @@ var validator = require('express-validator')
 var app = express();
 let User = require('./models').User
 let Beach = require('./models').Beach
+let UB = require('./models').user_beaches
+
 
 app.use(express.static('public'))
 app.use(validator())
@@ -58,29 +60,44 @@ app.put('/user_beaches', authorization, (req, res) => {
     })
 })
 
-app.post('/checkin', authorization, (req, res) => {
-    Beach.findOne({
-        where: {name: req.body.name}
-    }).then((beach) => {
-        var user= req.currentUser
-        user.getBeaches({
-            where: {
-                    id: beach.id
-                    }
-        })
-    }).then((checkedin) => {
+app.post('/checkin', authorization, (req,res) => {
+    id = req.body.key
+    UB.sequelize.query(`SELECT * FROM user_beaches WHERE beach_id = ${id} AND check_in IS NOT NULL`).spread((results, metadata) => {
         res.json({
-            message: "it kinda worked",
-            checkedin: checkedin
+            results: results,
+            metadata: metadata
         })
     }).catch((error) => {
+        res.status(400)
         res.json({
-            message: "cannot find check-ins",
-            errors: error
+            message: "problem getting check-in"
         })
     })
-
 })
+
+// app.post('/checkin', authorization, (req, res) => {
+//     Beach.findOne({
+//         where: {name: req.body.name}
+//     }).then((beach) => {
+//         var user= req.currentUser
+//         user.getBeaches({
+//             where: {
+//                     id: beach.id
+//                     }
+//         })
+//     }).then((checkedin) => {
+//         res.json({
+//             message: "it kinda worked",
+//             checkedin: checkedin
+//         })
+//     }).catch((error) => {
+//         res.json({
+//             message: "cannot find check-ins",
+//             errors: error
+//         })
+//     })
+//
+// })
 
 app.post('/login', (req, res) => {
     req.checkBody('username', 'Is required').notEmpty()

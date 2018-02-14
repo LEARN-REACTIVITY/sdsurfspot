@@ -2,6 +2,7 @@
 const crypto = require('crypto')
 const uuid = require('uuid/v1')
 
+
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     name: {
