@@ -58,6 +58,29 @@ app.put('/user_beaches', authorization, (req, res) => {
     })
 })
 
+app.post('/checkin', authorization, (req, res) => {
+    Beach.findOne({
+        where: {name: req.body.name}
+    }).then((beach) => {
+        var user= req.currentUser
+        user.getBeaches({
+            where: {
+                    id: beach.id
+                    }
+        })
+    }).then((checkedin) => {
+        res.json({
+            message: "it kinda worked",
+            checkedin: checkedin
+        })
+    }).catch((error) => {
+        res.json({
+            message: "cannot find check-ins",
+            errors: error
+        })
+    })
+
+})
 
 app.post('/login', (req, res) => {
     req.checkBody('username', 'Is required').notEmpty()
@@ -90,25 +113,6 @@ app.post('/login', (req, res) => {
         }
     })
 })
-
-// app.post('/login', (req, res) => {
-//     User.findOne({
-//         where: {username: req.body.username}
-//     }).then((user) => {
-//         if(user && user.verifyPassword(req.body.password)) {
-//             res.json({
-//                 message: 'Success!',
-//                 user:user
-//             })
-//         }else{
-//             res.status(404)
-//             res.json({
-//                 message: 'Invalid credentials',
-//                 errors: {error: 'invalid credentials'}
-//             })
-//         }
-//     })
-// })
 
 app.post('/users', (req, res) => {
     req.checkBody('name', 'Is required').notEmpty()
@@ -147,59 +151,8 @@ app.post('/users', (req, res) => {
 })
 
 
-// app.put('/user_beaches', (req, res) => {
-//     user_beaches.findById(req.params.id).then((user_beaches) => {
-//         user_beaches.update({
-//             user_id: req.body.user_id,
-//             beach_id: req.body.beach_id,
-//             check_in: req.body.check_in
-//             // check_out: req.body.check_out
-//         }).then((user_beaches) => {
-//             res.json({
-//                 message: 'complete'
-//                 // user_beaches:user_beaches
-//             })
-//         })
-//     })
-// })
-
 
 module.exports = app
-// app.post('/users', (req, res) => {
-//     User.create(
-//         {
-//             name: req.body.name,
-//             username: req.body.username,
-//             email: req.body.email,
-//             password: req.body.password
-//         }
-//     ).then((user)=>{
-//         res.json({
-//             message: 'success',
-//             user: user
-//         })
-//     }).catch((error)=>{
-//         res.status(400)
-//         res.json({
-//             message: "Unable to create User",
-//             errors: error.errors
-//         })
-//     })
-// })
-
-// app.post('/users', (req, res) => {
-//     User.create({
-//         name: req.body.name,
-//         username: req.body.username,
-//         email: req.body.email,
-//         password: req.body.password
-//     }).then((user) => {
-//         res.json({
-//             message: 'success',
-//             user: user
-//         })
-//     })
-// })
 
 /*
 

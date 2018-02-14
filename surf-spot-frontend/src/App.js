@@ -34,6 +34,7 @@ class App extends Component {
 
    logOut() {
        localStorage.removeItem('authToken')
+       localStorage.removeItem('checkCount')
        this.setState({isLoggedIn: false, logOutSuccess: true})
    }
 
