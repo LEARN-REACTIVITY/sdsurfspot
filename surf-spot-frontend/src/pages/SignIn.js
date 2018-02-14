@@ -35,9 +35,11 @@ export default class SignIn extends Component {
     errorsFor(attribute){
         var errorString = ""
         if(this.props.errors){
-            const errors = this.props.errors.filter(error => error.param === attribute )
-            if(errors){
-                errorString = errors.map(error => error.msg ).join(", ")
+            if(this.props.errors.validations) {
+                const errors = this.props.errors.filter(error => error.param === attribute )
+                if(errors){
+                    errorString = errors.map(error => error.msg ).join(", ")
+                }
             }
         }
         return errorString === "" ? null : errorString
