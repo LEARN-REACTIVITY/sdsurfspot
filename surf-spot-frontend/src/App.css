@@ -3,6 +3,11 @@
 
 }
 
+.container {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .mainheader {
     font-family: Univers, sans-serif;
     font-weight: bold;
@@ -15,7 +20,10 @@
 }
 
 .secondheader {
+    font-kerning: 40px;
     margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     color: white;
     background-color: black;
 }
@@ -56,16 +64,22 @@
 
 .Navigation {
     margin-bottom: 0px;
-    margin-right: 0px;
-    position: fixed;
     background-color: black;
-    min-width: 1024px;
     width: 100vw;
-    min-width: 100vw;
 }
 
 .beach {
+    margin-top: 40px;
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
+.forecast {
+    margin-top: 10px;
 }
 
 .form-sign {
@@ -73,15 +87,35 @@
 }
 
 .form {
+    margin-top: 50px;
     position: fixed;
-    min-width: 500px;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.row {
-    justify-content: center;
+.datetime {
+
+}
+
+.loading {
+    font-style: italic;
+    margin-top: 100px;
+}
+
+.forecast {
+    margin-left: 20px;
+    width: 700px;
+}
+
+.signIn {
+    margin-top: 50px;
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }

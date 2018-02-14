@@ -48,15 +48,15 @@ export default class SignIn extends Component {
 
     render() {
         return(
-            <div>
-                <h1 className="signIn"> Sign in! </h1>
+            <div className="signIn">
+                <h1 className="titleSignIn"> Sign in! </h1>
                 <Row>
-                    <Col md={4}>
+                    <Col>
                     </Col>
-                    <Col md={4}>
+                    <Col>
                         <form>
-                                <Row>
-                                    <Col xs={6}>
+                                <Row className="row">
+                                    <Col>
                                         {this.props.errors &&
                                             <Alert bsStyle="danger">
                                                 Username and/or Password is invalid.
@@ -66,7 +66,7 @@ export default class SignIn extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={6}>
+                                    <Col>
                                         <FormGroup
                                             id="username-form-group"
                                             validationState={this.errorsFor('username') && 'error'}>
@@ -85,13 +85,13 @@ export default class SignIn extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={6}>
+                                    <Col>
                                         <FormGroup
                                             id="password-form-group"
                                             validationState={this.errorsFor('password') && 'error'}>
                                             <ControlLabel id="password">Password</ControlLabel>
                                             <FormControl
-                                                type="text"
+                                                type="password"
                                                 name="password"
                                                 onChange={this.handleChange.bind(this)}
                                                 value={this.state.form.password}
@@ -104,13 +104,13 @@ export default class SignIn extends Component {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={6}>
+                                    <Col>
                                         <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)} >Sign in</Button>
                                     </Col>
                                 </Row>
                         </form>
                     </Col>
-                    <Col md={4}>
+                    <Col>
                     </Col>
                 </Row>
             </div>

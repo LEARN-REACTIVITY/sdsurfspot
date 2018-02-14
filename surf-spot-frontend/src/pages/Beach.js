@@ -8,11 +8,17 @@ export default class Beach extends Component {
     constructor(props){
        super(props)
        this.state = {
-           beach:[]
+           beach: undefined,
        }
    }
 
    componentWillMount(){
+       setTimeout(() => {
+           this.getBeach()
+       }, 1000)
+   }
+
+   getBeach = () => {
        const id = this.props.match.params.id
        fetch(`${proxyurl}${API}/${id}`)
        .then((resp) => {
@@ -42,22 +48,66 @@ export default class Beach extends Component {
    }
 
     render() {
+        if(!this.state.beach) {
+            return (
+                <h1 className="loading">Loading...</h1>
+            )
+        }
+
+        const { id, name, date, hour, swell, size, tide, wind } = this.state.beach
+
+        let link = "http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval="+id+"&dcat=day&embed=1"
+
         return (
             <div className="beach">
-                <h1>{this.state.beach.name}</h1>
-                    <p> Date: {this.state.beach.date} </p>
-                    <p> Time of report: {this.state.beach.hour} </p>
-                    <h3>Swell Details</h3>
-                    <h4>  {this.state.beach.swell} </h4>
-                    <p> size: {this.state.beach.size} </p>
-                    <p> tide: {this.state.beach.tide} </p>
-                    <p> wind: {this.state.beach.wind} </p>
-                    <div className="forecast">
-                      <object classID="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="600" height="150" id="spitcast_chart_flash" align="middle"><param name="allowScriptAccess" value="always" /><param name="allowFullScreen" value="false" /><param name="movie" value={`http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval=${this.state.beach.id}&amp;dcat=week&amp;embed=1`} /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />
-                      <embed src={`http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval=${this.state.beach.id}&amp;dcat=week&amp;embed=1`} quality="high" bgcolor="#ffffff" width="600" height="150" name="spitcast_chart_flash" align="middle" allowScriptAccess="always" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>
-                    </div>
-
+                <h1 className="beachtitel">{name}</h1>
+                <div className="datetime">
+                    <p> Date: {date} </p>
+                    <p> Time of report: {hour} </p>
+                </div>
+                <h3>Swell Details</h3>
+                <h4>  {swell} </h4>
+                <p> size: {size} </p>
+                <p> tide: {tide} </p>
+                <p> wind: {wind} </p>
+                <div className="forecast">
+                    <object
+                        classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                        codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+                        width="600"
+                        height="300"
+                        className="forecast"
+                        align="middle"
+                    >
+                    <param name="allowScriptAccess" value="always" />
+                    <param name="allowFullScreen" value="false" />
+                    <param name="movie" value={link} />
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="#ffffff" />
+                    <embed
+                        src={link}
+                        quality="high"
+                        bgcolor="#ffffff"
+                        width="600"
+                        height="300"
+                        name="spitcast_chart_flash"
+                        align="middle"
+                        allowScriptAccess="always"
+                        allowFullScreen="false"
+                        type="application/x-shockwave-flash"
+                        pluginspage="http://www.macromedia.com/go/getflashplayer"
+                    />
+                    </object>
+                </div>
             </div>
         )
     }
 }
+//
+// class SpitcastGraph extends Component {
+//     render() {
+//         return (
+//             <br />
+//         )
+//     }
+// }
