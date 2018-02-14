@@ -40,6 +40,25 @@ authorization, function(req, res) {
     res.json({user: req.currentUser})
 })
 
+app.put('/user_beaches', authorization, (req, res) => {
+    Beach.findOne({
+        where: {name: req.body.name}
+    }).then((beach) => {
+        var user= req.currentUser
+        user.addBeach(beach, { check_in: new Date()})
+    }).then((thing) => {
+        console.log(thing)
+        res.json({
+            message: "success"
+        })
+    }).catch((error) => {
+        res.json({
+            message: "authtoken authenticized, but something else broken"
+        })
+    })
+})
+
+
 app.post('/login', (req, res) => {
     req.checkBody('username', 'Is required').notEmpty()
     req.checkBody('password', 'Is required').notEmpty()
