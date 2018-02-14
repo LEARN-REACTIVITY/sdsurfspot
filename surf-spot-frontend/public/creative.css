@@ -107,7 +107,7 @@ img::-moz-selection {
   color: #F05F40;
 }
 
-#mainNav .navbar-nav > li.nav-item > a.nav-link.active,
+/* #mainNav .navbar-nav > li.nav-item > a.nav-link.active,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active {
   color: #F05F40 !important;
   background-color: transparent;
@@ -158,12 +158,12 @@ img::-moz-selection {
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
     color: #F05F40;
   }
-}
+} */
 
 header.masthead {
   padding-top: 10rem;
   /* padding-bottom: calc(10rem - 56px); */
-  background-image: url("/images/LandingPage_comb.jpg");
+  background-image: url("/image/LandingPage_comb.jpg");
   background-color: black;
   margin-top: 0px;
   background-repeat: no-repeat;
