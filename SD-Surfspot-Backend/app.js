@@ -40,28 +40,56 @@ authorization, function(req, res) {
     res.json({user: req.currentUser})
 })
 
-// app.post('/users', (req, res) => {
-//     User.create(
-//         {
-//             name: req.body.name,
-//             username: req.body.username,
-//             email: req.body.email,
-//             password: req.body.password
+app.post('/login', (req, res) => {
+    req.checkBody('username', 'Is required').notEmpty()
+    req.checkBody('password', 'Is required').notEmpty()
+
+    req.getValidationResult()
+    .then((validationErrors) => {
+        if(validationErrors.isEmpty()) {
+            User.findOne({
+                where: {username: req.body.username}
+            }).then((user) => {
+                if(user && user.verifyPassword(req.body.password)) {
+                    res.json({
+                        message: 'Success!',
+                        user:user
+                    })
+                } else {
+                    res.status(404)
+                    res.json({
+                        message: 'Invalid credentials',
+                        errors: {serverValidations: 'invalid credentials'}
+                    })
+                }
+            })
+        } else {
+            res.status(400)
+            res.json({
+                errors: {validations: validationErrors.array()}
+            })
+        }
+    })
+})
+
+// app.post('/login', (req, res) => {
+//     User.findOne({
+//         where: {username: req.body.username}
+//     }).then((user) => {
+//         if(user && user.verifyPassword(req.body.password)) {
+//             res.json({
+//                 message: 'Success!',
+//                 user:user
+//             })
+//         }else{
+//             res.status(404)
+//             res.json({
+//                 message: 'Invalid credentials',
+//                 errors: {error: 'invalid credentials'}
+//             })
 //         }
-//     ).then((user)=>{
-//         res.json({
-//             message: 'success',
-//             user: user
-//         })
-//     }).catch((error)=>{
-//         res.status(400)
-//         res.json({
-//             message: "Unable to create User",
-//             errors: error.errors
-//         })
 //     })
 // })
-
 
 app.post('/users', (req, res) => {
     req.checkBody('name', 'Is required').notEmpty()
@@ -93,10 +121,52 @@ app.post('/users', (req, res) => {
         } else {
             res.status(400)
             res.json({
-                errors: {validations: validationErrors.array()}})
+                errors: {validations: validationErrors.array()}
+            })
         }
     })
 })
+
+
+// app.put('/user_beaches', (req, res) => {
+//     user_beaches.findById(req.params.id).then((user_beaches) => {
+//         user_beaches.update({
+//             user_id: req.body.user_id,
+//             beach_id: req.body.beach_id,
+//             check_in: req.body.check_in
+//             // check_out: req.body.check_out
+//         }).then((user_beaches) => {
+//             res.json({
+//                 message: 'complete'
+//                 // user_beaches:user_beaches
+//             })
+//         })
+//     })
+// })
+
+
+module.exports = app
+// app.post('/users', (req, res) => {
+//     User.create(
+//         {
+//             name: req.body.name,
+//             username: req.body.username,
+//             email: req.body.email,
+//             password: req.body.password
+//         }
+//     ).then((user)=>{
+//         res.json({
+//             message: 'success',
+//             user: user
+//         })
+//     }).catch((error)=>{
+//         res.status(400)
+//         res.json({
+//             message: "Unable to create User",
+//             errors: error.errors
+//         })
+//     })
+// })
 
 // app.post('/users', (req, res) => {
 //     User.create({
@@ -111,10 +181,6 @@ app.post('/users', (req, res) => {
 //         })
 //     })
 // })
-
-
-module.exports = app
-
 
 /*
 
