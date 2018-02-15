@@ -25,13 +25,13 @@
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 0px;
-    padding-top: 3%;
+    padding-top: 4%;
     color: white;
 }
 
 .locations {
     background-color: black;
-    background-image: url('./images/Surfer.jpg');
+    background-image: url('./images/Surfer_5.jpg');
     background-repeat: no-repeat;
     background-position: bottom left;
     position: inherit;
@@ -41,7 +41,7 @@
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 3%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 50px;
 }
 
@@ -51,11 +51,33 @@
 
 }
 
-.checkedIn {
-    margin-left: 20%;
-    padding-top: 10px;
-    font-family: 'Roboto Slab', serif;
+.NumCheckedIn {
+    margin-left: 17%;
+    margin-bottom: 2px;
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
     min-width: 110px;
+    color: white;
+}
+
+.TextCheckedIn {
+  margin-left: 13%;
+  font-size: 16px;
+  font-family: 'Oswald', sans-serif;
+  min-width: 120px;
+  color: white;
+}
+
+.locationNames {
+    padding-top: 28%;
+    max-width: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 button.checkIn:hover {
@@ -66,6 +88,7 @@ button.checkIn:hover {
     margin-left: 20%;
     background-color: #af080f;
     color: white;
+    margin-bottom: 5px;
 }
 .checkInButton {
     background-color: orange;
@@ -73,16 +96,15 @@ button.checkIn:hover {
 }
 .cont {
     display: inline-block;
-    margin: 10px 25px 0px 10px;
+    margin: 20px 25px 30px 10px;
     max-width: 130px;
     min-height: 133px;
-    position: static;
 }
 .box {
-    background-image: url('./images/tropical.png');
+    background-image: url('./images/tropical_white.png');
     background-size: 190%;
     min-width: 150px;
-    min-height: 150px;
+    min-height: 120px;
     background-repeat: no-repeat;
     background-position: center;
     background-color: white;
@@ -134,16 +156,6 @@ button.checkIn:hover {
 
 }
 
-.locationNames {
-    padding-top: 47%;
-    max-width: 110px;
-    margin-left: auto;
-    margin-right: auto;
-    color: black;
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-
-}
 
 a:hover {
     text-decoration: none;
