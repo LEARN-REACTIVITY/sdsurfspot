@@ -103,8 +103,8 @@ export default class Home extends Component {
                                         </a>
                                     </div>
                                     <div>
+                                        <h5 className="NumCheckedIn">{this.state.checkedInCount[key].count}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
                                         <Button onClick={this.handleCheckIn.bind(this, element.name, key)} className="checkIn" bsSize="xsmall">Check In</Button>
-                                        <p className="checkedIn">{this.state.checkedInCount[key].count} Surfers are checked in right now</p>
                                     </div>
                                     </div>
                             })}
