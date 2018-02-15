@@ -92,22 +92,24 @@ export default class Home extends Component {
             <div className="locations" id="locations">
                     <header className="masthead">
                     </header>
-                    <div id="spots" className="whiteboard">
-                    <h3 className="secondheader">CHECK OUT THE DAILY LOCAL SURF REPORT!</h3>
-                        {this.props.beaches.map((element, key) => {
-                        return  <div className= "box">
-                                    <a key={key} href={`/beaches/${element.id}`}>
-                                        <h4 className="locationNames">{element.name}</h4>
-                                    </a>
 
+                        <h3 id="spots" className="secondheader">CHECK OUT THE DAILY LOCAL SURF REPORT!</h3>
+                        <div className="whiteboard">
+                            {this.props.beaches.map((element, key) => {
+                            return  <div className= "cont">
+                                    <div className= "box">
+                                        <a key={key} href={`/beaches/${element.id}`}>
+                                            <h4 className="locationNames">{element.name}</h4>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <Button onClick={this.handleCheckIn.bind(this, element.name, key)} className="checkIn" bsSize="xsmall">Check In</Button>
+                                        <p className="checkedIn">{this.state.checkedInCount[key].count} Surfers are checked in right now</p>
+                                    </div>
+                                    </div>
+                            })}
+                        </div>
 
-                                    <Button onClick={this.handleCheckIn.bind(this, element.name, key)} className="checkIn" bsSize="xsmall">Check In</Button>
-                                    <p className="checkedIn">{this.state.checkedInCount[key].count} Surfers are checked in today</p>
-                                </div>
-                        })}
-
-                      
-                    </div>
             </div>
         )
     }
