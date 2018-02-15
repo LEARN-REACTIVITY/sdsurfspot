@@ -1,3 +1,6 @@
+
+
+
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var user_beaches = sequelize.define('user_beaches', {
