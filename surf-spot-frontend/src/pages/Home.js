@@ -137,19 +137,25 @@ export default class Home extends Component {
             <div className="locations" id="locations">
                     <header className="masthead">
                     </header>
-                    <div id="spots" className="whiteboard">
-                    <h3 className="secondheader">CHECK OUT THE DAILY LOCAL SURF REPORT!</h3>
-                        {beaches.map((element, key) => {
-                            return  (<div key={element.name} className= "box">
-                                        <a href={`/beaches/${element.id}`}>
+
+
+                        <h3 id="spots" className="secondheader">CHECK OUT THE DAILY LOCAL SURF REPORT!</h3>
+                        <div className="whiteboard">
+                            {this.props.beaches.map((element, key) => {
+                            return  <div className= "cont">
+                                    <div className= "box">
+                                        <a key={key} href={`/beaches/${element.id}`}>
                                             <h4 className="locationNames">{element.name}</h4>
                                         </a>
-
+                                    </div>
+                                    <div>
+                                        <h5 className="NumCheckedIn">{result[element.id]}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
                                         <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check In</Button>
-                                        <p className="checkedIn">{result[element.id]} Surfers are checked in today</p>
-                                    </div>)
-                        })}
-                    </div>
+                                    </div>
+                                    </div>
+                            })}
+                        </div>
+
             </div>
         )
     }

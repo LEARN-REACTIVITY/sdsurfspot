@@ -10,7 +10,6 @@
 
 .mainheader {
     font-family: Univers, sans-serif;
-    font-weight: bold;
     position: fixed;
     margin-top: 40%;
     margin-left: 44%;
@@ -20,17 +19,19 @@
 }
 
 .secondheader {
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 10px;
+    font-size: 35px;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 0px;
-    margin-left: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: black;
-    background-color: transparent;
+    padding-top: 4%;
+    color: white;
 }
 
 .locations {
     background-color: black;
-    background-image: url('./images/Surfer.jpg');
+    background-image: url('./images/Surfer_5.jpg');
     background-repeat: no-repeat;
     background-position: bottom left;
     position: inherit;
@@ -39,41 +40,82 @@
 .whiteboard {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 100px;
-    margin bottom: 300px;
-    background-color: white;
+    margin-top: 3%;
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 50px;
-    opacity: 0.8;
 }
 
+.container-fluid {
+    background-color: black;
+    padding-bottom: 30px;
+
+}
+
+.NumCheckedIn {
+    margin-left: 17%;
+    margin-bottom: 2px;
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    min-width: 110px;
+    color: white;
+}
+
+.TextCheckedIn {
+  margin-left: 13%;
+  font-size: 16px;
+  font-family: 'Oswald', sans-serif;
+  min-width: 120px;
+  color: white;
+}
+
+.locationNames {
+    padding-top: 28%;
+    max-width: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+button.checkIn:hover {
+    color: #af080f;
+}
+
+.checkIn {
+    margin-left: 20%;
+    background-color: #af080f;
+    color: white;
+    margin-bottom: 5px;
+}
 .checkInButton {
     background-color: orange;
     color: white;
 }
-
-.box {
+.cont {
     display: inline-block;
-    position: inherit;
-    margin: 30px 20px 30px 20px;
+    margin: 20px 25px 30px 10px;
     max-width: 130px;
-    background-color: #d3d3d3;
-    padding-left: 5px;
-    border: 2px;
-    border-style: solid;
-    border-color: gray;
+    min-height: 133px;
+}
+.box {
+    background-image: url('./images/tropical_white.png');
+    background-size: 190%;
+    min-width: 150px;
+    min-height: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    padding-left: 10px;
+    border-radius: 15px;
     padding-right: 5px;
 }
 
-
-.locationImages {
-    margin-bottom: 10px;
-    max-width: 120px;
-    min-height: 110px;
+.NavbarEdit {
+    background-color: blue;
 }
-/* .navbar-inverse {
-    background-color: white;
-    border-color: white;
-} */
 
 
 .Navigation {
@@ -114,6 +156,11 @@
 
 }
 
+
+a:hover {
+    text-decoration: none;
+}
+
 .loading {
     font-style: italic;
     margin-top: 100px;
@@ -122,6 +169,8 @@
 .forecast {
     margin-left: 20px;
     width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .signIn {
