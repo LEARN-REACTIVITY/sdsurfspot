@@ -3,53 +3,103 @@ import {Button} from 'react-bootstrap';
 
 
 const backApi =  "http://localhost:3000"
-let checkCount = 0
-
-
 
 export default class Home extends Component {
     constructor(props){
        super(props)
+
        this.state = {
-            checkedInCount: [
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0}
-            ]
+            result: {}
         }
    }
 
+    componentWillMount() {
+        const { beaches } = this.props
 
-    stateSetter() {
-        this.setState({
-            checkedInCount: this.props.beaches
+        this.fetchCheckins(beaches)
+    }
+
+    componentWillReceiveProps(props, state) {
+        const { beaches } = this.props
+
+        if(beaches.length > 0) {
+            this.fetchCheckins(beaches)
+        }
+    }
+
+    fetchCheckins(beaches) {
+        if(beaches === undefined || beaches.length <= 0) {
+            return
+        }
+
+        beaches.map((element, key)=> {
+            var token = localStorage.getItem('authToken')
+            var id = element.id
+            if(true) {
+                fetch(`${backApi}/checkin/${id}`, {
+                    method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
+                    headers: {  // <- We specify that we're sending JSON, and expect JSON back
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token,
+                    },
+                })
+                .then((raw) => raw.json())
+                .then((res) => {
+                    const { errors, metadata } = res
+                    let { result } = this.state
+
+                    if(errors != undefined) {
+                        this.setState({
+                            errors: errors,
+                        })
+                    } else {
+                        result[id] = metadata.rowCount
+                        console.log(result)
+                        this.setState({
+                            result: result
+                        })
+                    }
+                })
+                .catch(e => console.log(e))
+            }
         })
     }
 
-    handleCheckIn(beach, key) {
+    //     for(var x=1; x <= 26; x++) {
+    //         var token = localStorage.getItem('authToken')
+    //
+    //         if(true) {
+    //             fetch(`${backApi}/checkin/${x}`, {
+    //                 method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
+    //                 headers: {  // <- We specify that we're sending JSON, and expect JSON back
+    //                     'Content-Type': 'application/json',
+    //                     'Authorization': 'Bearer ' + token,
+    //                 },
+    //             })
+    //             .then((raw) => raw.json())
+    //             .then((res) => {
+    //                 const { errors, metadata } = res
+    //                 let { result } = this.state
+    //
+    //                 if(errors != undefined) {
+    //                     this.setState({
+    //                         errors: errors,
+    //                     })
+    //                 } else {
+    //                     result[x] = metadata.rowCount
+    //
+    //                     this.setState({
+    //                         result: result
+    //                     })
+    //                 }
+    //             })
+    //             .catch(e => console.log(e))
+    //         }
+    //     }
+    //
+    // }
+
+    handleCheckIn(beachName, beaches) {
         var token = localStorage.getItem('authToken')
         var countCheck = localStorage.getItem('checkCount')
         if (token === null) {
@@ -57,7 +107,7 @@ export default class Home extends Component {
         } else {
             if(countCheck === null) {
                 var params = {
-                    name: beach,
+                    name: beachName,
                     authToken: token
                 }
 
@@ -68,30 +118,26 @@ export default class Home extends Component {
                     },
                     method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
                 })
-                this.state.checkedInCount[key] = {count: this.state.checkedInCount[key].count +1}
-                this.setState({
-                    checkedInCount: this.state.checkedInCount
-                })
+
+                this.fetchCheckins(beaches)
                 localStorage.setItem('checkCount', true)
 
             } else {
+                this.fetchCheckins(beaches)
                 alert("You're already checked in.")
             }
         }
     }
 
-    clickHandler() {
-         this.setState({
-             checkedInCount: this.state.checkedInCount +1
-         });
-     }
-
     render() {
-        console.log(this.state.checkedInCount[0].count)
+        let { result } = this.state
+        const { beaches } = this.props
+
         return (
             <div className="locations" id="locations">
                     <header className="masthead">
                     </header>
+
 
                         <h3 id="spots" className="secondheader">CHECK OUT THE DAILY LOCAL SURF REPORT!</h3>
                         <div className="whiteboard">
@@ -103,8 +149,8 @@ export default class Home extends Component {
                                         </a>
                                     </div>
                                     <div>
-                                        <h5 className="NumCheckedIn">{this.state.checkedInCount[key].count}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
-                                        <Button onClick={this.handleCheckIn.bind(this, element.name, key)} className="checkIn" bsSize="xsmall">Check In</Button>
+                                        <h5 className="NumCheckedIn">{result[element.id]}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
+                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check In</Button>
                                     </div>
                                     </div>
                             })}
