@@ -90,7 +90,7 @@ class App extends Component {
                 console.log('could not save new user')
             })
     }
-    
+
     handleExistingUser(params) {
         fetch(`${backApi}/login`,
             {
@@ -127,6 +127,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+            
             <NavBar beaches={this.state.beaches} isLoggedIn={this.state.isLoggedIn}/>
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} />
