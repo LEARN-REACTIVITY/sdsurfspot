@@ -50,7 +50,7 @@ app.put('/user_beaches', authorization, (req, res) => {
         where: {name: req.body.name}
     }).then((beach) => {
         var user= req.currentUser
-        user.addBeach(beach, { check_in: new Date()})
+        user.addBeach(beach, { check_in: new Date() })
     }).then((thing) => {
         console.log(thing)
         res.json({
@@ -58,18 +58,23 @@ app.put('/user_beaches', authorization, (req, res) => {
         })
     }).catch((error) => {
         res.json({
-            message: "authtoken authenticized, but something else broken"
+            message: "authtoken authenticized, but something else broken",
+            error: error
         })
     })
 })
 
 app.get('/checkin/:id', (req,res) => {
     let id = req.params.id
-
-    UB.sequelize.query(`SELECT * FROM user_beaches WHERE beach_id = ${id} AND check_in IS NOT NULL ORDER BY beach_id`).spread((results, metadata) => {
-        res.json({
-            results: results,
-            metadata: metadata
+    Beach.findOne({
+        where: {api_id: id}
+    }).then((beach) => {
+        let beachId = beach.id
+        UB.sequelize.query(`SELECT * FROM user_beaches WHERE beach_id = ${beachId} AND check_in IS NOT NULL ORDER BY beach_id`).spread((results, metadata) => {
+            res.json({
+                results: results,
+                metadata: metadata
+            })
         })
     }).catch((error) => {
         res.status(400)
@@ -78,6 +83,23 @@ app.get('/checkin/:id', (req,res) => {
         })
     })
 })
+
+
+
+// app.get('/checkin/:id', (req,res) => {
+//     let id = req.params.id
+//     UB.sequelize.query(`SELECT * FROM user_beaches WHERE beach_id = ${id} AND check_in IS NOT NULL ORDER BY beach_id`).spread((results, metadata) => {
+//         res.json({
+//             results: results,
+//             metadata: metadata
+//         })
+//     }).catch((error) => {
+//         res.status(400)
+//         res.json({
+//             errors: "problem getting check-in"
+//         })
+//     })
+// })
 
 // app.post('/checkin', authorization, (req, res) => {
 //     Beach.findOne({

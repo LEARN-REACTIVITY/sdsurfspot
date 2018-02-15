@@ -50,7 +50,7 @@ class App extends Component {
                         })
                     })
                     this.setState({beaches: beachname})
-
+                    console.log(this.state.beaches);
                 }).then(() => {
                     if(localStorage.getItem('authToken') != null) {
                         this.setState({isLoggedIn: true})

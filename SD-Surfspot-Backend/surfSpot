@@ -1,0 +1,474 @@
+learn_sd=#
+CREATE DATABASE fuzy_taco
+;
+;
+learn_sd=#;
+
+CREATE DATABASE fuzy_taco
+;
+
+CREATE DATABASE fuzy_taco
+;
+\l
+\l?
+\?
+\c fuzzy_taco
+\c fuzy_taco
+\q
+\c fuzzy_taco
+\c fuzy_taco
+CREATE TABLE Tortilla (qty int, ingredients varchar, texture varchar, spice_level int);
+ALTER TABLE Tortilla ADD stock boolean;
+INSERT INTO Tortilla (1, tomato, soft, 42, true);
+INSERT INTO Tortilla VALUES (1, tomato, soft, 42, true);
+INSERT INTO Tortilla (qty, ingredients, texture, spice_level, stock) VALUES (1, "tomato", "soft", 42, true);
+INSERT INTO Tortilla (qty, ingredients, texture, spice_level, stock) VALUES (1, 'tomato', 'soft', 42, true);
+INSERT INTO Tortilla (qty, ingredients, texture, spice_level, stock) VALUES (5, 'black beans', 'soft', 24, false);
+SELECT * FROM Tortilla;
+UPDATE Tortilla SET ingredients = chicken WHERE qty = 5;
+UPDATE Tortilla SET ingredients = 'chicken' WHERE qty = 5;
+SELECT * FROM Tortilla;
+DELETE FROM Tortilla WHERE qty = 5;
+SELECT * FROM Tortilla;
+\d
+\d Tortilla
+learn_sd=#
+learn-sd
+learn-sd=#;
+CREATE DATABASE rolodex
+/c rolodex
+\c rolodex
+CREATE DATABASE rolodex;
+CREATE DATABASE rolodex;
+\c rolodex
+CREATE TABLE persons (id serial PRIMARY KEY, given_name varchar, family_name varchar, address varchar, dob timestamp, email varchar);
+ALTER TABLE rolodex MODIFY COLUMN dob date;
+ALTER TABLE rolodex ALTER COLUMN dob date;
+ALTER TABLE rolodex ALTER COLUMN dob Date;
+ALTER TABLE rolodex ALTER COLUMN dob date;
+INSERT INTO
+;
+INSERT INTO persons (given_name, last_name, dob, address, email) VALUES ('Tony', 'Stark', '1970-07-23', '1 Future Lane', 'starkenator@Stark.com'), ('Captain', 'America', '1930-01-09', '1600 Pennsylvania Ave', 'kickbutt@america.com'), (''The', 'HULK', '1975-03-06','12 Ghouzou St' , 'bigguy@smash.com'), ('Thor', 'Thunder', '0009-05-04', 'Asguard', 'lightningbro@odin.com'); 
+SELECT * FROM persons
+;
+q
+help
+#help
+'
+)
+;
+INSERT INTO persons (given_name, last_name, dob, address, email) VALUES ('Tony', 'Stark', '1970-07-23', '1 Future Lane', 'starkenator@Stark.com'), ('Captain', 'America', '1930-01-09', '1600 Pennsylvania Ave', 'kickbutt@america.com'), ('The', 'HULK', '1975-03-06','12 Ghouzou St' , 'bigguy@smash.com'), ('Thor', 'Thunder', '0009-05-04', 'Asguard', 'lightningbro@odin.com'); 
+INSERT INTO persons (given_name, family_name, dob, address, email) VALUES ('Tony', 'Stark', '1970-07-23', '1 Future Lane', 'starkenator@Stark.com'), ('Captain', 'America', '1930-01-09', '1600 Pennsylvania Ave', 'kickbutt@america.com'), ('The', 'HULK', '1975-03-06','12 Ghouzou St' , 'bigguy@smash.com'), ('Thor', 'Thunder', '0009-05-04', 'Asguard', 'lightningbro@odin.com'); 
+SELECT * FROM persons;
+INSERT INTO persons VALUES ('Leeann', 'Thunder', 'Dorito Lane' , '1992-12-24', 'thundergirl@odin.com');
+INSERT INTO persons (given_name, family_name, address, dob, email VALUES ('Leeann', 'Thunder', 'Dorito Lane' , '1992-12-24', 'thundergirl@odin.com');
+INSERT INTO persons (given_name,family_name,address,dob,email) VALUES ('Leeann', 'Thunder', 'Dorito Lane' , '1992-12-24', 'thundergirl@odin.com');
+)
+;
+
+INSERT INTO persons (given_name,family_name,address,dob,email) VALUES ('Leeann', 'Thunder', 'Dorito Lane' , '1992-12-24', 'thundergirl@odin.com');
+UPDATE persons SET address = 'Asguard' WHERE family_name= 'Thunder';
+SELECT * FROM persons;
+DELETE FROM persons WHERE family-name not= 
+;
+DELETE FROM persons WHERE family_name != 'Thunder';
+SELECT * FROM persons;
+learn_sd=#
+;
+CREATE DATABASE countryclub;
+\c countryclub
+;
+CREATE TABLE members (id serial PRIMARY KEY, surname varchar, first_name varchar, address varchar, zipcode integer, telephone varchar, recommended_by integer REFERENCES members(id), join_date timestamp without time zone);
+CREATE TABLE facilities (id serial PRIMARY KEY, name varchar, member_cost numeric, guest_cost numeric, initial_out_lay numeric, monthly_maintenance numeric
+CREATE TABLE bookings (id serial PRIMARY KEY, facility_id integer REFERENCES facilities(id), member_id integer REFERENCES members(id), start_time timestamp, slots integer);
+OPY members (id, surname, first_name, address, zipcode, telephone, recommended_by, join_date) FROM stdin;
+0GUESTGUESTGUEST0(000) 000-0000\N2012-07-01 00:00:00
+1SmithDarren8 Bloomsbury Close, Boston4321555-555-5555\N2012-07-02 12:02:05
+2SmithTracy8 Bloomsbury Close, New York4321555-555-5555\N2012-07-02 12:08:23
+3RownamTim23 Highway Way, Boston23423(844) 693-0723\N2012-07-03 09:32:15
+4JopletteJanice20 Crossing Road, New York234(833) 942-471012012-07-03 10:25:05
+5ButtersGerald1065 Huntingdon Avenue, Boston56754(844) 078-413012012-07-09 10:44:09
+6TracyBurton3 Tunisia Drive, Boston45678(822) 354-9973\N2012-07-15 08:52:55
+7DareNancy6 Hunting Lodge Way, Boston10383(833) 776-400142012-07-25 08:59:12
+8BootheTim3 Bloomsbury Close, Reading, 00234234(811) 433-254732012-07-25 16:02:35
+9StibbonsPonder5 Dragons Way, Winchester87630(833) 160-390062012-07-25 17:09:05
+10OwenCharles52 Cheshire Grove, Winchester, 2856328563(855) 542-525112012-08-03 19:42:37
+11JonesDavid976 Gnats Close, Reading33862(844) 536-803642012-08-06 16:32:55
+12BakerAnne55 Powdery Street, Boston80743844-076-514192012-08-10 14:23:22
+13FarrellJemima103 Firth Avenue, North Reading57392(855) 016-0163\N2012-08-10 14:28:01
+14SmithJack252 Binkington Way, Boston69302(822) 163-325412012-08-10 16:22:05
+15BaderFlorence264 Ursula Drive, Westford84923(833) 499-352792012-08-10 17:52:03
+16BakerTimothy329 James Street, Reading58393833-941-0824132012-08-15 10:34:25
+17PinkerDavid5 Impreza Road, Boston65332811 409-6734132012-08-16 11:32:47
+20GentingMatthew4 Nunnington Place, Wingfield, Boston52365(811) 972-137752012-08-19 14:55:55
+21MackenzieAnna64 Perkington Lane, Reading64577(822) 661-289812012-08-26 09:32:05
+22CoplinJoan85 Bard Street, Bloomington, Boston43533(822) 499-2232162012-08-29 08:32:41
+24SarwinRamnaresh12 Bullington Lane, Boston65464(822) 413-1470152012-09-01 08:44:42
+26JonesDouglas976 Gnats Close, Reading11986844 536-8036112012-09-02 18:43:05
+27RumneyHenrietta3 Burkington Plaza, Boston78533(822) 989-8876202012-09-05 08:42:35
+28FarrellDavid437 Granite Farm Road, Westford43532(855) 755-9876\N2012-09-15 08:22:05
+29Worthington-SmythHenry55 Jagbi Way, North Reading97676(855) 894-375822012-09-17 12:27:15
+30PurviewMillicent641 Drudgery Close, Burnington, Boston34232(855) 941-978622012-09-18 19:04:01
+33TupperwareHyacinth33 Cheerful Plaza, Drake Road, Westford68666(822) 665-5327\N2012-09-18 19:32:05
+35HuntJohn5 Bullington Lane, Boston54333(899) 720-6978302012-09-19 11:32:45
+36CrumpetEricaCrimson Road, North Reading75655(811) 732-481622012-09-22 08:36:38
+37SmithDarren3 Funktown, Denzington, Boston66796(822) 577-3541\N2012-09-26 18:08:45
+35HuntJohn5 Bullington Lane, Boston54333(899) 720-6978302012-09-19 11:32:45
+36CrumpetEricaCrimson Road, North Reading75655(811) 732-481622012-09-22 08:36:38
+37SmithDarren3 Funktown, Denzington, Boston66796(822) 577-3541\N2012-09-26 18:08:45
+;
+COPY members (id, surname, first_name, address, zipcode, telephone, recommended_by, join_date) FROM stdin;
+SELECT * FROM members;
+COPY facilities (id, name, member_cost, guest_cost, initial_out_lay, monthly_maintenance) FROM stdin;
+COPY bookings (id, facility_id, member_id, start_time, slots) FROM stdin;
+SELECT * FROM bookings;
+SELECT 
+;
+\d
+\l
+sequelize-example
+\d
+.sequelize-example
+.sequelize-example;
+\d "ToDo'
+\?
+SELECT * FROM sequelize-example;
+\c sequelize-example
+\d
+\dt
+SELECT * FROM sequelize-example
+SELECT * FROM sequelize-example;
+SELECT * FROM sequelizeexample;
+q
+\q
+\c sequelize-example
+\d
+\d
+\q
+\l
+\c database_development 
+\d
+SELECT * FROM ToDos
+SELECT * FROM ToDOs;
+SELECT * FROM ToDos;
+SELECT * FROM ToDos;
+SELECT * FROM 'ToDos';
+SELECT * FROM "ToDos";
+\q
+\c database_development
+\dt
+SELECT * FROM "ToDos";
+\q
+\c database_development
+SELECT * FROM "ToDos";
+\q
+\c database_development
+SELECT * FROM "ToDos";
+\c database_development
+SELECT * FROM "ToDos";
+\q
+\c database_development
+\l
+\d
+\q
+\c database_developer
+\c database_development
+\d
+\q
+\c database_development
+\l
+SELECT * FROM momlists
+;
+\q
+\c database_development
+\dt
+SELECT * FROM Momlists
+;
+SELECT * FROM Momlists;
+\dt
+/dt
+\d
+;
+\dt
+SELECT * FROM "Momlists";
+SELECT * FROM "ToDos";
+\q
+\c database_development
+SELECT * FROM "Momlist";
+\d
+SELECT * FROM "Momlists";
+SELECT * FROM "ToDos";
+\c express_full_stack_development 
+\d
+\q
+\c express_full_stack_development 
+\d
+\q
+\c express_full_stack_development 
+\d
+\d "Ingredients"
+SELECT * FROM "Recipes"
+;
+\c postgres
+DROP DATABASE express_full_stack_development 
+;
+\q
+\l
+\q
+\l
+\q
+\l
+\q
+ALTER TABLE TodoList DELETE House Chores
+\c Todo-list
+\c
+\l
+\c express_todo_development
+ALTER TABLE TodoList DELETE House Chores
+ALTER TABLE TodoList DELETE House Chores
+ALTER TABLE TodoList DELETE House Chores
+\q
+\l
+\c wiki-app
+\dt
+\q
+\q
+\c wiki-app
+\dt
+SELECT * FROM "pages"
+;
+SELECT * FROM pages
+;
+SELECT * FROM 'pages'
+;
+SELECT * FROM 'Pages';
+\q
+ls
+;
+/ls
+;
+/l
+;
+/h
+;
+\l
+\q
+\l
+\q
+\li
+\l
+\ls
+\l
+\q
+\l
+-help
+-h
+\h
+DROP DATABASE surfSpot-development
+;
+DROP DATABASE surfSpot-development
+;
+DROP DATABASE "surfSp";
+DROP DATABASE "surf-spot-development"
+;
+\l
+\q
+\q
+\td
+\db
+SELECT* FROM "surfSpot"
+;
+SELECT* FROM 'surfSpot'
+;
+SELECT* FROM surfSpot
+;
+\c
+\c surfSpot
+SELECT* FROM surfSpot
+;
+SELECT * FROM "users"
+;
+SELECT * FROM "beaches"
+;
+\q
+\l
+\c surfSpot
+SELECT * FROM "users"
+;
+\q
+\c surfSpot
+SELECT * FROM "users"
+;
+\td ;
+\tb ;
+\?
+\l 
+\lt
+\q
+\c cat-tinder-development
+SELECT * FROM "cats"
+;
+SELECT * FROM "Cats"
+;
+\q
+\c surfSpot
+SELECT * FROM "users"
+;
+SELECT * FROM "beaches"
+;
+\c surfSpot
+;
+\td
+\dt
+SELECT * FROM 'beaches''
+;
+SELECT * FROM 'beaches'
+;
+;
+
+'
+;
+SELECT * FROM "beaches"
+;
+SELECT * FROM "users""
+;
+;
+'
+"
+;
+SELECT * FROM "users";
+\c surfSpot
+SELECT * FROM "users"
+;
+SELECT * FROM "beaches"
+;
+\q
+\dt
+\c surfSpot
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "users"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "users"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "users"
+;
+\c surfSpot
+SELECT * FROM "user_beaches";
+SELECT * FROM "users";
+\l
+\d
+/DROP TABLEEEEEE
+;
+DROP TABLE Users;
+\d
+SELECT * FROM Users;
+SELECT * FROM "Users";
+\q
+\l
+\c surfSpot
+\d
+\q
+\c surfSpot
+\c postgres
+DROP DATABASE "surfSpot"
+;
+\q
+\l
+\q
+DROP DATABASE "surfSpot"
+;
+\q
+DROP DATABASE "surfSpot"
+;
+\q
+DROP DATABASE "surfSpot"
+;
+\q
+DROP DATABASE "surfSpot"
+;
+\q
+DROP DATABASE "surfSpot"
+;
+\q
+\c surfSpot
+SELECT * FROM Users;
+SELECT * FROM "Users";
+\q
+ls
+\l
+\c surfSpot
+SELECT * FROM "users"
+;
+\l;
+\l
+SELECT * FROM "users"
+;
+SELECT * FROM "beaches"
+;
+SELECT * FROM 'beaches'
+;
+SELECT * FROM 'beaches'
+;
+SELECT * FROM "Users";
+SELECT * FROM "Users";
+SELECT * FROM "Beaches"
+;
+SELECT * FROM "Beaches"
+;
+SELECT * FROM "Users";
+SELECT * FROM "Users";
+\x
+SELECT * FROM "Users";
+SELECT * FROM "Beaches";
+SELECT * FROM "user_beaches";
+ls
+\ls
+\l
+\q 
+\dt
+\c surfSpot
+SELECT * FROM "Users";
+\c surfSpot
+\dt
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "Beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "Beaches"
+;
+SELECT * FROM "user_beaches"
+;
+SELECT * FROM "user_beaches"
+;
+\q
+\l
+\q
+\l
+\s surfSpot

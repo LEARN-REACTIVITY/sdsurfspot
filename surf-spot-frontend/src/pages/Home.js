@@ -14,15 +14,29 @@ export default class Home extends Component {
    }
 
     componentWillMount() {
-        this.fetchCheckins()
+        const { beaches } = this.props
+
+        this.fetchCheckins(beaches)
     }
 
-    fetchCheckins() {
-        for(var x=1; x <= 26; x++) {
-            var token = localStorage.getItem('authToken')
+    componentWillReceiveProps(props, state) {
+        const { beaches } = this.props
 
+        if(beaches.length > 0) {
+            this.fetchCheckins(beaches)
+        }
+    }
+
+    fetchCheckins(beaches) {
+        if(beaches === undefined || beaches.length <= 0) {
+            return
+        }
+
+        beaches.map((element, key)=> {
+            var token = localStorage.getItem('authToken')
+            var id = element.id
             if(true) {
-                fetch(`${backApi}/checkin/${x}`, {
+                fetch(`${backApi}/checkin/${id}`, {
                     method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
                     headers: {  // <- We specify that we're sending JSON, and expect JSON back
                         'Content-Type': 'application/json',
@@ -39,8 +53,8 @@ export default class Home extends Component {
                             errors: errors,
                         })
                     } else {
-                        result[x] = metadata.rowCount
-
+                        result[id] = metadata.rowCount
+                        console.log(result)
                         this.setState({
                             result: result
                         })
@@ -48,11 +62,44 @@ export default class Home extends Component {
                 })
                 .catch(e => console.log(e))
             }
-        }
-
+        })
     }
 
-    handleCheckIn(beach, key) {
+    //     for(var x=1; x <= 26; x++) {
+    //         var token = localStorage.getItem('authToken')
+    //
+    //         if(true) {
+    //             fetch(`${backApi}/checkin/${x}`, {
+    //                 method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
+    //                 headers: {  // <- We specify that we're sending JSON, and expect JSON back
+    //                     'Content-Type': 'application/json',
+    //                     'Authorization': 'Bearer ' + token,
+    //                 },
+    //             })
+    //             .then((raw) => raw.json())
+    //             .then((res) => {
+    //                 const { errors, metadata } = res
+    //                 let { result } = this.state
+    //
+    //                 if(errors != undefined) {
+    //                     this.setState({
+    //                         errors: errors,
+    //                     })
+    //                 } else {
+    //                     result[x] = metadata.rowCount
+    //
+    //                     this.setState({
+    //                         result: result
+    //                     })
+    //                 }
+    //             })
+    //             .catch(e => console.log(e))
+    //         }
+    //     }
+    //
+    // }
+
+    handleCheckIn(beachName, beaches) {
         var token = localStorage.getItem('authToken')
         var countCheck = localStorage.getItem('checkCount')
         if (token === null) {
@@ -60,7 +107,7 @@ export default class Home extends Component {
         } else {
             if(countCheck === null) {
                 var params = {
-                    name: beach,
+                    name: beachName,
                     authToken: token
                 }
 
@@ -71,23 +118,16 @@ export default class Home extends Component {
                     },
                     method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
                 })
-                // this.state.checkedInCount[key] = {count: this.state.checkedInCount[key].count +1}
-                // this.setState({
-                //     checkedInCount: this.state.checkedInCount
-                // })
+
+                this.fetchCheckins(beaches)
                 localStorage.setItem('checkCount', true)
 
             } else {
+                this.fetchCheckins(beaches)
                 alert("You're already checked in.")
             }
         }
     }
-
-    clickHandler() {
-         this.setState({
-             checkedInCount: this.state.checkedInCount +1
-         });
-     }
 
     render() {
         let { result } = this.state
@@ -105,8 +145,8 @@ export default class Home extends Component {
                                             <h4 className="locationNames">{element.name}</h4>
                                         </a>
 
-                                        <Button onClick={this.handleCheckIn.bind(this, element.name, key)} className="checkIn" bsSize="xsmall">Check In</Button>
-                                        <p className="checkedIn">{result[key]} Surfers are checked in today</p>
+                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check In</Button>
+                                        <p className="checkedIn">{result[element.id]} Surfers are checked in today</p>
                                     </div>)
                         })}
                     </div>
