@@ -3,50 +3,53 @@ import {Button} from 'react-bootstrap';
 
 
 const backApi =  "http://localhost:3000"
-let checkCount = 0
-
-
 
 export default class Home extends Component {
     constructor(props){
        super(props)
+
        this.state = {
-            checkedInCount: [
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0},
-                {count: 0}
-            ]
+            result: {}
         }
    }
 
+    componentWillMount() {
+        this.fetchCheckins()
+    }
 
-    stateSetter() {
-        this.setState({
-            checkedInCount: this.props.beaches
-        })
+    fetchCheckins() {
+        for(var x=1; x <= 26; x++) {
+            var token = localStorage.getItem('authToken')
+
+            if(true) {
+                fetch(`${backApi}/checkin/${x}`, {
+                    method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
+                    headers: {  // <- We specify that we're sending JSON, and expect JSON back
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token,
+                    },
+                })
+                .then((raw) => raw.json())
+                .then((res) => {
+                    const { errors, metadata } = res
+                    let { result } = this.state
+
+                    if(errors != undefined) {
+                        this.setState({
+                            errors: errors,
+                        })
+                    } else {
+                        result[x] = metadata.rowCount
+
+                        this.setState({
+                            result: result
+                        })
+                    }
+                })
+                .catch(e => console.log(e))
+            }
+        }
+
     }
 
     handleCheckIn(beach, key) {
@@ -68,10 +71,10 @@ export default class Home extends Component {
                     },
                     method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
                 })
-                this.state.checkedInCount[key] = {count: this.state.checkedInCount[key].count +1}
-                this.setState({
-                    checkedInCount: this.state.checkedInCount
-                })
+                // this.state.checkedInCount[key] = {count: this.state.checkedInCount[key].count +1}
+                // this.setState({
+                //     checkedInCount: this.state.checkedInCount
+                // })
                 localStorage.setItem('checkCount', true)
 
             } else {
@@ -87,26 +90,25 @@ export default class Home extends Component {
      }
 
     render() {
-        console.log(this.state.checkedInCount[0].count)
+        let { result } = this.state
+        const { beaches } = this.props
+
         return (
             <div className="locations" id="locations">
                     <header className="masthead">
                     </header>
                     <div id="spots" className="whiteboard">
                     <h3 className="secondheader">CHECK OUT THE DAILY LOCAL SURF REPORT!</h3>
-                        {this.props.beaches.map((element, key) => {
-                        return  <div className= "box">
-                                    <a key={key} href={`/beaches/${element.id}`}>
-                                        <h4 className="locationNames">{element.name}</h4>
-                                    </a>
+                        {beaches.map((element, key) => {
+                            return  (<div key={element.name} className= "box">
+                                        <a href={`/beaches/${element.id}`}>
+                                            <h4 className="locationNames">{element.name}</h4>
+                                        </a>
 
-
-                                    <Button onClick={this.handleCheckIn.bind(this, element.name, key)} className="checkIn" bsSize="xsmall">Check In</Button>
-                                    <p className="checkedIn">{this.state.checkedInCount[key].count} Surfers are checked in today</p>
-                                </div>
+                                        <Button onClick={this.handleCheckIn.bind(this, element.name, key)} className="checkIn" bsSize="xsmall">Check In</Button>
+                                        <p className="checkedIn">{result[key]} Surfers are checked in today</p>
+                                    </div>)
                         })}
-
-                      
                     </div>
             </div>
         )

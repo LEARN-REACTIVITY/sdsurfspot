@@ -13,23 +13,26 @@ app.use(validator())
 app.use(bodyParser.json())
 app.use(cors())
 
-const authorization = function(request, response, next) {
-    const token = request.query.authToken || request.body.authToken
+const authorization = function(req, res, next) {
+    console.log(req.headers);
+
+    const token = req.headers.authorization || req.query.authToken || req.body.authToken
+
     if(token) {
         User.findOne({
             where: {authToken: token}
         }).then((user)=> {
             if(user) {
-                request.currentUser = user
+                req.currentUser = user
                 next()
             }else{
-                response.status(401)
-                response.json({message: 'Authorization Token Invalid'})
+                res.status(401)
+                res.json({message: 'Authorization Token Invalid'})
             }
         })
     } else {
-        response.status(401)
-        response.json({message: 'Authorization Token Required'})
+        res.status(401)
+        res.json({message: 'Authorization Token Required'})
     }
 }
 
@@ -60,9 +63,10 @@ app.put('/user_beaches', authorization, (req, res) => {
     })
 })
 
-app.post('/checkin', authorization, (req,res) => {
-    id = req.body.key
-    UB.sequelize.query(`SELECT * FROM user_beaches WHERE beach_id = ${id} AND check_in IS NOT NULL`).spread((results, metadata) => {
+app.get('/checkin/:id', (req,res) => {
+    let id = req.params.id
+
+    UB.sequelize.query(`SELECT * FROM user_beaches WHERE beach_id = ${id} AND check_in IS NOT NULL ORDER BY beach_id`).spread((results, metadata) => {
         res.json({
             results: results,
             metadata: metadata
@@ -70,7 +74,7 @@ app.post('/checkin', authorization, (req,res) => {
     }).catch((error) => {
         res.status(400)
         res.json({
-            message: "problem getting check-in"
+            errors: "problem getting check-in"
         })
     })
 })
