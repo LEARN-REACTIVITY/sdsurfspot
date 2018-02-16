@@ -51,6 +51,16 @@
 
 }
 
+.BeachCheckedIn{
+    margin-left: 17%;
+    margin-bottom: 2px;
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    min-width: 110px;
+    color: black;
+}
+
 .NumCheckedIn {
     margin-left: 17%;
     margin-bottom: 2px;

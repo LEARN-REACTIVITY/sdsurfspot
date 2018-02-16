@@ -13,7 +13,7 @@ export default class Logout extends Component {
                 <br />
                 <br />
                 <h3> Are you sure you want to leave? </h3>
-                <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Log Out</Button>
+                <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Sign Out</Button>
             </div>
         )
     }
