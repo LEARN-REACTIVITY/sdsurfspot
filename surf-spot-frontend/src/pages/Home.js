@@ -117,13 +117,12 @@ export default class Home extends Component {
                       'Content-Type': 'application/json'
                     },
                     method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
+                }).then(() => {
+                    localStorage.setItem('checkCount', true)
+                    this.fetchCheckins(beaches)
                 })
 
-                this.fetchCheckins(beaches)
-                localStorage.setItem('checkCount', true)
-
             } else {
-                this.fetchCheckins(beaches)
                 alert("You're already checked in.")
             }
         }

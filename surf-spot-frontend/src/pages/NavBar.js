@@ -60,7 +60,7 @@ export default class NavBar extends Component {
                     }
 
                   {this.props.isLoggedIn && <NavItem eventKey={3} href="/logout">
-                    Log Out
+                    Sign Out
                   </NavItem>}
                 </Nav>
               </Navbar.Collapse>
