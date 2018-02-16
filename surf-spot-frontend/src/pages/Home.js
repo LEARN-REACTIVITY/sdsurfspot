@@ -9,7 +9,10 @@ export default class Home extends Component {
        super(props)
 
        this.state = {
-            result: {}
+            result: {},
+            isCheckedIn: false,
+            beachCheckedIn: ""
+
         }
    }
 
@@ -17,6 +20,7 @@ export default class Home extends Component {
         const { beaches } = this.props
 
         this.fetchCheckins(beaches)
+        this.checkInState()
     }
 
     componentWillReceiveProps(props, state) {
@@ -24,6 +28,12 @@ export default class Home extends Component {
 
         if(beaches.length > 0) {
             this.fetchCheckins(beaches)
+        }
+    }
+
+    checkInState() {
+        if(localStorage.getItem('checkCount') != null) {
+            this.setState({isCheckedIn: true})
         }
     }
 
@@ -54,7 +64,6 @@ export default class Home extends Component {
                         })
                     } else {
                         result[id] = metadata.rowCount
-                        console.log(result)
                         this.setState({
                             result: result
                         })
@@ -65,47 +74,14 @@ export default class Home extends Component {
         })
     }
 
-    //     for(var x=1; x <= 26; x++) {
-    //         var token = localStorage.getItem('authToken')
-    //
-    //         if(true) {
-    //             fetch(`${backApi}/checkin/${x}`, {
-    //                 method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
-    //                 headers: {  // <- We specify that we're sending JSON, and expect JSON back
-    //                     'Content-Type': 'application/json',
-    //                     'Authorization': 'Bearer ' + token,
-    //                 },
-    //             })
-    //             .then((raw) => raw.json())
-    //             .then((res) => {
-    //                 const { errors, metadata } = res
-    //                 let { result } = this.state
-    //
-    //                 if(errors != undefined) {
-    //                     this.setState({
-    //                         errors: errors,
-    //                     })
-    //                 } else {
-    //                     result[x] = metadata.rowCount
-    //
-    //                     this.setState({
-    //                         result: result
-    //                     })
-    //                 }
-    //             })
-    //             .catch(e => console.log(e))
-    //         }
-    //     }
-    //
-    // }
-
     handleCheckIn(beachName, beaches) {
         var token = localStorage.getItem('authToken')
         var countCheck = localStorage.getItem('checkCount')
+        const { isCheckedIn } = this.state
         if (token === null) {
             alert("Please sign in or register.")
         } else {
-            if(countCheck === null) {
+            if(!isCheckedIn) {
                 var params = {
                     name: beachName,
                     authToken: token
@@ -120,6 +96,11 @@ export default class Home extends Component {
                 }).then(() => {
                     localStorage.setItem('checkCount', true)
                     this.fetchCheckins(beaches)
+                    this.setState({
+                        isCheckedIn: true,
+                        beachCheckedIn: beachName
+                    })
+                    console.log(this.state.beachCheckedIn)
                 })
 
             } else {
@@ -128,9 +109,44 @@ export default class Home extends Component {
         }
     }
 
+    handleCheckOut(beachName, beaches) {
+        var token = localStorage.getItem('authToken')
+        var countCheck = localStorage.getItem('checkCount')
+        const { isCheckedIn } = this.state
+        if (token === null) {
+            alert("Please sign in or register.")
+        } else {
+            if(isCheckedIn) {
+                var params = {
+                    name: beachName,
+                    authToken: token
+                }
+
+                fetch(`${backApi}/user_beaches/checkout`, {
+                    body: JSON.stringify(params),  // <- we need to stringify the json for fetch
+                    headers: {  // <- We specify that we're sending JSON, and expect JSON back
+                      'Content-Type': 'application/json'
+                    },
+                    method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
+                }).then(() => {
+                    this.fetchCheckins(beaches)
+                    localStorage.removeItem('checkCount')
+                    this.setState({
+                        isCheckedIn: false,
+                        beachCheckedIn: ""
+                    })
+                })
+
+            } else {
+                alert("You are not checked in.")
+            }
+        }
+    }
+
     render() {
         let { result } = this.state
         const { beaches } = this.props
+         console.log(this.state.isCheckedIn);
 
         return (
             <div className="locations" id="locations">
@@ -149,7 +165,13 @@ export default class Home extends Component {
                                     </div>
                                     <div>
                                         <h5 className="NumCheckedIn">{result[element.id]}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
-                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check In</Button>
+
+                                        {!this.state.isCheckedIn &&
+                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check In</Button> }
+
+                                        {this.state.isCheckedIn && (this.state.beachCheckedIn === element.name) &&
+                                        <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check Out</Button> }
+
                                     </div>
                                     </div>
                             })}

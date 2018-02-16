@@ -58,7 +58,25 @@ app.put('/user_beaches', authorization, (req, res) => {
         })
     }).catch((error) => {
         res.json({
-            message: "authtoken authenticized, but something else broken",
+            message: "authtoken authenticized, but cannot check in",
+            error: error
+        })
+    })
+})
+
+app.put('/user_beaches/checkout', authorization, (req, res) => {
+    Beach.findOne({
+        where: {name: req.body.name}
+    }).then((beach) => {
+        var user = req.currentUser
+        user.addBeach(beach, { check_in: null})
+    }).then((thing) => {
+        res.json({
+            message: "success checked out"
+        })
+    }).catch((error) => {
+        res.json({
+            message: "authtoken authenticized, but cannot check out",
             error: error
         })
     })

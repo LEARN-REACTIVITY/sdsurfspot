@@ -34,7 +34,7 @@ class App extends Component {
 
    logOut() {
        localStorage.removeItem('authToken')
-       localStorage.removeItem('checkCount')
+       
        this.setState({isLoggedIn: false, logOutSuccess: true})
    }
 
@@ -127,7 +127,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            
+
             <NavBar beaches={this.state.beaches} isLoggedIn={this.state.isLoggedIn}/>
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} />
