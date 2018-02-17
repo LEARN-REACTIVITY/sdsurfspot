@@ -10,6 +10,9 @@ import {
     HelpBlock
 } from 'react-bootstrap'
 
+
+const backApi =  "http://localhost:3000"
+
 export default class SignIn extends Component {
     constructor(props){
         super(props)
@@ -29,8 +32,8 @@ export default class SignIn extends Component {
 
     handleSubmit() {
         this.props.onSubmit(this.state.form)
-        console.log(this.state.form)
     }
+
 
     errorsFor(attribute){
         var errorString = ""

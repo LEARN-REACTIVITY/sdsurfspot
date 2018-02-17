@@ -7,6 +7,7 @@ import Form from './pages/Form';
 import NavBarNew from './pages/NavBarNew';
 import SignIn from './pages/SignIn';
 import Logout from './pages/Logout';
+import Hello from './pages/Hello'
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -115,7 +116,12 @@ class App extends Component {
                         isLoggedIn: true
                       })
                       console.log(this.state.user)
+                      var spot = parsedResponse.beach.name
+
                       localStorage.setItem('authToken', this.state.user[0].authToken)
+                      localStorage.setItem('beach', spot)
+                      localStorage.setItem('checkCount', true)
+
                 }
             }).catch(function() {
                 console.log('could not save new user')
@@ -123,13 +129,18 @@ class App extends Component {
     }
 
 
+
+
+
   render() {
     return (
       <Router>
         <div className="App">
+
             <NavBarNew isLoggedIn={this.state.isLoggedIn}/>
+
               <Route exact path="/" render={props => (
-                  <Home beaches={this.state.beaches} />
+                  <Home beaches={this.state.beaches} user={this.state.user}/>
               )}/>
               <Route path="/beaches/:id" component={Beach} />
               <Route path="/form" render={props => (
@@ -165,6 +176,7 @@ class App extends Component {
                         }
                   </div>
               )} />
+
         </div>
       </Router>
     );
