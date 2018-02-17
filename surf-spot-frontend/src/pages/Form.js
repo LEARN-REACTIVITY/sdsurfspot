@@ -64,7 +64,7 @@ export default class Form extends Component {
 
     render() {
         return(
-            <div>
+            <div className="formBackground">
                 <Row >
                     <Col>
                     </Col>

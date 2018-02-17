@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import Home from './pages/Home';
 import Beach from './pages/Beach';
 import Form from './pages/Form';
-import NavBar from './pages/NavBar';
+import NavBarNew from './pages/NavBarNew';
 import SignIn from './pages/SignIn';
 import Logout from './pages/Logout';
 import Hello from './pages/Hello'
@@ -136,14 +136,12 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            <NavBar beaches={this.state.beaches} isLoggedIn={this.state.isLoggedIn}/>
+
+            <NavBarNew isLoggedIn={this.state.isLoggedIn}/>
 
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} user={this.state.user}/>
               )}/>
-              <div className="container-fluid">
-              <br />
-              <br />
               <Route path="/beaches/:id" component={Beach} />
               <Route path="/form" render={props => (
                   <div>
@@ -179,7 +177,6 @@ class App extends Component {
                   </div>
               )} />
 
-            </div>
         </div>
       </Router>
     );
