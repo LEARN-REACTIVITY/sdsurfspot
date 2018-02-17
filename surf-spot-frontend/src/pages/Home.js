@@ -10,8 +10,7 @@ export default class Home extends Component {
 
        this.state = {
             result: {},
-            isCheckedIn: false,
-            beachCheckedIn: ""
+            isCheckedIn: false
 
         }
    }
@@ -29,10 +28,11 @@ export default class Home extends Component {
         if(beaches.length > 0) {
             this.fetchCheckins(beaches)
         }
+
     }
 
     checkInState() {
-        if(localStorage.getItem('checkCount') != null) {
+        if(localStorage.getItem('checkCount') !== null) {
             this.setState({isCheckedIn: true})
         }
     }
@@ -50,7 +50,7 @@ export default class Home extends Component {
                     method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
                     headers: {  // <- We specify that we're sending JSON, and expect JSON back
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + token,
+                        'Authorization': token,
                     },
                 })
                 .then((raw) => raw.json())
@@ -95,10 +95,10 @@ export default class Home extends Component {
                     method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
                 }).then(() => {
                     localStorage.setItem('checkCount', true)
+                    localStorage.setItem('beach', beachName)
                     this.fetchCheckins(beaches)
                     this.setState({
-                        isCheckedIn: true,
-                        beachCheckedIn: beachName
+                        isCheckedIn: true
                     })
                     console.log(this.state.beachCheckedIn)
                 })
@@ -131,9 +131,9 @@ export default class Home extends Component {
                 }).then(() => {
                     this.fetchCheckins(beaches)
                     localStorage.removeItem('checkCount')
+                    localStorage.removeItem('beach')
                     this.setState({
-                        isCheckedIn: false,
-                        beachCheckedIn: ""
+                        isCheckedIn: false
                     })
                 })
 
@@ -147,7 +147,7 @@ export default class Home extends Component {
         let { result } = this.state
         const { beaches } = this.props
          console.log(this.state.isCheckedIn);
-
+         var spot = localStorage.getItem('beach')
         return (
             <div className="locations" id="locations">
                     <header className="masthead">
@@ -169,7 +169,7 @@ export default class Home extends Component {
                                         {!this.state.isCheckedIn &&
                                         <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check In</Button> }
 
-                                        {this.state.isCheckedIn && (this.state.beachCheckedIn === element.name) &&
+                                        {this.state.isCheckedIn && (spot === element.name ) &&
                                         <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check Out</Button> }
 
                                     </div>
