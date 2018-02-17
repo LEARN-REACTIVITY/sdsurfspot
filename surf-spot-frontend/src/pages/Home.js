@@ -151,7 +151,7 @@ export default class Home extends Component {
          console.log(this.state.isCheckedIn);
          var spot = localStorage.getItem('beach')
         return (
-            <div className="Home">
+            <div id="top" className="Home">
                     <header className="landingPage">
                     <div className="ButtonLandingPage">
                     <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
