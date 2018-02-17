@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
+import About from './About'
+import Footer from './Footer';
 
 
 const backApi =  "http://localhost:3000"
@@ -133,12 +135,14 @@ export default class Home extends Component {
         const { beaches } = this.props
 
         return (
-            <div className="locations" id="locations">
-                    <header className="masthead">
+            <div className="Home">
+                    <header className="landingPage">
+                    <div className="ButtonLandingPage">
+                    <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                  </div>
                     </header>
-
-
-                        <h3 id="spots" className="secondheader">CHECK OUT THE DAILY LOCAL SURF REPORT!</h3>
+                    <About />
+                    <div className="backgroundImageLocations" id="locations">
                         <div className="whiteboard">
                             {this.props.beaches.map((element, key) => {
                             return  <div className= "cont">
@@ -154,7 +158,8 @@ export default class Home extends Component {
                                     </div>
                             })}
                         </div>
-
+                    </div>
+                <Footer />
             </div>
         )
     }
