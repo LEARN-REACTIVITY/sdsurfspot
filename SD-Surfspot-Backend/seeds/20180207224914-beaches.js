@@ -41,7 +41,7 @@ module.exports = {
             },
             {
                 api_id: 596,
-                name: 'Warm Water Yetty',
+                name: 'Warm Water Jetty',
                 location: 'Carlsbad',
                 createdAt: new Date(),
                 updatedAt: new Date()
@@ -104,7 +104,7 @@ module.exports = {
             },
             {
                 api_id: 230,
-                name: '15th Street',
+                name: '15th Street - Del Mar',
                 location: 'Del Mar',
                 createdAt: new Date(),
                 updatedAt: new Date()

@@ -30,7 +30,7 @@ it('has a password input', () => {
 
 it('has a submit button', () => {
     const component = mount (<Form />)
-    expect(component.find('button#submit').text()).toBe("Make an Account")
+    expect(component.find('button#submit').text()).toBe("Create an Account")
 })
 
 it("calls submitHandler on submit", () => {
