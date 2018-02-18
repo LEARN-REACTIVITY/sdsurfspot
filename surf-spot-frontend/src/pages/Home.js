@@ -148,7 +148,7 @@ export default class Home extends Component {
     render() {
         let { result } = this.state
         const { beaches } = this.props
-    
+
          var spot = localStorage.getItem('beach')
         return (
             <div id="top" className="Home">
@@ -160,7 +160,7 @@ export default class Home extends Component {
                             {this.props.beaches.map((element, key) => {
                             return  <div className= "cont">
                                     <div className= "box">
-                                        <a key={key} href={`/beaches/${element.id}`}>
+                                        <a key={key} href={`/${element.id}`}>
                                             <h4 className="locationNames">{element.name}</h4>
                                         </a>
                                     </div>
