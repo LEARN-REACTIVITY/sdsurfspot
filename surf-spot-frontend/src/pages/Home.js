@@ -148,7 +148,7 @@ export default class Home extends Component {
     render() {
         let { result } = this.state
         const { beaches } = this.props
-         console.log(this.state.isCheckedIn);
+    
          var spot = localStorage.getItem('beach')
         return (
             <div id="top" className="Home">

@@ -36,6 +36,7 @@ class App extends Component {
    logOut() {
        localStorage.removeItem('authToken')
        localStorage.removeItem('checkCount')
+       localStorage.removeItem('beach')
        this.setState({isLoggedIn: false, logOutSuccess: true})
    }
 
@@ -55,6 +56,7 @@ class App extends Component {
                 }).then(() => {
                     if(localStorage.getItem('authToken') != null) {
                         this.setState({isLoggedIn: true})
+                        this.loggedIn()
                     } else {
                         this.setState({isLoggedIn: false})
                     }
@@ -116,12 +118,14 @@ class App extends Component {
                         isLoggedIn: true
                       })
                       console.log(this.state.user)
-                      var spot = parsedResponse.beach.name
-
                       localStorage.setItem('authToken', this.state.user[0].authToken)
-                      localStorage.setItem('beach', spot)
-                      localStorage.setItem('checkCount', true)
 
+                      if(parsedResponse.beach) {
+                          var spot = parsedResponse.beach.name
+                          console.log('spot: ' + spot)
+                          localStorage.setItem('beach', spot)
+                          localStorage.setItem('checkCount', true)
+                      }
                 }
             }).catch(function() {
                 console.log('could not save new user')
