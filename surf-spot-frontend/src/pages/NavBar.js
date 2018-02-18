@@ -55,14 +55,14 @@ render() {
 				            </li>
                     </ul>
 										{!this.props.isLoggedIn &&
-                    <ul className="navbar-nav text-uppercase ml-auto">
-                    <li className="nav-item">
-                      <a className="nav-link" href='./form'>Sign Up</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href='./signin'>Log In</a>
-                    </li>
-                    </ul>
+						                    <ul className="navbar-nav text-uppercase ml-auto">
+							                    <li className="nav-item">
+							                      <a className="nav-link" href='./form'>Sign Up</a>
+							                    </li>
+							                    <li className="nav-item">
+							                      <a className="nav-link" href='./signin'>Log In</a>
+							                    </li>
+						                    </ul>
 										}
 										{this.props.isLoggedIn &&
 											<ul className="navbar-nav text-uppercase ml-auto">
