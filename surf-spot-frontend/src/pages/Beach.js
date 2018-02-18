@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/" //proxy url to bypass cross origin error
@@ -24,6 +25,7 @@ export default class Beach extends Component {
 
    getBeach = () => {
        const id = this.props.match.params.id
+
        fetch(`${proxyurl}${API}/${id}`)
        .then((resp) => {
            return resp.json()
@@ -51,16 +53,6 @@ export default class Beach extends Component {
          console.log("cannot fetch api")
        })
    }
-
-   // fetchLocation() {
-   //     fetch(`${backApi}/location/${id}`, {
-   //         method: 'GET'
-   //     })
-   //     .then((raw) => raw.json())
-   //     .then((res) => {
-   //
-   //     })
-   // }
 
    fetchCheckins(beach) {
        var token = localStorage.getItem('authToken')
@@ -138,10 +130,8 @@ export default class Beach extends Component {
         return (
 
             <div className="beach">
-                <div>
-                    <h5 className="BeachCheckedIn">{result[id]}</h5> <p className="BeachCheckedIn"> Surfers are checked in right now</p>
-                    <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name)} className="checkIn" bsSize="xsmall">Check In</Button>
-                </div>
+                <br />
+                <br />
                 <h1 className="beachtitel">{name}</h1>
                 <div className="datetime">
                     <p> Date: {date} </p>

@@ -174,7 +174,7 @@ button.checkIn:hover {
 
 .beach {
     margin-top: 40px;
-    position: fixed;
+    /* position: fixed; */
     width: 100vw;
     display: flex;
     flex-direction: column;
