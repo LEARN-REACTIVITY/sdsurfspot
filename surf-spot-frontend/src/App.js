@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import Home from './pages/Home';
 import Beach from './pages/Beach';
 import Form from './pages/Form';
-import NavBarNew from './pages/NavBarNew';
+import NavBar from './pages/NavBar';
 import SignIn from './pages/SignIn';
 import Logout from './pages/Logout';
 import Hello from './pages/Hello'
@@ -137,7 +137,7 @@ class App extends Component {
       <Router>
         <div className="App">
 
-            <NavBarNew isLoggedIn={this.state.isLoggedIn}/>
+            <NavBar isLoggedIn={this.state.isLoggedIn}/>
 
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} user={this.state.user}/>

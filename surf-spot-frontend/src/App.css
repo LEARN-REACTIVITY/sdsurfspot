@@ -2,14 +2,26 @@
   text-align: center;
 }
 
-#navbarResponsive {
-    font-size: 15px;
+.container {
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+  line-height: 10px;
+}
+
+.logoNavBar {
+  max-width: 130px;
+  margin-right: 20px;
+  margin-top: 0px;
 }
 
 .landingPage {
   padding-top: 10rem;
   /* padding-bottom: calc(10rem - 56px); */
-  background-image: url("/image/LandingPage_comb.jpg");
+  background-image: url("/image/LandingPageLogo_3.jpg");
   background-color: black;
   margin-top: 0px;
   background-repeat: no-repeat;
@@ -22,11 +34,6 @@
   height: 100vh;
   min-height:100vh;
 }
-
-.ButtonLandingPage {
-    margin-top: 400px;
-}
-
 
 #submit {
     background-color: black;
@@ -44,6 +51,27 @@
     margin-left: 5%;
     margin-right: 5%;
     color: white;
+}
+
+.dropdown-menu {
+  background-image: url('./images/tropicalDropDown.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 300%;
+  background-color: white;
+  font-size: 70%;
+  border-color: none;
+  border-radius: 0.3rem;
+  max-width: 185px;
+}
+
+
+
+.dropdown-item {
+  max-width: 185px;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  color: #3b3a3a;
 }
 
 .TextAbout {
@@ -142,12 +170,6 @@ button.checkIn:hover {
     padding-left: 10px;
     border-radius: 15px;
     padding-right: 5px;
-}
-
-#Navigation {
-    margin-bottom: 0px;
-    background-color: #orange;
-    position: absolute;
 }
 
 .beach {
