@@ -55,8 +55,10 @@ export default class Beach extends Component {
                  }
              this.setState({beach: beachinfo})
              console.log(this.state.beach)
-             this.fetchCheckins(this.state.beach.id)
+             // this.fetchCheckins(this.state.beach.id)
 
+       }).then(()=> {
+           this.fetchCheckins(this.state.beach.id)
        }).catch((err) => {
          console.log("cannot fetch api")
        })
@@ -84,11 +86,12 @@ export default class Beach extends Component {
                        })
                    } else {
                        result[id] = metadata.rowCount
-                       console.log(result)
                        this.setState({
                            result: result
                        })
                    }
+               }).then(()=> {
+                   console.log(this.state.result)
                })
                .catch(e => console.log(e))
            }
@@ -118,6 +121,8 @@ export default class Beach extends Component {
                    this.setState({
                        isCheckedIn: true
                    })
+                   this.fetchCheckins(id)
+               }).then(()=> {
                    this.fetchCheckins(id)
                })
 
@@ -152,6 +157,8 @@ export default class Beach extends Component {
                    this.setState({
                        isCheckedIn: false
                    })
+                   this.fetchCheckins(beachId)
+               }).then(() => {
                    this.fetchCheckins(beachId)
                })
 
