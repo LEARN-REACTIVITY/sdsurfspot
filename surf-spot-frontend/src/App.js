@@ -7,7 +7,7 @@ import Form from './pages/Form';
 import SignIn from './pages/SignIn';
 import Logout from './pages/Logout';
 import Hello from './pages/Hello';
-
+import NavBarPages from './pages/NavBarPages';
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -146,7 +146,12 @@ class App extends Component {
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} user={this.state.user}/>
               )}/>
-              <Route path="/beach:id" component={Beach} />
+              <Route path="/beach:id" render={props => (
+                  <div>
+                    <NavBarPages />
+                    <Beach {...props} />
+                  </div>
+              )} />
               <Route exact path="/form" render={props => (
                   <div>
                       <Form

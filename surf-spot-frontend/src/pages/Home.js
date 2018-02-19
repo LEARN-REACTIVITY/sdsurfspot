@@ -154,7 +154,7 @@ export default class Home extends Component {
         return (
             <div id="top" className="Home">
                     <header className="landingPage">
-                    <NavBar isLoggedIn={this.state.isLoggedIn}/>
+                    <NavBar />
                     </header>
                     <About />
                     <div className="backgroundImageLocations" id="locations">

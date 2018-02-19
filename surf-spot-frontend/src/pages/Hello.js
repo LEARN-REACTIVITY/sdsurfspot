@@ -7,7 +7,7 @@ export default class Hello extends Component {
     render() {
         return (
             <div>
-            <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
+            <NavBarPages />
                 <br />
                 <br />
                 <h3> Welcome Back! </h3>
