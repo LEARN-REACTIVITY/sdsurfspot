@@ -114,11 +114,10 @@ export default class Home extends Component {
     handleCheckOut(beachName, beaches) {
         var token = localStorage.getItem('authToken')
         var countCheck = localStorage.getItem('checkCount')
-        const { isCheckedIn } = this.state
         if (token === null) {
             alert("Please sign in or register.")
         } else {
-            if(isCheckedIn) {
+            if(countCheck) {
                 var params = {
                     name: beachName,
                     authToken: token
@@ -150,6 +149,7 @@ export default class Home extends Component {
         const { beaches } = this.props
 
          var spot = localStorage.getItem('beach')
+         var check = localStorage.getItem('checkCount')
         return (
             <div id="top" className="Home">
                     <header className="landingPage">
@@ -167,10 +167,10 @@ export default class Home extends Component {
                                     <div>
                                         <h5 className="NumCheckedIn">{result[element.id]}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
 
-                                        {!this.state.isCheckedIn &&
+                                        {!this.state.isCheckedIn && (!check) &&
                                         <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check In</Button> }
 
-                                        {this.state.isCheckedIn && (spot === element.name ) &&
+                                        { (spot === element.name ) &&
                                         <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check Out</Button> }
 
                                     </div>
