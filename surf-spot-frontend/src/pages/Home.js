@@ -103,7 +103,6 @@ export default class Home extends Component {
                     this.setState({
                         isCheckedIn: true
                     })
-                    console.log(this.state.beachCheckedIn)
                 })
 
             } else {
