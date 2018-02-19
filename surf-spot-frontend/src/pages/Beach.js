@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+
 
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/" //proxy url to bypass cross origin error
@@ -13,7 +13,8 @@ export default class Beach extends Component {
        this.state = {
            beach: undefined,
            result: {},
-           location: {}
+           location: {},
+           isCheckedIn: false
        }
    }
 
@@ -21,6 +22,13 @@ export default class Beach extends Component {
        setTimeout(() => {
            this.getBeach()
        }, 1000)
+       this.checkInState()
+   }
+
+   checkInState() {
+       if(localStorage.getItem('checkCount') !== null) {
+           this.setState({isCheckedIn: true})
+       }
    }
 
    getBeach = () => {
@@ -47,16 +55,16 @@ export default class Beach extends Component {
                  }
              this.setState({beach: beachinfo})
              console.log(this.state.beach)
-             this.fetchCheckins(this.state.beach)
+             this.fetchCheckins(this.state.beach.id)
 
        }).catch((err) => {
          console.log("cannot fetch api")
        })
    }
 
-   fetchCheckins(beach) {
+   fetchCheckins(beachId) {
        var token = localStorage.getItem('authToken')
-       var id = beach.id
+       var id = beachId
            if(true) {
                fetch(`${backApi}/checkin/${id}`, {
                    method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
@@ -86,7 +94,7 @@ export default class Beach extends Component {
            }
    }
 
-   handleCheckIn(beachName) {
+   handleCheckIn(beachName, id) {
        var token = localStorage.getItem('authToken')
        var countCheck = localStorage.getItem('checkCount')
        if (token === null) {
@@ -106,7 +114,11 @@ export default class Beach extends Component {
                    method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
                }).then(() => {
                    localStorage.setItem('checkCount', true)
-
+                   localStorage.setItem('beach', beachName)
+                   this.setState({
+                       isCheckedIn: true
+                   })
+                   this.fetchCheckins(id)
                })
 
            } else {
@@ -115,12 +127,48 @@ export default class Beach extends Component {
        }
    }
 
+   handleCheckOut(beachName, beachId) {
+       var token = localStorage.getItem('authToken')
+       var countCheck = localStorage.getItem('checkCount')
+       const { isCheckedIn } = this.state
+       if (token === null) {
+           alert("Please sign in or register.")
+       } else {
+           if(isCheckedIn) {
+               var params = {
+                   name: beachName,
+                   authToken: token
+               }
+
+               fetch(`${backApi}/user_beaches/checkout`, {
+                   body: JSON.stringify(params),  // <- we need to stringify the json for fetch
+                   headers: {  // <- We specify that we're sending JSON, and expect JSON back
+                     'Content-Type': 'application/json'
+                   },
+                   method: "PUT"  // <- Here's our verb, so the correct endpoint is invoked on the server
+               }).then(() => {
+                   localStorage.removeItem('checkCount')
+                   localStorage.removeItem('beach')
+                   this.setState({
+                       isCheckedIn: false
+                   })
+                   this.fetchCheckins(beachId)
+               })
+
+           } else {
+               alert("You are not checked in.")
+           }
+       }
+   }
+
+
     render() {
         if(!this.state.beach) {
             return (
                 <h1 className="loading">Loading...</h1>
             )
         }
+        var spot = localStorage.getItem('beach')
 
         const { id, name, date, hour, swell, size, tide, wind } = this.state.beach
         let { result } = this.state
@@ -130,6 +178,7 @@ export default class Beach extends Component {
         return (
 
             <div className="beach">
+                <br />
                 <br />
                 <br />
                 <h1 className="beachtitel">{name}</h1>
@@ -142,6 +191,16 @@ export default class Beach extends Component {
                 <p> size: {size} </p>
                 <p> tide: {tide} </p>
                 <p> wind: {wind} </p>
+                <div className="">
+                    <h5 className="BeachCheckedIn">{result[id]}</h5> <p className="BeachCheckedIn"> Surfers are checked in right now</p>
+
+                    {!this.state.isCheckedIn &&
+                        <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check In</Button> }
+
+                    {this.state.isCheckedIn && (spot === this.state.beach.name ) &&
+                        <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check Out</Button> }
+
+                </div>
                 <div className="forecast">
                     <object
                         classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"

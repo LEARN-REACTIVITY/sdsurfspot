@@ -20,9 +20,11 @@ export default class Form extends Component {
                 username: "",
                 password: "",
                 email: ""
-            }
+            },
+            beach: false
         }
     }
+
 
     handleChange(event){
         const formState = Object.assign({}, this.state.form)

@@ -147,12 +147,8 @@ class App extends Component {
               <Route exact path="/" render={props => (
                   <Home beaches={this.state.beaches} user={this.state.user}/>
               )}/>
-              <Route path="/:id" render={props => (
-                  <div>
-                    <Beach {...props}/>
-                  </div>
-              )}/>
-              <Route path="/form" render={props => (
+              <Route path="/beach:id" component={Beach} />
+              <Route exact path="/form" render={props => (
                   <div>
                       <Form
                         onSubmit={this.handleNewUser.bind(this)}
@@ -164,7 +160,7 @@ class App extends Component {
                   </div>
               )} />
 
-              <Route path="/signin" render={props => (
+              <Route exact path="/signin" render={props => (
                   <div className="SignIn">
                       <SignIn
                         onSubmit={this.handleExistingUser.bind(this)}
@@ -175,7 +171,7 @@ class App extends Component {
                       }
                   </div>
               )} />
-              <Route path="/logout" render={props => (
+              <Route exact path="/logout" render={props => (
                   <div>
                         <Logout
                             onSubmit={this.logOut.bind(this)}

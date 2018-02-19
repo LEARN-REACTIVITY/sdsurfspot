@@ -20,7 +20,8 @@ export default class SignIn extends Component {
             form:{
                 username: "",
                 password: ""
-            }
+            },
+            beach: true
         }
     }
 
