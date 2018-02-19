@@ -10,7 +10,9 @@ export default class Logout extends Component {
     render() {
         return (
             <div>
-              <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
+                <NavBarPages />
+                <br />
+                <br />
                 <br />
                 <br />
                 <h3> Are you sure you want to leave? </h3>

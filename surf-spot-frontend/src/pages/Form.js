@@ -67,7 +67,7 @@ export default class Form extends Component {
     render() {
         return(
           <div id="signUp">
-            <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
+            <NavBarPages />
             <div id="formBackground-signUp">
             <div className="container-fluid-"><br/><br/><br/>
             <div className="boxForm">
