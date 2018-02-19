@@ -38,10 +38,10 @@
   color: #3b3a3a;
 }
 
-.container-fluid-top {
+/*.container-fluid-top {
   background-color: transparent;
   height: 76.91px;
-}
+}*/
 
 .landingPage {
   background-image: url("/image/LandingPageLogo_3.jpg");
@@ -69,6 +69,7 @@
   background-color: transparent;
 }
 #submit {
+  margin-top: 20px;
   color: white;
   background-color: black;
   border-style: solid;
@@ -232,13 +233,23 @@ button.checkIn:hover {
 }
 
 .whiteboardForm {
-  margin-left: 38%;
-  margin-right: 38%;
-  margin-top: 10%;
+  display: inline-block;
+  max-width: 300px;
+  padding-left: 10%;
+  padding-right: 10%;
   padding-top: 15px;
   padding-bottom: 30px;
   background-color: rgba(0, 231, 231, 0.3);
-  border-radius: 50px;
+  border-radius: 25px;
+}
+
+.boxForm {
+  display: inline-block;
+  margin-top: 5%;
+}
+
+.form-control {
+  min-width: 200px;
 }
 
 .form {

@@ -5,6 +5,7 @@ export default class NavBar extends Component {
 
 render() {
 		return(
+				
             <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
 							<div id="dropDownCont" className="container">
                 <a href="#top">

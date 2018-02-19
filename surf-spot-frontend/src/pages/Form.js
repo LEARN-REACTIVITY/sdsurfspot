@@ -65,8 +65,11 @@ export default class Form extends Component {
 
     render() {
         return(
-          <div id="formBackground">
+          <div id="signUp">
             <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
+            <div id="formBackground">
+            <div className="container-fluid-"><br/><br/><br/>
+            <div className="boxForm">
             <div className="whiteboardForm">
                         <form className="form">
                             <h1 className="form-sign"> Sign up! </h1>
@@ -140,10 +143,13 @@ export default class Form extends Component {
                                                 <HelpBlock id="email-help-block">{this.serverErrors('email')}</HelpBlock>
                                             }
                                         </FormGroup>
-                                        <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Create an Account</Button>
                         </form>
                         </div>
+                        <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Create an Account</Button>
+                        </div>
+                        </div>
             </div>
+        </div>
         )
     }
 }
