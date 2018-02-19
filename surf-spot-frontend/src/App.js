@@ -23,8 +23,15 @@ class App extends Component {
            logInSuccess: false,
            errors: null,
            isLoggedIn: false,
-           logOutSuccess: false
+           logOutSuccess: false,
+           modalSuccess: false
        }
+   }
+
+   modalSuccess() {
+     this.setState({
+       modalSuccess: true
+     })
    }
 
    loggedIn() {
@@ -144,7 +151,13 @@ class App extends Component {
             {/* <NavBar isLoggedIn={this.state.isLoggedIn}/> */}
 
               <Route exact path="/" render={props => (
-                  <Home beaches={this.state.beaches} user={this.state.user}/>
+                  <div>
+                    <Home beaches={this.state.beaches} user={this.state.user} modalSuccess={this.state.modalSuccess}
+                    />
+                    {this.state.modalSuccess &&
+                      <Redirect to='/signin'/>
+                    }
+                  </div>
               )}/>
               <Route path="/beach:id" component={Beach} />
               <Route exact path="/form" render={props => (
