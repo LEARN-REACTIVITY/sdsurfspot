@@ -20,8 +20,7 @@ export default class Form extends Component {
                 username: "",
                 password: "",
                 email: ""
-            },
-            beach: false
+            }
         }
     }
 
