@@ -8,7 +8,8 @@ import {
     Button,
     Alert,
     HelpBlock
-} from 'react-bootstrap'
+} from 'react-bootstrap';
+import NavBarPages from './NavBarPages';
 
 
 export default class Form extends Component {
@@ -64,25 +65,16 @@ export default class Form extends Component {
 
     render() {
         return(
-            <div className="formBackground">
-                <Row >
-                    <Col>
-                    </Col>
-                    <Col>
+          <div id="formBackground">
+            <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
+            <div className="whiteboardForm">
                         <form className="form">
                             <h1 className="form-sign"> Sign up! </h1>
-                                <Row className="row">
-                                    <Col>
-                                        {this.props.errors &&
+                              {this.props.errors &&
                                             <Alert bsStyle="danger">
                                                 Please check form and try again.
                                             </Alert>
                                         }
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col>
                                         <FormGroup
                                             id="name-form-group"
                                             validationState={this.errorsFor('name') && 'error'}>
@@ -97,11 +89,7 @@ export default class Form extends Component {
                                                 <HelpBlock id="name-help-block">{this.errorsFor('name')}</HelpBlock>
                                             }
                                         </FormGroup>
-                                    </Col>
-                                </Row>
 
-                                <Row>
-                                    <Col>
                                         <FormGroup
                                             id="username-form-group"
                                             validationState={this.errorsFor('username') && 'error'}>
@@ -119,11 +107,7 @@ export default class Form extends Component {
                                                 <HelpBlock id="username-help-block">{this.serverErrors('username')}</HelpBlock>
                                             }
                                         </FormGroup>
-                                    </Col>
-                                </Row>
 
-                                <Row>
-                                    <Col>
                                         <FormGroup
                                             id="password-form-group"
                                             validationState={this.errorsFor('password') && 'error'}>
@@ -138,11 +122,7 @@ export default class Form extends Component {
                                                 <HelpBlock id="password-help-block">{this.errorsFor('password')}</HelpBlock>
                                             }
                                         </FormGroup>
-                                    </Col>
-                                </Row>
 
-                                <Row>
-                                    <Col>
                                         <FormGroup
                                             id="email-form-group"
                                             validationState={this.errorsFor('email') && 'error'}>
@@ -160,19 +140,9 @@ export default class Form extends Component {
                                                 <HelpBlock id="email-help-block">{this.serverErrors('email')}</HelpBlock>
                                             }
                                         </FormGroup>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col>
-                                        <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)} >Create an Account</Button>
-                                    </Col>
-                                </Row>
+                                        <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Create an Account</Button>
                         </form>
-                    </Col>
-                    <Col>
-                    </Col>
-                </Row>
+                        </div>
             </div>
         )
     }

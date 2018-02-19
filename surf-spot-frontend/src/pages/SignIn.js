@@ -8,7 +8,8 @@ import {
     Button,
     Alert,
     HelpBlock
-} from 'react-bootstrap'
+} from 'react-bootstrap';
+import NavBarPages from './NavBarPages';
 
 
 const backApi =  "http://localhost:3000"
@@ -52,6 +53,7 @@ export default class SignIn extends Component {
     render() {
         return(
             <div className="signIn">
+            <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
                 <h1 className="titleSignIn"> Sign in! </h1>
                 <Row>
                     <Col>
@@ -108,7 +110,7 @@ export default class SignIn extends Component {
 
                                 <Row>
                                     <Col>
-                                        <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)} >Sign in</Button>
+                                        <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Sign in</Button>
                                     </Col>
                                 </Row>
                         </form>

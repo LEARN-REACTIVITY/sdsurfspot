@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-export default class NavBar extends Component {
+export default class NavBarPages extends Component {
 
 
 render() {
 		return(
             <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
 							<div id="dropDownCont" className="container">
-                <a href="#top">
+                <a href="/">
 									<img className="logoNavBar" src={ require('../images/LogoNavBar.png') } />
 								</a>
 								<button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,12 +16,6 @@ render() {
 				        </button>
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                   <ul className="navbar-nav text-uppercase mr-auto">
-                    <li className="nav-item">
-                      <a className="nav-link js-scroll-trigger" href="#About">Whats Good?!</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link js-scroll-trigger" href="#locations">Surf Locations</a>
-                    </li>
 										<li className="nav-item dropdown">
 				              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownBeaches" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List of Beaches</a>
 				              <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
