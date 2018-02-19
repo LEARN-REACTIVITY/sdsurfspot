@@ -160,7 +160,7 @@ export default class Home extends Component {
                             {this.props.beaches.map((element, key) => {
                             return  <div className= "cont">
                                     <div className= "box">
-                                        <a key={key} href={`/${element.id}`}>
+                                        <a key={key} href={`beach${element.id}`}>
                                             <h4 className="locationNames">{element.name}</h4>
                                         </a>
                                     </div>

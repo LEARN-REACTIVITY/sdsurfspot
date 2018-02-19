@@ -24,6 +24,7 @@ export default class Form extends Component {
         }
     }
 
+
     handleChange(event){
         const formState = Object.assign({}, this.state.form)
         formState[event.target.name] = event.target.value
