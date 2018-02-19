@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button} from 'react-bootstrap';
+import NavBarPages from './NavBarPages';
 
 export default class Logout extends Component {
 
@@ -10,10 +10,11 @@ export default class Logout extends Component {
     render() {
         return (
             <div>
+              <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
                 <br />
                 <br />
                 <h3> Are you sure you want to leave? </h3>
-                <Button id="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Sign Out</Button>
+                <button id="sumbit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Sign Out</button>
             </div>
         )
     }

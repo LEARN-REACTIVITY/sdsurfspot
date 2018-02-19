@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .container {
@@ -18,9 +19,31 @@
   margin-top: 0px;
 }
 
+.dropdown-menu {
+  background-image: url('./images/tropicalDropDown.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 300%;
+  background-color: white;
+  font-size: 70%;
+  border-color: none;
+  border-radius: 0.3rem;
+  max-width: 185px;
+}
+
+.dropdown-item {
+  max-width: 185px;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  color: #3b3a3a;
+}
+
+/*.container-fluid-top {
+  background-color: transparent;
+  height: 76.91px;
+}*/
+
 .landingPage {
-  padding-top: 10rem;
-  /* padding-bottom: calc(10rem - 56px); */
   background-image: url("/image/LandingPageLogo_3.jpg");
   background-color: black;
   margin-top: 0px;
@@ -35,15 +58,38 @@
   min-height:100vh;
 }
 
-#submit {
-    background-color: black;
-    color: white;
+#signUpButton {
+  background-color: #4D1C00;
+  border-color: #4D1C00;
+  box-shadow: none;
 }
+#signUpButton:hover {
+  color: black;
+  border-color: white;
+  background-color: transparent;
+}
+#submit {
+  margin-top: 20px;
+  color: white;
+  background-color: black;
+  border-style: solid;
+  border-color: black;
+  box-shadow: none;
+}
+#submit:hover {
+  color: black;
+  border-style: solid;
+  border-color: black;
+  background-color: transparent;
+  box-shadow: none;
+}
+
 .About {
     padding-top: 10%;
     padding-bottom: 10%;
-    background-color: #52ddd5;
+    background-color: #008A8E;
 }
+
 .TitleAbout {
     font-family: 'Roboto Slab', serif;
     letter-spacing: 10px;
@@ -53,30 +99,9 @@
     color: white;
 }
 
-.dropdown-menu {
-  background-image: url('./images/tropicalDropDown.png');
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 300%;
-  background-color: white;
-  font-size: 70%;
-  border-color: none;
-  border-radius: 0.3rem;
-  max-width: 185px;
-}
-
-
-
-.dropdown-item {
-  max-width: 185px;
-  font-weight: 600;
-  padding: 0.3rem 0.7rem;
-  color: #3b3a3a;
-}
-
 .TextAbout {
     font-family: 'Oswald', sans-serif;
-    font-size: 20px;
+    font-size: 30px;
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 10px;
@@ -86,7 +111,11 @@
 
 .backgroundImageLocations {
     background-color: black;
-    background-image: url('./images/Surfer_5.jpg');
+    background-image: url('./images/LocationsBackground.jpg');
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom left;
     position: inherit;
@@ -96,7 +125,7 @@
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 3%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 231, 231, 0.3);
     border-radius: 50px;
 }
 
@@ -145,12 +174,12 @@ button.checkIn:hover {
 
 .checkIn {
     margin-left: 20%;
-    background-color: #52ddd5;
-    color: black;
+    background-color: black;
+    color: white;
     margin-bottom: 5px;
 }
 .checkInButton {
-    background-color: #52ddd5;
+    background-color: black;
     color: white;
 }
 .cont {
@@ -159,7 +188,7 @@ button.checkIn:hover {
     max-width: 130px;
     min-height: 133px;
 }
-.box {
+/*.box {
     background-image: url('./images/tropical_white.png');
     background-size: 190%;
     min-width: 150px;
@@ -170,7 +199,7 @@ button.checkIn:hover {
     padding-left: 10px;
     border-radius: 15px;
     padding-right: 5px;
-}
+}*/
 
 .beach {
     margin-top: 40px;
@@ -190,14 +219,64 @@ button.checkIn:hover {
     text-align: center;
 }
 
-.formBackground {
-    background-image: url(./images/Surfer_5.jpg);
+#formBackground-signUp {
+    background-image: url('./images/FormBackground.jpg');
+    background-color: black;
+    margin-top: 0px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    min-height:100vh;
+}
+
+#formBackground-signIn {
+    background-image: url('./images/LogInBackground.jpg');
+    background-color: black;
+    margin-top: 0px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    min-height:100vh;
+}
+
+h1.form-sign {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+
+.whiteboardForm {
+  display: inline-block;
+  max-width: 300px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  background-color: rgba(7, 216, 213, 0.5);
+  border-radius: 25px;
+}
+
+.boxForm {
+  display: inline-block;
+  margin-top: 5%;
+}
+
+.form-control {
+  min-width: 200px;
 }
 
 .form {
-    margin-top: 50px;
-    position: fixed;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -233,4 +312,23 @@ a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.Footer {
+  background-color: #4D1C00;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.TitleFooter {
+  color: white;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.TextFooter {
+  color: white;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

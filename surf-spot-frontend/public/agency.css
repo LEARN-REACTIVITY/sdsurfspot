@@ -71,15 +71,14 @@ section h3.section-subheading {
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: #52ddd5 !important;
-  border-color: rgba(255, 255, 255, 0.5) !important;
-  color: white;
+  /*background-color: #52ddd5 !important;*/
+  border-color: white !important;
+  color: black;
 }
 
-/*
 .btn-primary:active, .btn-primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
-}*/
+}
 
 ::-moz-selection {
   background: #fed136;
@@ -156,7 +155,8 @@ img::-moz-selection {
   #mainNav.navbar-shrink {
     padding-top: 1%;
     padding-bottom: 1%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.6);
+    max-height: 76.91px;
   }
 
 

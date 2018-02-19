@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 import About from './About'
 import Footer from './Footer';
+import NavBar from './NavBar';
 
 
 const backApi =  "http://localhost:3000"
@@ -153,9 +154,11 @@ export default class Home extends Component {
         return (
             <div id="top" className="Home">
                     <header className="landingPage">
+                    <NavBar isLoggedIn={this.state.isLoggedIn}/>
                     </header>
                     <About />
                     <div className="backgroundImageLocations" id="locations">
+                    <div className="container-fluid"><br/><br/><br/>
                         <div className="whiteboard">
                             {this.props.beaches.map((element, key) => {
                             return  <div className= "cont">
@@ -175,7 +178,12 @@ export default class Home extends Component {
 
                                     </div>
                                     </div>
+
                             })}
+                        </div>
+                        <div
+                         className="container-fluid"><br/><br/><br/>
+                        </div>
                         </div>
                     </div>
                 <Footer />
