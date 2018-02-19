@@ -172,7 +172,7 @@ export default class Beach extends Component {
     render() {
         if(!this.state.beach) {
             return (
-                <h1 className="loading">Loading...</h1>
+                <h1 className="loading">LOADING...</h1>
             )
         }
         var spot = localStorage.getItem('beach')
@@ -183,31 +183,30 @@ export default class Beach extends Component {
         let link = "http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval="+id+"&dcat=day&embed=1"
 
         return (
-
-            <div className="beach">
-                <br />
-                <br />
-                <br />
-                <h1 className="beachtitel">{name}</h1>
-                <div className="datetime">
-                    <p> Date: {date} </p>
-                    <p> Time of report: {hour} </p>
-                </div>
-                <h3>Swell Details</h3>
-                <h4>  {swell} </h4>
-                <p> size: {size} </p>
-                <p> tide: {tide} </p>
-                <p> wind: {wind} </p>
-                <div className="">
-                    <h5 className="BeachCheckedIn">{result[id]}</h5> <p className="BeachCheckedIn"> Surfers are checked in right now</p>
-
-                    {!this.state.isCheckedIn &&
-                        <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check In</Button> }
-
-                    {this.state.isCheckedIn && (spot === this.state.beach.name ) &&
-                        <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check Out</Button> }
-
-                </div>
+              <div id="beach">
+              <div className="backgroundImageBeach">
+              <div className="container-fluid-beach"><br/><br/><br/>
+                  <div className="whiteboardBeach">
+              <div className="textBlock">
+                  <br />
+                  <br />
+                  <br />
+                  <div className="TitleBeachOnly">
+                  <h1 className="beachtitel">{name}</h1>
+                  </div>
+                  <br/>
+                  <div className="TextBeach">
+                  <div className="datetime">
+                      <p> Date: {date} | Time of report: {hour} </p>
+                  </div>
+                  <br/>
+                  <h3>Swell Details: {swell}</h3>
+                  <p> size: {size} </p>
+                  <p> tide: {tide} </p>
+                  <p> wind: {wind} </p>
+                  </div>
+                  </div>
+                <div className="whiteboardForcast">
                 <div className="forecast">
                     <object
                         classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
@@ -236,6 +235,19 @@ export default class Beach extends Component {
                         pluginspage="http://www.macromedia.com/go/getflashplayer"
                     />
                     </object>
+                    </div>
+                    </div>
+                    <div className="cont">
+                          <h5 className="NumCheckedIn">{result[id]}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
+
+                          {!this.state.isCheckedIn &&
+                              <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check In</Button> }
+
+                          {this.state.isCheckedIn && (spot === this.state.beach.name ) &&
+                              <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check Out</Button> }
+                              </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         )
