@@ -67,12 +67,12 @@ export default class Form extends Component {
         return(
           <div id="signUp">
             <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
-            <div id="formBackground">
+            <div id="formBackground-signUp">
             <div className="container-fluid-"><br/><br/><br/>
             <div className="boxForm">
             <div className="whiteboardForm">
                         <form className="form">
-                            <h1 className="form-sign"> Sign up! </h1>
+                            <h1 className="form-sign text-uppercase"> Sign up! </h1>
                               {this.props.errors &&
                                             <Alert bsStyle="danger">
                                                 Please check form and try again.
@@ -92,7 +92,6 @@ export default class Form extends Component {
                                                 <HelpBlock id="name-help-block">{this.errorsFor('name')}</HelpBlock>
                                             }
                                         </FormGroup>
-
                                         <FormGroup
                                             id="username-form-group"
                                             validationState={this.errorsFor('username') && 'error'}>
@@ -143,6 +142,7 @@ export default class Form extends Component {
                                                 <HelpBlock id="email-help-block">{this.serverErrors('email')}</HelpBlock>
                                             }
                                         </FormGroup>
+
                         </form>
                         </div>
                         <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Create an Account</Button>

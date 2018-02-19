@@ -52,26 +52,19 @@ export default class SignIn extends Component {
 
     render() {
         return(
-            <div className="signIn">
+            <div id="signIn">
             <NavBarPages isLoggedIn={this.state.isLoggedIn}/>
-                <h1 className="titleSignIn"> Sign in! </h1>
-                <Row>
-                    <Col>
-                    </Col>
-                    <Col>
+            <div id="formBackground-signIn">
+            <div className="container-fluid-"><br/><br/><br/>
+                <div className="boxForm">
+                <div className="whiteboardForm">
                         <form>
-                                <Row className="row">
-                                    <Col>
-                                        {this.props.errors &&
+                          <h1 className="form-sign text-uppercase"> Sign In! </h1>
+                                {this.props.errors &&
                                             <Alert bsStyle="danger">
                                                 Username and/or Password is invalid.
                                             </Alert>
                                         }
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col>
                                         <FormGroup
                                             id="username-form-group"
                                             validationState={this.errorsFor('username') && 'error'}>
@@ -86,11 +79,6 @@ export default class SignIn extends Component {
                                                 <HelpBlock id="username-help-block">{this.errorsFor('username')}</HelpBlock>
                                             }
                                         </FormGroup>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col>
                                         <FormGroup
                                             id="password-form-group"
                                             validationState={this.errorsFor('password') && 'error'}>
@@ -105,19 +93,12 @@ export default class SignIn extends Component {
                                                 <HelpBlock id="password-help-block">{this.errorsFor('password')}</HelpBlock>
                                             }
                                         </FormGroup>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col>
                                         <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Sign in</Button>
-                                    </Col>
-                                </Row>
                         </form>
-                    </Col>
-                    <Col>
-                    </Col>
-                </Row>
+                          </div>
+                            </div>
+                </div>
+                </div>
             </div>
         )
     }

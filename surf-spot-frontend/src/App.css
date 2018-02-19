@@ -219,18 +219,42 @@ button.checkIn:hover {
     text-align: center;
 }
 
-#formBackground {
-    background-image: url('./images/LocationsBackground.jpg');
-    background-size: cover;
+#formBackground-signUp {
+    background-image: url('./images/FormBackground.jpg');
+    background-color: black;
+    margin-top: 0px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    position: fixed;
-    height: 100vw;
-    width: 100vw;
+    background-size: cover;
+    height: 100vh;
+    min-height:100vh;
 }
+
+#formBackground-signIn {
+    background-image: url('./images/LogInBackground.jpg');
+    background-color: black;
+    margin-top: 0px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    min-height:100vh;
+}
+
+h1.form-sign {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
 
 .whiteboardForm {
   display: inline-block;
@@ -239,7 +263,7 @@ button.checkIn:hover {
   padding-right: 10%;
   padding-top: 15px;
   padding-bottom: 30px;
-  background-color: rgba(0, 231, 231, 0.3);
+  background-color: rgba(7, 216, 213, 0.5);
   border-radius: 25px;
 }
 
