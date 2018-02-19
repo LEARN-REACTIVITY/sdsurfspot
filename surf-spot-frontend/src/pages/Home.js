@@ -166,7 +166,7 @@ export default class Home extends Component {
                                             <h4 className="locationNames">{element.name}</h4>
                                         </a>
                                     </div>
-                                    <div>
+                                    <div className="checkinout">
                                         <h5 className="NumCheckedIn">{result[element.id]}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
 
                                         {!this.state.isCheckedIn && (!check) &&
