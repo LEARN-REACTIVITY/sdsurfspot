@@ -16,7 +16,7 @@ export default class Logout extends Component {
                 <br />
                 <br />
                 <h3> Are you sure you want to leave? </h3>
-                <button id="sumbit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Sign Out</button>
+                <button id="submit" className="btn btn-primary btn-md text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)}>Log Out</button>
             </div>
         )
     }

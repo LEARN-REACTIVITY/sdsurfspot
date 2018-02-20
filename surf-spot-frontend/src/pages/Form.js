@@ -9,7 +9,6 @@ import {
     Alert,
     HelpBlock
 } from 'react-bootstrap';
-import NavBarPages from './NavBarPages';
 
 
 export default class Form extends Component {
@@ -33,7 +32,7 @@ export default class Form extends Component {
     }
 
     handleSubmit() {
-        this.props.onSubmit(this.state.form)
+        this.props.Submit(this.state.form)
         console.log(this.state.form)
     }
 
@@ -67,7 +66,6 @@ export default class Form extends Component {
     render() {
         return(
           <div id="signUp">
-            <NavBarPages />
             <div id="formBackground-signUp">
             <div className="container-fluid-"><br/><br/><br/>
             <div className="boxForm">

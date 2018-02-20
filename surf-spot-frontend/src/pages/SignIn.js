@@ -9,7 +9,6 @@ import {
     Alert,
     HelpBlock
 } from 'react-bootstrap';
-import NavBarPages from './NavBarPages';
 import Modal from './Modal'
 
 
@@ -34,7 +33,7 @@ export default class SignIn extends Component {
     }
 
     handleSubmit() {
-        this.props.onSubmit(this.state.form)
+        this.props.Submit(this.state.form)
     }
 
 
@@ -55,13 +54,12 @@ export default class SignIn extends Component {
     render() {
         return(
             <div id="signIn">
-            <NavBarPages />
             <div id="formBackground-signIn">
             <div className="container-fluid-"><br/><br/><br/>
                 <div className="boxForm">
                 <div className="whiteboardForm">
                         <form>
-                          <h1 className="form-sign text-uppercase"> Sign In! </h1>
+                          <h1 className="form-sign text-uppercase"> Log In! </h1>
                                 {this.props.errors &&
                                             <Alert bsStyle="danger">
                                                 Username and/or Password is invalid.
@@ -95,7 +93,7 @@ export default class SignIn extends Component {
                                                 <HelpBlock id="password-help-block">{this.errorsFor('password')}</HelpBlock>
                                             }
                                         </FormGroup>
-                                        <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Sign in</Button>
+                                        <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Log in</Button>
                         </form>
                           </div>
                             </div>
