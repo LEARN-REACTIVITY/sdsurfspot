@@ -145,8 +145,8 @@ export default class Form extends Component {
                                         </FormGroup>
 
                         </form>
-                        </div>
                         <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >Create an Account</Button>
+                        </div>
                         </div>
                         </div>
             </div>
