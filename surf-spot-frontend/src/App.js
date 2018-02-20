@@ -9,6 +9,8 @@ import Logout from './pages/Logout';
 import Hello from './pages/Hello';
 import NavBarPages from './pages/NavBarPages';
 import NavBar from './pages/NavBar';
+import Modal from './pages/Modal'
+
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -26,9 +28,18 @@ class App extends Component {
            isLoggedIn: false,
            logOutSuccess: false,
            modalSignInSuccess: false,
-           modalSignUpSuccess: false
+           modalSignUpSuccess: false,
+           isOpen: false
        }
    }
+
+
+      toggleModal = () => {
+          this.setState({
+              isOpen: !this.state.isOpen
+          })
+       }
+
 
    modalSignInSuccess() {
        this.setState({
@@ -132,7 +143,7 @@ class App extends Component {
                     this.setState({
                         user: user,  // <- Update users in state
                         errors: null, // <- Clear out any errors if they exist
-                        logInSuccess: true, // <- This is the new flag in state
+                        // logInSuccess: true, // <- This is the new flag in state
                         isLoggedIn: true
                       })
                       console.log(this.state.user)
@@ -145,6 +156,8 @@ class App extends Component {
                           localStorage.setItem('checkCount', true)
                       }
                 }
+            }).then(()=> {
+                this.setState({logInSuccess: true})
             }).catch(function() {
                 console.log('could not save new user')
             })
@@ -164,14 +177,23 @@ class App extends Component {
               <Route exact path="/" render={props => (
                   <div>
                     <NavBar onSubmit={this.logOut.bind(this)} isLoggedIn={this.state.isLoggedIn} />
-                    
-                    <Home beaches={this.state.beaches} user={this.state.user} modalSignIn={this.modalSignInSuccess.bind(this)} modalSignUp={this.modalSignUpSuccess.bind(this)}
+
+                    <Home beaches={this.state.beaches} user={this.state.user} modalSignIn={this.modalSignInSuccess.bind(this)} modalSignUp={this.modalSignUpSuccess.bind(this)} toggle={this.toggleModal.bind(this)}
                     />
                     {this.state.modalSignInSuccess &&
                       <Redirect to='/signin' />
                     }
                     {this.state.modalSignUpSuccess &&
                         <Redirect to='/form' />
+                    }
+                    {this.state.isOpen &&
+                        <div>
+                        <Modal
+                            onClose={this.toggleModal.bind(this)}
+                            signUp={this.modalSignUpSuccess.bind(this)}
+                            signIn={this.modalSignInSuccess.bind(this)}
+                        />
+                        </div>
                     }
 
                   </div>

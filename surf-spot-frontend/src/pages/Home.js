@@ -14,23 +14,25 @@ export default class Home extends Component {
        this.state = {
             result: {},
             isCheckedIn: false,
-            isOpen: false
+            isOpen: false,
+
         };
    }
 
    toggleModal = () => {
-       this.setState({
-           isOpen: !this.state.isOpen
-       })
+       // this.setState({
+       //     isOpen: !this.state.isOpen
+       // })
+       this.props.toggle()
     }
 
-   signInDirect(){
-     this.props.modalSignIn()
-   }
-
-   signUpDirect(){
-     this.props.modalSignUp()
-   }
+   // signInDirect(){
+   //   this.props.modalSignIn()
+   // }
+   //
+   // signUpDirect(){
+   //   this.props.modalSignUp()
+   // }
 
     componentWillMount() {
         const { beaches } = this.props
@@ -196,15 +198,7 @@ export default class Home extends Component {
                         </div>
                         </div>
                     </div>
-                    {this.state.isOpen &&
-                        <div>
-                        <Modal
-                            onClose={this.toggleModal.bind(this)}
-                            signUp={this.signUpDirect.bind(this)}
-                            signIn={this.signInDirect.bind(this)}
-                        />
-                        </div>
-                    }
+
                 <Footer />
             </div>
         )

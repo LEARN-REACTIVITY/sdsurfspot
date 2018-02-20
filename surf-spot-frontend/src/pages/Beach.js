@@ -37,13 +37,13 @@ export default class Beach extends Component {
        })
     }
 
-   signInDirect(){
-     this.props.modalSignIn()
-   }
-
-   signUpDirect(){
-     this.props.modalSignUp()
-   }
+   // signInDirect(){
+   //   this.props.modalSignIn()
+   // }
+   //
+   // signUpDirect(){
+   //   this.props.modalSignUp()
+   // }
 
    getBeach = () => {
        const id = this.props.match.params.id
@@ -271,8 +271,6 @@ export default class Beach extends Component {
                     <div>
                     <Modal
                         onClose={this.toggleModal.bind(this)}
-                        signUp={this.signUpDirect.bind(this)}
-                        signIn={this.signInDirect.bind(this)}
                     />
                     </div>
                 }

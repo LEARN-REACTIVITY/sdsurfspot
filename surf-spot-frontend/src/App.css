@@ -500,6 +500,10 @@ a:hover {
     background-color: rgba(7, 216, 213, 0.5);
 }
 
+.modalanchor {
+    color: white;
+}
+
 .backdrop {
     position: fixed;
     z-index: 1;
