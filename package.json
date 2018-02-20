@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "install": "(cd surf-spot-frontend && yarn) && (cd SD-Surfspot-Backend && yarn)",
+    "start": "concurrently \"cd surf-spot-frontend && PORT=3001 yarn start\" \"cd SD-Surfspot-Backend && PORT=3000 yarn start\""
+  },
+  "dependencies": {
+    "concurrently": "^3.5.1"
+  },
+  "name": "sdsurfspot",
+  "version": "1.0",
+  "main": "index.js",
+  "repository": "https://github.com/LEARN-REACTIVITY/sdsurfspot.git",
+  "license": "MIT"
+}
