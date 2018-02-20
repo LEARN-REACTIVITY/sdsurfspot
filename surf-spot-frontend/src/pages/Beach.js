@@ -211,7 +211,7 @@ export default class Beach extends Component {
                       <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name, this.state.beach.id)} className="checkInBeach" bsSize="xsmall">Check In</Button> }
 
                   {this.state.isCheckedIn && (spot === this.state.beach.name ) &&
-                      <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check Out</Button> }
+                      <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkInBeach" bsSize="xsmall">Check Out</Button> }
                       </div>
                   </div>
                   </div>

@@ -22,7 +22,7 @@
 .dropdown-menu {
   background-image: url('./images/tropicalDropDown.png');
   background-repeat: no-repeat;
-  background-position: bottom left;
+  background-position: center;
   background-size: 300%;
   background-color: white;
   font-size: 70%;
@@ -82,7 +82,7 @@
 .About {
     padding-top: 10%;
     padding-bottom: 10%;
-    background-color: #008A8E;
+    background-color: #12ADB8;
 }
 
 .TitleAbout {
@@ -120,40 +120,52 @@
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 3%;
-    background-color: rgba(0, 231, 231, 0.3);
+    background-color: rgba(0, 231, 231, 0.5);
     border-radius: 50px;
+}
+
+#checkinout {
+  margin-top: -25px;
+}
+
+#checkinout h5.NumCheckedIn, p.TextCheckedIn {
+  display: inline;
+  vertical-align: top;
+  line-height: 50px;
+  width: 200px;
 }
 
 .NumCheckedIn {
   text-align: center;
-    margin-left: 17%;
+    margin-left: 15%;
     margin-bottom: 2px;
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
     min-width: 110px;
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .TextCheckedIn {
   text-align: center;
-  margin-left: 13%;
-  font-size: 16px;
+  font-size: 17px;
   font-family: 'Oswald', sans-serif;
   min-width: 120px;
-  color: white;
+  color: black;
 }
 
 .locationNames {
-    padding-top: 28%;
-    max-width: 110px;
+    padding-top: 35%;
+    max-width: 200px;
     min-height: 100px;
     margin-left: auto;
     margin-right: auto;
     color: black;
     font-family: 'Oswald', sans-serif;
+    letter-spacing: 2.5px;
     font-weight: bold;
     font-size: 22px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 button.checkIn:hover {
@@ -168,9 +180,44 @@ button.checkIn:hover {
     color: white;
     margin-bottom: 5px;
 }
-.checkInButton {
-    background-color: black;
+.checkInLoca:hover {
+  margin-left: 20%;
+  color: black;
+  margin-bottom: 5px;
+  border-color: black;
+  background-color: transparent;
+}
+
+.checkInLoca {
+  text-align: center;
+    max-width: 100px;
+    font-size: 14px;
+    padding-right: 75px;
+    text-align: center;
+    margin-left: 20%;
+    background-color: rgba(0,0,0,0.7);
     color: white;
+    margin-bottom: 5px;
+}
+
+.checkOutLoca:hover {
+  margin-left: 17%;
+  color: black;
+  margin-bottom: 5px;
+  border-color: black;
+  background-color: transparent;
+}
+
+.checkOutLoca {
+  text-align: center;
+    max-width: 110px;
+    font-size: 14px;
+    padding-right: 70px;
+    text-align: center;
+    margin-left: 17%;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    margin-bottom: 5px;
 }
 
 .cont {
@@ -181,18 +228,17 @@ button.checkIn:hover {
   vertical-align: top;
 }
 
-/*.box {
-    background-image: url('./images/tropical_white.png');
-    background-size: 190%;
+.box {
+    background-image: url('./images/Flower.png');
+    background-size: 90%;
     min-width: 150px;
-    min-height: 120px;
+    min-height: 150px;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: white;
-    padding-left: 10px;
+    padding-left: 5px;
     border-radius: 15px;
     padding-right: 5px;
-}*/
+}
 
 .BeachBoxLeft {
   display: inline-block;
@@ -321,7 +367,7 @@ button.checkInBeach:hover {
 
 #formBackground-signUp {
     background-image: url('./images/FormBackground.jpg');
-    background-color: black;
+    background-color: white;
     margin-top: 0px;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -336,7 +382,7 @@ button.checkInBeach:hover {
 
 #formBackground-signIn {
     background-image: url('./images/LogInBackground.jpg');
-    background-color: black;
+    background-color: white;
     margin-top: 0px;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -407,7 +453,7 @@ a:hover {
 }
 
 .Footer {
-  background-color: #4D1C00;
+  background-color: #12ADB8;
   padding-top: 5%;
   padding-bottom: 5%;
 }
@@ -445,7 +491,7 @@ a:hover {
 #closeButton {
     color: black;
     background-color: transparent;
-    border-color: white;
+    border-color: transparent;
     box-shadow: none;
 }
 #closeButton:hover {
@@ -461,7 +507,7 @@ a:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.6);
     padding: 50;
 }
 
@@ -470,7 +516,11 @@ a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255,255,255,0.8);
+    background-image: url('./images/tropicalDropDown.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200%;
+    background-color: rgba(255,255,255,0.7);
     border-radius: 50px;
     max-width: 450px;
     max-height: 370px;
