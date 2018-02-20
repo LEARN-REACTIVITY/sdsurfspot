@@ -169,8 +169,9 @@ export default class Home extends Component {
         return (
             <div id="top" className="Home">
                     <header className="landingPage">
-                    <Button className="invisButton" href="#About" ></Button>
-
+                    <div className="scrollDownButton">
+                    <a className="invisButton js-scroll-trigger" href="#About" ></a>
+                    </div>
                     </header>
                     <About />
                     <div className="backgroundImageLocations" id="locations">
