@@ -53,6 +53,30 @@
   min-height:100vh;
 }
 
+.invisButton {
+    margin-top: 925px;
+    background-size: 20px;
+    background-color: transparent;
+    color: transparent;
+    shadow: none;
+    min-height: 150px;
+    min-width: 75px;
+    outline: none;
+    border: none;
+}
+
+.invisButton:hover :focus{
+    outline: transparent;
+    border: none;
+    outline-color: transparent;
+
+}
+
+.invisButton:focus {
+    outline-style: none;
+}
+
+
 #signUpButton {
   background-color: black;
   border-color: black;

@@ -167,6 +167,7 @@ export default class Home extends Component {
         return (
             <div id="top" className="Home">
                     <header className="landingPage">
+                    <Button className="invisButton" href="#About" ></Button>
 
                     </header>
                     <About />
@@ -183,10 +184,10 @@ export default class Home extends Component {
                                     <div id="checkinout">
                                         <h5 className="NumCheckedIn">{result[element.id]}&nbsp;</h5><p className="TextCheckedIn"> CHECKED IN</p>
                                         {!this.state.isCheckedIn && (!check) &&
-                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkInLoca" bsSize="xsmall text-uppercase">Check In</Button> }
+                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkInLoca text-uppercase" bsSize="xs">Check In</Button> }
 
                                         { (spot === element.name ) &&
-                                        <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkOutLoca" bsSize="xsmall text-uppercase">Check Out</Button> }
+                                        <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkOutLoca text-uppercase" bsSize="xs">Check Out</Button> }
                                         </div>
                                     </div>
                             })}
