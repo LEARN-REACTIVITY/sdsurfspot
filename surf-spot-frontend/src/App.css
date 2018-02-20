@@ -172,15 +172,14 @@ button.checkIn:hover {
     background-color: black;
     color: white;
 }
+
 .cont {
-    display: inline-block;
-    margin: 20px 25px 30px 10px;
-    max-width: 130px;
-    min-height: 133px;
-    vertical-align: top;
+  display: inline-block;
+  margin: 20px 25px 30px 10px;
+  max-width: 130px;
+  min-height: 133px;
+  vertical-align: top;
 }
-
-
 
 /*.box {
     background-image: url('./images/tropical_white.png');
@@ -198,25 +197,28 @@ button.checkIn:hover {
 .BeachBoxLeft {
   display: inline-block;
   margin-left: auto;
-  margin-right: 40%;
-  margin-top: 20%;
+  margin-right: 47%;
+  margin-top: 17%;
   align-items: center;
   max-width: 20px;
 }
 
-/*.BeachCheckIn {
-  padding-left: 130%;
-}*/
-
-.forecast {
-  max-width: 600px;
+.whiteboardForecast {
+  display: inline-block;
+  max-width: 710px;
+  padding-left: 300%;
+  padding-bottom: 5px;
+  padding-top: 7px;
+  padding-right: 4px;
+  background-color: white;
+  border-radius: 20px;
+  border: 10px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.2);
 }
 
-.whiteboardForecast {
-  max-width: 650px;
-  margin: 50px;
-  display: inline-block;
-  background-color: black;
+.forecast {
+  max-width: 550px;
 }
 
 .backgroundImageBeach {
@@ -280,19 +282,38 @@ h4.value {
 
 #sizeTideWind h4.value, p.subtitle {
   display: inline;
-   vertical-align: top;
-   line-height: 50px;
+  vertical-align: top;
+  line-height: 50px;
+}
+#surfersCheckedIn {
+  padding-top: 25px;
+}
+
+h3.NumSurfers {
+  font-size: 40px;
+}
+
+#surfersCheckedIn h3.NumSurfers, p.subtitle {
+  display: inline;
+  vertical-align:middle;
+}
+
+button.checkInBeach:hover {
+    color: black;
+    border-color: black;
+    background-color: transparent;
+}
+
+.checkInBeach {
+  margin-top: 5px;
+    margin-left: 20%;
+    background-color: black;
+    color: white;
 }
 
 .container-fluid-beach{
   padding-top: 0%;
 }
-/*.whiteboardBeach {
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 50px;
-}*/
 
 .form-sign {
     text-align: center;
@@ -376,13 +397,6 @@ a:hover {
     letter-spacing: 10px;
     font-style: italic;
     margin-top: 20%;
-}
-
-.forecast {
-    margin-left: 40px;
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .signIn {

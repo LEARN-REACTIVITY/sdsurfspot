@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 
 
-
 const proxyurl = "https://cors-anywhere.herokuapp.com/" //proxy url to bypass cross origin error
 const API = "http://api.spitcast.com/api/spot/forecast"
 const backApi =  "http://localhost:3000"
@@ -186,7 +185,6 @@ export default class Beach extends Component {
               <div id="beach">
               <div className="backgroundImageBeach">
               <div className="container-fluid-beach"><br/><br/><br/>
-                  <div className="whiteboardBeach">
               <div className="textBlock">
                   <br />
                   <br />
@@ -201,23 +199,20 @@ export default class Beach extends Component {
                   </div>
                   <br/>
                   <h3 className="BeachDetails">Swell Details&nbsp;:  &nbsp; {swell}</h3>
-
                   <div id="sizeTideWind">
                   <p className="subtitle"> Size&nbsp;:</p><h4 className="value">&nbsp; {size} </h4><br/>
                   <p className="subtitle"> Tide&nbsp;:</p><h4 className="value">&nbsp; {tide} </h4><br/>
                   <p className="subtitle"> Wind&nbsp;:</p><h4 className="value">&nbsp; {wind} </h4><br/>
-                  <div className="BeachCheckIn">
-                  <div className="cont">
-                      <h5 className="NumCheckedIn">{result[id]}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
-
-                      {!this.state.isCheckedIn &&
-                          <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check In</Button> }
-
-                      {this.state.isCheckedIn && (spot === this.state.beach.name ) &&
-                          <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check Out</Button> }
-                          </div>
-                          </div>
                   </div>
+                  <div id="surfersCheckedIn">
+                  <h3 className="NumSurfers">{result[id]}</h3>
+                  <p className="subtitle"> &nbsp; are checked in right now</p>
+                  {!this.state.isCheckedIn &&
+                      <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name, this.state.beach.id)} className="checkInBeach" bsSize="xsmall">Check In</Button> }
+
+                  {this.state.isCheckedIn && (spot === this.state.beach.name ) &&
+                      <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkIn" bsSize="xsmall">Check Out</Button> }
+                      </div>
                   </div>
                   </div>
                   <div className="BeachBoxLeft">
@@ -254,7 +249,7 @@ export default class Beach extends Component {
                       </div>
                               </div>
 
-                    </div>
+
                     </div>
                 </div>
             </div>
