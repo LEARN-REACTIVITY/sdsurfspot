@@ -386,17 +386,19 @@ a:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.5);
     padding: 50;
 }
 
 .modal {
+    display: grid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #fff;
     border-radius: 5;
-    max-width: 500;
-    max-height: 300;
-    margin: 15% auto;
+    max-width: 500px;
+    max-height: 500px;
     padding: 30;
     border: 1px solid #888;
-    display: grid;
 }

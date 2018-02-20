@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+    Button
+} from 'react-bootstrap';
 
 class Modal extends Component {
 
@@ -9,13 +12,13 @@ class Modal extends Component {
         return (
             <div className="backdrop" >
                 <div className="modal" >
-                        This is the modal
-                        <button onClick={this.props.signUp}>
+                        <h3>Please Sign In</h3>
+                        <Button className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.props.signUp}>
                         Sign Up
-                        </button>
-                        <button onClick={this.props.signIn}>
+                        </Button>
+                        <Button onClick={this.props.signIn}>
                         Sign In
-                        </button>
+                        </Button>
                     <div className="footer">
                         <button onClick={this.props.onClose}>
                         Close
