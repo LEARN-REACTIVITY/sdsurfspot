@@ -359,10 +359,10 @@ h1.form-sign {
 .whiteboardForm {
   display: inline-block;
   max-width: 300px;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 15px;
-  padding-bottom: 30px;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 19px;
+  padding-bottom: 35px;
   background-color: rgba(7, 216, 213, 0.5);
   border-radius: 25px;
 }
@@ -370,6 +370,7 @@ h1.form-sign {
 .boxForm {
   display: inline-block;
   margin-top: 5%;
+  margin-left: -20px;
 }
 
 .form-control {
@@ -383,18 +384,14 @@ h1.form-sign {
     text-align: center;
 }
 
-.datetime {
-
-}
-
-
 a:hover {
     text-decoration: none;
 }
 
 .loading {
-    font-family: 'Oswald', sans-serif;
+    ffont-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing: 10px;
+    font-weight: bold;
     font-style: italic;
     margin-top: 20%;
 }
