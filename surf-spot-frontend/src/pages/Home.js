@@ -177,19 +177,17 @@ export default class Home extends Component {
                             return  <div key={key} className= "cont">
                                     <div className= "box">
                                         <a key={key} href={`beach${element.id}`}>
-                                            <h4 className="locationNames">{element.name}</h4>
+                                            <h4 className="locationNames text-uppercase">{element.name}</h4>
                                         </a>
                                     </div>
-                                    <div className="checkinout">
-                                        <h5 className="NumCheckedIn">{result[element.id]}</h5> <p className="TextCheckedIn"> Surfers are checked in right now</p>
-
+                                    <div id="checkinout">
+                                        <h5 className="NumCheckedIn">{result[element.id]}&nbsp;</h5><p className="TextCheckedIn"> CHECKED IN</p>
                                         {!this.state.isCheckedIn && (!check) &&
-                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check In</Button> }
+                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkInLoca" bsSize="xsmall text-uppercase">Check In</Button> }
 
                                         { (spot === element.name ) &&
-                                        <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check Out</Button> }
-
-                                    </div>
+                                        <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkOutLoca" bsSize="xsmall text-uppercase">Check Out</Button> }
+                                        </div>
                                     </div>
                             })}
                         </div>

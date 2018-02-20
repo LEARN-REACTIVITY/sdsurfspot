@@ -100,6 +100,10 @@ img::-moz-selection {
 
 #mainNav {
   background-color: rgba(255, 255, 255, 0.5);
+
+  height: 90px;
+  min-height:90px;
+  max-height: 90px;
 }
 
 #mainNav .navbar-toggler {
@@ -153,10 +157,20 @@ img::-moz-selection {
   }
 
   #mainNav.navbar-shrink {
-    padding-top: 1%;
-    padding-bottom: 1%;
-    background-color: rgba(255, 255, 255, 0.6);
-    max-height: 76.91px;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    background-image: url("/image/landingpage_opsw.jpg");
+    margin-top: 0px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 90px;
+    min-height:90px;
+    max-height: 90px;
   }
 
 
