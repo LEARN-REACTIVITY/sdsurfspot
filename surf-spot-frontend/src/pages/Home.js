@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-import Modal from 'react-modal'
 import About from './About'
 import Footer from './Footer';
 import NavBar from './NavBar';
-import { ModalContainer, ModalRoute, ModalLink } from 'react-router-modal';
+import Modal from './Modal'
 
 const customStyles = {
   content : {
@@ -27,27 +26,23 @@ export default class Home extends Component {
        this.state = {
             result: {},
             isCheckedIn: false,
-            modalIsOpen: false
+            isOpen: false
         };
-        this.openModal = this.openModal.bind(this);
-        this.afterOpenModal = this.afterOpenModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
-   }
-   openModal() {
-     this.setState({modalIsOpen: true});
    }
 
-   afterOpenModal() {
-     // references are now sync'd and can be accessed.
-     this.subtitle.style.color = '#f00';
-   }
-
-   closeModal() {
-     this.setState({modalIsOpen: false});
-   }
+   toggleModal = () => {
+       this.setState({
+           isOpen: !this.state.isOpen
+       });
+       console.log(this.state.isOpen)
+    }
 
    signInDirect(){
-     this.props.modalSuccess.bind(this)
+     this.props.modalSignIn()
+   }
+
+   signUpDirect(){
+     this.props.modalSignUp()
    }
 
     componentWillMount() {
@@ -114,7 +109,7 @@ export default class Home extends Component {
         var countCheck = localStorage.getItem('checkCount')
         const { isCheckedIn } = this.state
         if (token === null) {
-            this.openModal()
+            this.toggleModal()
         } else {
             if(!isCheckedIn) {
                 var params = {
@@ -147,7 +142,7 @@ export default class Home extends Component {
         var token = localStorage.getItem('authToken')
         var countCheck = localStorage.getItem('checkCount')
         if (token === null) {
-            this.openModal()
+            this.toggleModal()
         } else {
             if(countCheck) {
                 var params = {
@@ -206,31 +201,9 @@ export default class Home extends Component {
 
                                         { (spot === element.name ) &&
                                         <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkIn" bsSize="xsmall">Check Out</Button> }
-                                    <div>
-                                      <Router>
-                                        <Modal
-                                          isOpen={this.state.modalIsOpen}
-                                          onAfterOpen={this.afterOpenModal}
-                                          onRequestClose={this.closeModal}
-                                          style={customStyles}
-                                          contentLabel="Example Modal"
-                                        >
-                                        <h2 ref={subtitle => this.subtitle = subtitle}>Please Chose an Option</h2>
-                                        <form>
-                                          <button href='/signin'>sign up</button>
-                                          <button onClick={this.signInDirect.bind(this)}>sign in</button>
-                                        </form>
-                                        <br />
-                                        <button onClick={this.closeModal}>close</button>
-                                      </Modal>
-                                    </Router>
-                                    <ModalContainer />
-                                  </div>
 
                                     </div>
                                     </div>
-
-
                             })}
                         </div>
                         <div
@@ -238,6 +211,15 @@ export default class Home extends Component {
                         </div>
                         </div>
                     </div>
+                    {this.state.isOpen &&
+                        <div>
+                        <Modal
+                            onClose={this.toggleModal.bind(this)}
+                            signUp={this.signUpDirect.bind(this)}
+                            signIn={this.signInDirect.bind(this)}
+                        />
+                        </div>
+                    }
                 <Footer />
             </div>
         )
