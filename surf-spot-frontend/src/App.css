@@ -39,7 +39,7 @@
 }
 
 .landingPage {
-  background-image: url("/image/LandingPageLogo_3.jpg");
+  background-image: url("/image/LandingPageLogo_4.jpg");
   background-color: black;
   margin-top: 0px;
   background-repeat: no-repeat;
@@ -82,7 +82,7 @@
 .About {
     padding-top: 10%;
     padding-bottom: 10%;
-    background-color: #12ADB8;
+    background-color: #0DA9B4;
 }
 
 .TitleAbout {
@@ -120,7 +120,7 @@
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 3%;
-    background-color: rgba(0, 231, 231, 0.5);
+    background-color: rgba(0, 231, 231, 0.4);
     border-radius: 50px;
 }
 
