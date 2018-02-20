@@ -7,8 +7,8 @@ export default class Footer extends Component {
 				<h2 className="TitleFooter">AKAW</h2>
                 <p className="TextFooter">
                     reactivity@gmail.com<br/>
-                    copyright stuff<br/>
-                    and spitcasts info
+                    &copy;<br/>
+                    API and swell information pulled from Spitcast and spitcast.com
                 </p>
 			</div>
 		);
