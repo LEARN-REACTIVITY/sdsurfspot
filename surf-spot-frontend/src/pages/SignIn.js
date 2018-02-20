@@ -10,6 +10,7 @@ import {
     HelpBlock
 } from 'react-bootstrap';
 import NavBarPages from './NavBarPages';
+import Modal from './Modal'
 
 
 const backApi =  "http://localhost:3000"
@@ -23,6 +24,7 @@ export default class SignIn extends Component {
                 password: ""
             }
         }
+
     }
 
     handleChange(event){
@@ -99,6 +101,8 @@ export default class SignIn extends Component {
                             </div>
                 </div>
                 </div>
+
+
             </div>
         )
     }

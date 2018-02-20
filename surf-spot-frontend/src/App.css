@@ -377,3 +377,26 @@ a:hover {
   color: white;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.backdrop {
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    padding: 50;
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 5;
+    max-width: 500;
+    max-height: 300;
+    margin: 15% auto;
+    padding: 30;
+    border: 1px solid #888;
+    display: grid;
+}
