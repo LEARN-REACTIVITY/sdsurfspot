@@ -4,7 +4,7 @@ import {
     Button
 } from 'react-bootstrap';
 
-class Modal extends Component {
+class LogOutModal extends Component {
 
     render() {
         // Render nothing if the "show" prop is false
@@ -13,21 +13,17 @@ class Modal extends Component {
             <div className="backdrop" >
                 <div className="modal" >
 
-                    <h3 className="signInTitle">SIGN UP to access these features!</h3>
+                    <h3 className="signInTitle">Are you ready to log out?</h3>
+                    <h5 className="signInTitle">You will stay checked into your beach.</h5>
 
-                    <div className="topbutton">
-                        <Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" onClick={this.props.signUp}>
-                        Sign Up
-                        </Button>
-                    </div>
                     <div className="bottombutton">
-                        <Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" onClick={this.props.signIn}>
-                        Log In
+                        <Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" onClick={this.props.logOut}>
+                        Log Out
                         </Button>
                     </div>
                     <div className="signInFooter">
                         <button id="closeButton" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.props.onClose}>
-                        Close
+                        Go Back
                         </button>
                     </div>
                 </div>
@@ -36,10 +32,10 @@ class Modal extends Component {
     }
 }
 
-Modal.propTypes = {
+LogOutModal.propTypes = {
     onClose: PropTypes.func.isRequired,
     show: PropTypes.bool,
     children: PropTypes.node
 };
 
-export default Modal;
+export default LogOutModal;

@@ -8,6 +8,7 @@ import SignIn from './pages/SignIn';
 import Logout from './pages/Logout';
 import Hello from './pages/Hello';
 import NavBarPages from './pages/NavBarPages';
+import NavBar from './pages/NavBar';
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
 const backApi =  "http://localhost:3000"
@@ -48,10 +49,13 @@ class App extends Component {
    }
 
    logOut() {
-       localStorage.removeItem('authToken')
        localStorage.removeItem('checkCount')
        localStorage.removeItem('beach')
-       this.setState({isLoggedIn: false, logOutSuccess: true})
+       localStorage.removeItem('authToken')
+       this.setState({
+           isLoggedIn: false,
+           logOutSuccess: true
+       })
    }
 
     componentWillMount() {
@@ -159,6 +163,10 @@ class App extends Component {
 
               <Route exact path="/" render={props => (
                   <div>
+                    <NavBar onSubmit={this.logOut.bind(this)} isLoggedIn={this.state.isLoggedIn} />
+                    {this.state.logOutSuccess &&
+                      <Redirect to="/" />
+                    }
                     <Home beaches={this.state.beaches} user={this.state.user} modalSignIn={this.modalSignInSuccess.bind(this)} modalSignUp={this.modalSignUpSuccess.bind(this)}
                     />
                     {this.state.modalSignInSuccess &&
@@ -167,18 +175,26 @@ class App extends Component {
                     {this.state.modalSignUpSuccess &&
                         <Redirect to='/form' />
                     }
+
                   </div>
               )}/>
               <Route path="/beach:id" render={props => (
                   <div>
-                    <NavBarPages />
+                    <NavBarPages onSubmit={this.logOut.bind(this)} isLoggedIn={this.state.isLoggedIn}/>
+                    {this.state.logOutSuccess &&
+                      <Redirect to="/" />
+                    }
                     <Beach {...props} />
                   </div>
               )} />
               <Route exact path="/form" render={props => (
                   <div>
+                      <NavBarPages onSubmit={this.logOut.bind(this)} isLoggedIn={this.state.isLoggedIn}/>
+                      {this.state.logOutSuccess &&
+                        <Redirect to="/" />
+                      }
                       <Form
-                        onSubmit={this.handleNewUser.bind(this)}
+                        Submit={this.handleNewUser.bind(this)}
                         errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)}
                       />
                       {this.state.newUserSuccess &&
@@ -189,8 +205,12 @@ class App extends Component {
 
               <Route exact path="/signin" render={props => (
                   <div className="SignIn">
+                      <NavBarPages onSubmit={this.logOut.bind(this)} isLoggedIn={this.state.isLoggedIn}/>
+                      {this.state.logOutSuccess &&
+                        <Redirect to="/" />
+                      }
                       <SignIn
-                        onSubmit={this.handleExistingUser.bind(this)}
+                        Submit={this.handleExistingUser.bind(this)}
                         errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)}
                       />
                       {this.state.logInSuccess &&

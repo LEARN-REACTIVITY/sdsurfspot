@@ -3,19 +3,7 @@ import { Button } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import About from './About'
 import Footer from './Footer';
-import NavBar from './NavBar';
 import Modal from './Modal'
-
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 
 const backApi =  "http://localhost:3000"
 
@@ -33,8 +21,7 @@ export default class Home extends Component {
    toggleModal = () => {
        this.setState({
            isOpen: !this.state.isOpen
-       });
-       console.log(this.state.isOpen)
+       })
     }
 
    signInDirect(){
@@ -180,7 +167,7 @@ export default class Home extends Component {
         return (
             <div id="top" className="Home">
                     <header className="landingPage">
-                    <NavBar />
+
                     </header>
                     <About />
                     <div className="backgroundImageLocations" id="locations">
