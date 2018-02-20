@@ -98,11 +98,30 @@ img::-moz-selection {
   background: transparent;
 }
 
+@media (max-width: 991px) {
+  #mainNav .logoNavBar {
+    width: 150px;
+}
+}
+
+@media (max-width: 991px) {
+  #mainNav {
+  padding-top: 0%;
+  padding-bottom: 0%;
+  background-image: url("/image/landingpage_opsw.jpg");
+  margin-top: 0px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+}
+
 #mainNav {
-  background-color: rgba(255, 255, 255, 0.5);
-  height: 90px;
-  min-height:90px;
-  max-height: 90px;
+  min-height: 90px;
 }
 
 #mainNav .navbar-toggler {
@@ -121,6 +140,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
+  line-height: 5px;
   font-size: 90%;
   font-weight: 400;
   padding: 0.75em 0;
@@ -135,26 +155,13 @@ img::-moz-selection {
   font-weight: bold;
 }
 
-@media (min-width: 992px) {
-  #mainNav {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-    -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
-    transition: padding-top 0.3s, padding-bottom 0.3s;
-    border: none;
-    background-color: transparent;
-  }
-  #mainNav .navbar-brand {
-    font-size: 5em;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-  }
   #mainNav .navbar-nav .nav-item .nav-link {
     padding: 1.1em 1em !important;
   }
 
+    #mainNav.navbar-shrink .logoNavBar {
+      width: 150px;
+    }
   #mainNav.navbar-shrink {
     padding-top: 0%;
     padding-bottom: 0%;
@@ -167,11 +174,19 @@ img::-moz-selection {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 90px;
-    min-height:90px;
-    max-height: 90px;
   }
 
+  @media (min-width: 992px) {
+    #mainNav .logoNavBar{
+      max-width: 200px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+      -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+      transition: padding-top 0.3s, padding-bottom 0.3s;
+      border: none;
+      background-color: none;
+    }
 
 header.masthead {
   text-align: center;
