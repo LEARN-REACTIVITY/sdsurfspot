@@ -54,8 +54,8 @@
 }
 
 #signUpButton {
-  background-color: #4D1C00;
-  border-color: #4D1C00;
+  background-color: black;
+  border-color: black;
   box-shadow: none;
 }
 #signUpButton:hover {
@@ -157,7 +157,9 @@
 }
 
 button.checkIn:hover {
-    color: #af080f;
+    color: black;
+    border-color: black;
+    background-color: transparent;
 }
 
 .checkIn {
@@ -193,20 +195,28 @@ button.checkIn:hover {
     padding-right: 5px;
 }*/
 
-.beach {
-
+.BeachBoxLeft {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 40%;
+  margin-top: 20%;
+  align-items: center;
+  max-width: 20px;
 }
+
+/*.BeachCheckIn {
+  padding-left: 130%;
+}*/
 
 .forecast {
-  max-width: 90%;
+  max-width: 600px;
 }
 
-.whiteboardForcast {
+.whiteboardForecast {
+  max-width: 650px;
+  margin: 50px;
   display: inline-block;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  background-color: white;
-  border-radius: 50px;
+  background-color: black;
 }
 
 .backgroundImageBeach {
@@ -225,7 +235,7 @@ button.checkIn:hover {
 }
 
 .textBlock {
-  margin-top: 5%;
+  margin-top: 3%;
   float: left;
   color: white;
   text-align: left;
@@ -233,6 +243,7 @@ button.checkIn:hover {
 }
 
 .TitleBeachOnly {
+  min-width: 850px;
   float: left;
   margin-left: 0px;
   padding-left: 70px;
@@ -241,11 +252,36 @@ button.checkIn:hover {
 .beachtitel {
   color: white;
   font-family: 'Pacifico', cursive;
-  font-size: 60px;
+  font-size: 70px;
 }
 
 .TextBeach {
-  margin-left: 20%;
+  min-width: 480px;
+  margin-left: 15%;
+  margin-top: 20%;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+p.subtitle {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+h4.value {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#sizeTideWind h4.value, p.subtitle {
+  display: inline;
+   vertical-align: top;
+   line-height: 50px;
 }
 
 .container-fluid-beach{
