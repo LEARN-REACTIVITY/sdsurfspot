@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
 import Home from './pages/Home';
 import Beach from './pages/Beach';
 import Form from './pages/Form';
@@ -164,9 +164,7 @@ class App extends Component {
               <Route exact path="/" render={props => (
                   <div>
                     <NavBar onSubmit={this.logOut.bind(this)} isLoggedIn={this.state.isLoggedIn} />
-                    {this.state.logOutSuccess &&
-                      <Redirect to="/" />
-                    }
+                    
                     <Home beaches={this.state.beaches} user={this.state.user} modalSignIn={this.modalSignInSuccess.bind(this)} modalSignUp={this.modalSignUpSuccess.bind(this)}
                     />
                     {this.state.modalSignInSuccess &&
@@ -184,7 +182,13 @@ class App extends Component {
                     {this.state.logOutSuccess &&
                       <Redirect to="/" />
                     }
-                    <Beach {...props} />
+                    <Beach {...props} modalSignIn={this.modalSignInSuccess.bind(this)} modalSignUp={this.modalSignUpSuccess.bind(this)} />
+                    {this.state.modalSignInSuccess &&
+                      <Redirect to='/signin' />
+                    }
+                    {this.state.modalSignUpSuccess &&
+                        <Redirect to='/form' />
+                    }
                   </div>
               )} />
               <Route exact path="/form" render={props => (
