@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
-
+import Modal from './Modal';
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/" //proxy url to bypass cross origin error
 const API = "http://api.spitcast.com/api/spot/forecast"
@@ -13,7 +13,8 @@ export default class Beach extends Component {
            beach: undefined,
            result: {},
            location: {},
-           isCheckedIn: false
+           isCheckedIn: false,
+           isOpen: false
        }
    }
 
@@ -28,6 +29,20 @@ export default class Beach extends Component {
        if(localStorage.getItem('checkCount') !== null) {
            this.setState({isCheckedIn: true})
        }
+   }
+
+   toggleModal = () => {
+       this.setState({
+           isOpen: !this.state.isOpen
+       })
+    }
+
+   signInDirect(){
+     this.props.modalSignIn()
+   }
+
+   signUpDirect(){
+     this.props.modalSignUp()
    }
 
    getBeach = () => {
@@ -100,7 +115,7 @@ export default class Beach extends Component {
        var token = localStorage.getItem('authToken')
        var countCheck = localStorage.getItem('checkCount')
        if (token === null) {
-           alert("Please sign in or register.")
+           this.toggleModal()
        } else {
            if(countCheck === null) {
                var params = {
@@ -136,7 +151,7 @@ export default class Beach extends Component {
        var countCheck = localStorage.getItem('checkCount')
        const { isCheckedIn } = this.state
        if (token === null) {
-           alert("Please sign in or register.")
+           this.toggleModal()
        } else {
            if(isCheckedIn) {
                var params = {
@@ -252,6 +267,15 @@ export default class Beach extends Component {
 
                     </div>
                 </div>
+                {this.state.isOpen &&
+                    <div>
+                    <Modal
+                        onClose={this.toggleModal.bind(this)}
+                        signUp={this.signUpDirect.bind(this)}
+                        signIn={this.signInDirect.bind(this)}
+                    />
+                    </div>
+                }
             </div>
         )
     }

@@ -4,6 +4,7 @@ import {
     Button
 } from 'react-bootstrap';
 
+
 class LogOutModal extends Component {
 
     render() {
@@ -17,7 +18,7 @@ class LogOutModal extends Component {
                     <h5 className="signInTitle">You will stay checked into your beach.</h5>
 
                     <div className="bottombutton">
-                        <Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" onClick={this.props.logOut}>
+                        <Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" onClick={this.props.logOut} >
                         Log Out
                         </Button>
                     </div>

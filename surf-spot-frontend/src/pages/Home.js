@@ -174,7 +174,7 @@ export default class Home extends Component {
                     <div className="container-fluid"><br/><br/><br/>
                         <div className="whiteboard">
                             {this.props.beaches.map((element, key) => {
-                            return  <div className= "cont">
+                            return  <div key={key} className= "cont">
                                     <div className= "box">
                                         <a key={key} href={`beach${element.id}`}>
                                             <h4 className="locationNames">{element.name}</h4>
