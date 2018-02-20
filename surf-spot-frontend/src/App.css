@@ -54,29 +54,13 @@
   min-height:100vh;
 }
 
-.invisButton {
-    margin-top: 925px;
+a.invisButton {
+    display: inline-block;
+    height: 100vh;
     background-size: 20px;
     background-color: transparent;
-    color: transparent;
-    shadow: none;
-    min-height: 150px;
     min-width: 75px;
-    outline: none;
-    border: none;
 }
-
-.invisButton:hover :focus{
-    outline: transparent;
-    border: none;
-    outline-color: transparent;
-
-}
-
-.invisButton:focus {
-    outline-style: none;
-}
-
 
 #signUpButton {
   background-color: black;
@@ -479,21 +463,26 @@ a:hover {
 
 .Footer {
   background-color: #12ADB8;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding-top: 3%;
+  padding-bottom: 0%;
+  min-height: 230px;
 }
 
-.TitleFooter {
-  color: white;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  padding-top: 1%;
-  padding-bottom: 1%;
+.LogoFo {
+  max-width: 250px;
+  padding-bottom: 30px;
+}
+
+.TextFo {
+  padding-bottom: 30px;
 }
 
 .TextFooter {
-  color: white;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 0px;
+  letter-spacing: 1px;
 }
 
 .signInTitle {

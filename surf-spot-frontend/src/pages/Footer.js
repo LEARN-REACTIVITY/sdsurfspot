@@ -4,12 +4,14 @@ export default class Footer extends Component {
 	render() {
 		return (
 			<div className="Footer" id="Footer">
-			<img className="logoNavBar" src={ require('../images/LogoNavBar.png') } />
+				<div className="logoFooter">
+				<img className="LogoFo" src={ require('../images/LogoNavBar_LG.png') } />
+			</div>
+			<div className="TextFo">
                 <p className="TextFooter">
-                    &copy; Reactivity 2018<br/>
-										reactivity@gmail.com<br/>
-                    Information pulled from Spitcast and spitcast.com
+                    &copy; Reactivity 2018&nbsp;  |&nbsp;  reactivity@gmail.com&nbsp;  |&nbsp;  Information pulled from Spitcast and spitcast.com
                 </p>
+								</div>
 			</div>
 		);
 	}
