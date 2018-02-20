@@ -7,7 +7,7 @@ render() {
 		return (
 			<div className="About" id="About">
 				<h2 className="TitleAbout">CHECK OUT THE DAILY LOCAL SURF REPORT!</h2>
-                <p className="TextAbout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repreh.
+                <p className="TextAbout">Welcome to AKAW, San Diego's surf spot locator. Here you can check in and see the surf report and what's good at your favorite spot to avoid drop ins. Here at AKAW we allow surfers to check in to each location to show how crowded each spot is. 
                 </p>
 				<a id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" href='/Form'>Sign Up Now</a>
 			</div>
