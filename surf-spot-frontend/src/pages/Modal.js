@@ -16,14 +16,14 @@ class Modal extends Component {
                     <h3 className="signInTitle">SIGN UP to access these features!</h3>
 
                     <div className="topbutton">
-                        <Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" onClick={this.props.signUp}>
+                        <a className="modalanchor" href={'/form'}><Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" >
                         Sign Up
-                        </Button>
+                        </Button></a>
                     </div>
                     <div className="bottombutton">
-                        <Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" onClick={this.props.signIn}>
-                        Log In
-                        </Button>
+                    <a href={'/signin'} className="modalanchor"><Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" >
+                    Log In
+                    </Button></a>
                     </div>
                     <div className="signInFooter">
                         <button id="closeButton" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.props.onClose}>
