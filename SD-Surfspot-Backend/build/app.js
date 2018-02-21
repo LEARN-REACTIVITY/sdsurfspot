@@ -1,5 +1,11 @@
 'use strict';
 
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
@@ -9,10 +15,14 @@ var User = require('./models').User;
 var Beach = require('./models').Beach;
 var UB = require('./models').user_beaches;
 
+
+var staticFiles = express.static(_path2.default.join(__dirname, '../../surf-spot-frontend/build'));
+
 app.use(express.static('public'));
 app.use(validator());
 app.use(bodyParser.json());
 app.use(cors());
+app.use(staticFiles);
 
 var authorization = function authorization(req, res, next) {
     var token = req.headers.authorization || req.query.authToken || req.body.authToken;
@@ -227,6 +237,10 @@ app.post('/users', function (req, res) {
             });
         }
     });
+});
+
+app.listen(3000, function () {
+    console.log('Todo Server listening on port 3000!');
 });
 
 module.exports = app;

@@ -6,12 +6,16 @@ var app = express();
 let User = require('./models').User
 let Beach = require('./models').Beach
 let UB = require('./models').user_beaches
+import path from 'path'
+
+const staticFiles = express.static(path.join(__dirname, '../../surf-spot-frontend/build'))
 
 
 app.use(express.static('public'))
 app.use(validator())
 app.use(bodyParser.json())
 app.use(cors())
+app.use(staticFiles)
 
 const authorization = function(req, res, next) {
     const token = req.headers.authorization || req.query.authToken || req.body.authToken
@@ -231,6 +235,10 @@ app.post('/users', (req, res) => {
         }
     })
 })
+
+app.listen(3000, function () {
+    console.log('Todo Server listening on port 3000!');
+});
 
 
 
