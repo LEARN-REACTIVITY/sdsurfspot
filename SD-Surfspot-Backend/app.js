@@ -13,7 +13,7 @@ app.use(express.static('public'))
 app.use(validator())
 app.use(bodyParser.json())
 app.use(cors())
-app.use(staticFiles)
+
 
 app.use(express.static(path.resolve(__dirname, '../surf-spot-frontend/build')));
 
