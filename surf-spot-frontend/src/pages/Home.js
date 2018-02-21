@@ -175,7 +175,9 @@ export default class Home extends Component {
                     </header>
                     <About />
                     <div className="backgroundImageLocations" id="locations">
-                    <div className="container-fluid"><br/><br/><br/>
+                    <div className="LocationTitle text-uppercase">Check out the daily local surf report!
+                    </div>
+                    <div className="container-fluid"><br/><br/>
                         <div className="whiteboard">
                             {this.props.beaches.map((element, key) => {
                             return  <div key={key} className= "cont">
