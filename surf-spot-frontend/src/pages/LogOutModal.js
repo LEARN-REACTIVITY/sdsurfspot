@@ -13,10 +13,8 @@ class LogOutModal extends Component {
         return (
             <div className="backdrop" >
                 <div className="modal" >
-
                     <h3 className="signInTitle">Are you ready to log out?</h3>
                     <h5 className="signInTitle">You will stay checked into your beach.</h5>
-
                     <div className="bottombutton">
                         <Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" onClick={this.props.logOut} >
                         Log Out

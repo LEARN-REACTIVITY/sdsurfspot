@@ -6,7 +6,6 @@ import Beach from './pages/Beach';
 import Form from './pages/Form';
 import SignIn from './pages/SignIn';
 import Logout from './pages/Logout';
-import Hello from './pages/Hello';
 import NavBarPages from './pages/NavBarPages';
 import NavBar from './pages/NavBar';
 import Modal from './pages/Modal'

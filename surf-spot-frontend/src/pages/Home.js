@@ -20,19 +20,8 @@ export default class Home extends Component {
    }
 
    toggleModal = () => {
-       // this.setState({
-       //     isOpen: !this.state.isOpen
-       // })
        this.props.toggle()
     }
-
-   // signInDirect(){
-   //   this.props.modalSignIn()
-   // }
-   //
-   // signUpDirect(){
-   //   this.props.modalSignUp()
-   // }
 
     componentWillMount() {
         const { beaches } = this.props
@@ -168,41 +157,44 @@ export default class Home extends Component {
          var check = localStorage.getItem('checkCount')
         return (
             <div id="top" className="Home">
-                    <header className="landingPage">
+                <header className="landingPage">
                     <div className="scrollDownButton">
-                    <a className="invisButton js-scroll-trigger" href="#About" ></a>
+                        <a className="invisButton js-scroll-trigger" href="#About" ></a>
                     </div>
-                    </header>
-                    <About />
-                    <div className="backgroundImageLocations" id="locations">
+                </header>
+                <About />
+                <div className="backgroundImageLocations" id="locations">
                     <div className="LocationTitle text-uppercase">Check out the daily local surf report!
                     </div>
                     <div className="container-fluid"><br/><br/>
                         <div className="whiteboard">
                             {this.props.beaches.map((element, key) => {
                             return  <div key={key} className= "cont">
-                                    <div className= "box">
-                                        <a key={key} href={`beach${element.id}`}>
-                                            <h4 className="locationNames text-uppercase">{element.name}</h4>
-                                        </a>
-                                    </div>
-                                    <div id="checkinout">
-                                        <h5 className="NumCheckedIn">{result[element.id]}&nbsp;</h5><p className="TextCheckedIn"> CHECKED IN</p>
-                                        {!this.state.isCheckedIn && (!check) &&
-                                        <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkInLoca text-uppercase" bsSize="xs">Check In</Button> }
-
-                                        { (spot === element.name ) &&
-                                        <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkOutLoca text-uppercase" bsSize="xs">Check Out</Button> }
+                                        <div className= "box">
+                                            <a key={key} href={`beach${element.id}`}>
+                                                <h4 className="locationNames text-uppercase">{element.name}</h4>
+                                            </a>
+                                        </div>
+                                        <div id="checkinout">
+                                            <h5 className="NumCheckedIn">{result[element.id]}&nbsp;</h5>
+                                            <p className="TextCheckedIn"> CHECKED IN</p>
+                                            {!this.state.isCheckedIn && (!check) &&
+                                            <Button onClick={this.handleCheckIn.bind(this, element.name, this.props.beaches)} className="checkInLoca text-uppercase" bsSize="xs">
+                                                Check In
+                                            </Button> }
+                                            { (spot === element.name ) &&
+                                            <Button onClick={this.handleCheckOut.bind(this, element.name, this.props.beaches)} className="checkOutLoca text-uppercase" bsSize="xs">
+                                                Check Out
+                                            </Button> }
                                         </div>
                                     </div>
                             })}
                         </div>
                         <div
-                         className="container-fluid"><br/><br/><br/>
-                        </div>
+                            className="container-fluid"><br/><br/><br/>
                         </div>
                     </div>
-
+                </div>
                 <Footer />
             </div>
         )

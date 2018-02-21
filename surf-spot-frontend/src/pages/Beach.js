@@ -37,14 +37,6 @@ export default class Beach extends Component {
        })
     }
 
-   // signInDirect(){
-   //   this.props.modalSignIn()
-   // }
-   //
-   // signUpDirect(){
-   //   this.props.modalSignUp()
-   // }
-
    getBeach = () => {
        const id = this.props.match.params.id
 
@@ -197,92 +189,84 @@ export default class Beach extends Component {
         let link = "http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval="+id+"&dcat=day&embed=1"
 
         return (
-              <div id="beach">
-              <div className="backgroundImageBeach">
-              <div className="container-fluid-beach"><br/><br/><br/>
-              <div className="textBlock">
-                  <br />
-                  <br />
-                  <br />
-                  <div className="TitleBeachOnly">
-                  <h1 className="beachtitel">{name}</h1>
-                  </div>
-                  <br/>
-                  <div className="TextBeach">
-                  <div className="datetime">
-                      <p> Date&nbsp;: &nbsp;{date} &nbsp; | &nbsp; Time of report&nbsp;: &nbsp;{hour} </p>
-                  </div>
-                  <br/>
-                  <h3 className="BeachDetails">Swell Details&nbsp;:  &nbsp; {swell}</h3>
-                  <div id="sizeTideWind">
-                  <p className="subtitle"> Size&nbsp;:</p><h4 className="value">&nbsp; {size} </h4><br/>
-                  <p className="subtitle"> Tide&nbsp;:</p><h4 className="value">&nbsp; {tide} </h4><br/>
-                  <p className="subtitle"> Wind&nbsp;:</p><h4 className="value">&nbsp; {wind} </h4><br/>
-                  </div>
-                  <div id="surfersCheckedIn">
-                  <h3 className="NumSurfers">{result[id]}</h3>
-                  <p className="subtitle"> &nbsp; are checked in right now</p>
-                  {!this.state.isCheckedIn &&
-                      <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name, this.state.beach.id)} className="checkInBeach" bsSize="xsmall">Check In</Button> }
+            <div id="beach">
+                <div className="backgroundImageBeach">
+                    <div className="container-fluid-beach"><br/><br/><br/>
+                        <div className="textBlock">
+                            <br />
+                            <br />
+                            <br />
+                                <div className="TitleBeachOnly">
+                                    <h1 className="beachtitel">{name}</h1>
+                                </div>
+                            <br/>
+                            <div className="TextBeach">
+                                <div className="datetime">
+                                    <p> Date&nbsp;: &nbsp;{date} &nbsp; | &nbsp; Time of report&nbsp;: &nbsp;{hour} </p>
+                                </div>
+                            <br/>
+                            <h3 className="BeachDetails">Swell Details&nbsp;:  &nbsp; {swell}</h3>
+                                <div id="sizeTideWind">
+                                    <p className="subtitle"> Size&nbsp;:</p><h4 className="value">&nbsp; {size} </h4><br/>
+                                    <p className="subtitle"> Tide&nbsp;:</p><h4 className="value">&nbsp; {tide} </h4><br/>
+                                    <p className="subtitle"> Wind&nbsp;:</p><h4 className="value">&nbsp; {wind} </h4><br/>
+                                </div>
+                            <div id="surfersCheckedIn">
+                                <h3 className="NumSurfers">{result[id]}</h3>
+                                <p className="subtitle"> &nbsp; are checked in right now</p>
+                                {!this.state.isCheckedIn &&
+                                <Button onClick={this.handleCheckIn.bind(this, this.state.beach.name, this.state.beach.id)} className="checkInBeach" bsSize="xsmall">Check In</Button> }
 
-                  {this.state.isCheckedIn && (spot === this.state.beach.name ) &&
-                      <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkInBeach" bsSize="xsmall">Check Out</Button> }
-                      </div>
-                  </div>
-                  </div>
-                  <div className="BeachBoxLeft">
-                <div className="whiteboardForecast">
-                <div className="forecast">
-                    <object
-                        classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-                        codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
-                        width="600"
-                        height="300"
-                        className="forecast"
-                        align="middle"
-                    >
-                    <param name="allowScriptAccess" value="always" />
-                    <param name="allowFullScreen" value="false" />
-                    <param name="movie" value={link} />
-                    <param name="quality" value="high" />
-                    <param name="bgcolor" value="#ffffff" />
-                    <embed
-                        src={link}
-                        quality="high"
-                        bgcolor="#ffffff"
-                        width="600"
-                        height="300"
-                        name="spitcast_chart_flash"
-                        align="middle"
-                        allowScriptAccess="always"
-                        allowFullScreen="false"
-                        type="application/x-shockwave-flash"
-                        pluginspage="http://www.macromedia.com/go/getflashplayer"
-                    />
-                    </object>
+                                {this.state.isCheckedIn && (spot === this.state.beach.name ) &&
+                                <Button onClick={this.handleCheckOut.bind(this, this.state.beach.name, this.state.beach.id)} className="checkInBeach" bsSize="xsmall">Check Out</Button> }
+                            </div>
+                        </div>
                     </div>
-                      </div>
-                              </div>
-
-
+                    <div className="BeachBoxLeft">
+                        <div className="whiteboardForecast">
+                            <div className="forecast">
+                                <object
+                                    classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                                    codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+                                    width="600"
+                                    height="300"
+                                    className="forecast"
+                                    align="middle"
+                                    >
+                                    <param name="allowScriptAccess" value="always" />
+                                    <param name="allowFullScreen" value="false" />
+                                    <param name="movie" value={link} />
+                                    <param name="quality" value="high" />
+                                    <param name="bgcolor" value="#ffffff" />
+                                    <embed
+                                        src={link}
+                                        quality="high"
+                                        bgcolor="#ffffff"
+                                        width="600"
+                                        height="300"
+                                        name="spitcast_chart_flash"
+                                        align="middle"
+                                        allowScriptAccess="always"
+                                        allowFullScreen="false"
+                                        type="application/x-shockwave-flash"
+                                        pluginspage="http://www.macromedia.com/go/getflashplayer"
+                                    />
+                                </object>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
-                {this.state.isOpen &&
-                    <div>
-                    <Modal
-                        onClose={this.toggleModal.bind(this)}
-                    />
-                    </div>
-                }
             </div>
+        {this.state.isOpen &&
+        <div>
+            <Modal
+                onClose={this.toggleModal.bind(this)}
+                        />
+        </div>
+        }
+        </div>
         )
     }
 }
-//
-// class SpitcastGraph extends Component {
-//     render() {
-//         return (
-//             <br />
-//         )
-//     }
-// }
