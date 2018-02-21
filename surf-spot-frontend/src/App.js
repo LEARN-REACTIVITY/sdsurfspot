@@ -156,7 +156,9 @@ class App extends Component {
                       }
                 }
             }).then(()=> {
+                if(this.state.isLoggedIn) {
                 this.setState({logInSuccess: true})
+            }
             }).catch(function() {
                 console.log('could not save new user')
             })
