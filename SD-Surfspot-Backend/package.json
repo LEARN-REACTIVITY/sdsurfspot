@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll",
     "start": "nodemon -r babel-register app.js",
-    "build": "babel . --ignore node_modules,build --out-dir build",
+    
     "start:prod": "node build/app.js"
   },
   "dependencies": {
