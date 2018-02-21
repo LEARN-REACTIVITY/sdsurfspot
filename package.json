@@ -1,7 +1,7 @@
 {
     "scripts": {
         "start": "node SD-Surfspot-Backend/index.js",
-        "heroku-postbuild": "cd SD-Surfspot-Backend && sequelize db:migrate && cd .. && cd surf-spot-frontend/ && yarn install"
+        "heroku-postbuild": "cd SD-Surfspot-Backend && sequelize db:migrate && cd .. && cd surf-spot-frontend/ && yarn install && yarn build"
     },
     "name": "sdsurfspot",
     "version": "1.0.0",
