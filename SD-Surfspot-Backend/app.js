@@ -6,7 +6,8 @@ var app = express();
 let User = require('./models').User
 let Beach = require('./models').Beach
 let UB = require('./models').user_beaches
-import path from 'path'
+let path= require('path')
+
 
 const staticFiles = express.static(path.join(__dirname, '../../surf-spot-frontend/build'))
 
