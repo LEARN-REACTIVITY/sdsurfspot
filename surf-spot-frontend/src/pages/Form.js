@@ -74,7 +74,7 @@ export default class Form extends Component {
                                 <h1 className="form-sign text-uppercase"> Sign up! </h1>
                                 {this.props.errors &&
                                 <Alert bsStyle="danger">
-                                    Please check form and try again.
+                                    Please try again.
                                 </Alert>
                                 }
                                 <FormGroup
@@ -94,7 +94,7 @@ export default class Form extends Component {
                                     <FormGroup
                                         id="username-form-group"
                                         validationState={this.errorsFor('username') && 'error'}>
-                                        <ControlLabel id="username">Username</ControlLabel>
+                                        <ControlLabel className="WarningFont" id="username">Username</ControlLabel>
                                         <FormControl
                                             type="text"
                                             name="username"
