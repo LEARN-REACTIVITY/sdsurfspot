@@ -4,7 +4,13 @@ import Modal from './Modal';
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/" //proxy url to bypass cross origin error
 const API = "http://api.spitcast.com/api/spot/forecast"
-const backApi =  "http://localhost:3000"
+
+var backApi
+if(process.env.NODE_ENV === 'production') {
+    backApi = "/"
+} else {
+    backApi =  "http://localhost:3000"
+}
 
 export default class Beach extends Component {
     constructor(props){
@@ -74,7 +80,7 @@ export default class Beach extends Component {
        var token = localStorage.getItem('authToken')
        var id = beachId
            if(true) {
-               fetch(`${backApi}/checkin/${id}`, {
+               fetch(`${backApi}/api/checkin/${id}`, {
                    method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
                    headers: {  // <- We specify that we're sending JSON, and expect JSON back
                        'Content-Type': 'application/json',
@@ -115,7 +121,7 @@ export default class Beach extends Component {
                    authToken: token
                }
 
-               fetch(`${backApi}/user_beaches`, {
+               fetch(`${backApi}/api/user_beaches`, {
                    body: JSON.stringify(params),  // <- we need to stringify the json for fetch
                    headers: {  // <- We specify that we're sending JSON, and expect JSON back
                      'Content-Type': 'application/json'
@@ -151,7 +157,7 @@ export default class Beach extends Component {
                    authToken: token
                }
 
-               fetch(`${backApi}/user_beaches/checkout`, {
+               fetch(`${backApi}/api/user_beaches/checkout`, {
                    body: JSON.stringify(params),  // <- we need to stringify the json for fetch
                    headers: {  // <- We specify that we're sending JSON, and expect JSON back
                      'Content-Type': 'application/json'

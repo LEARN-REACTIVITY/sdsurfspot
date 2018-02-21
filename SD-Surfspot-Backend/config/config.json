@@ -14,9 +14,6 @@
     "dialect": "postgres"
     },
   "production": {
-    "username": null,
-    "password": null,
-    "database": "postgresql-globular-64122",
     "use_env_variable": "DATABASE_URL"
   }
 }

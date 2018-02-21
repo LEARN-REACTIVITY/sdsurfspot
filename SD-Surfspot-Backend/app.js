@@ -9,14 +9,13 @@ let UB = require('./models').user_beaches
 let path= require('path')
 
 
-const staticFiles = express.static(path.join(__dirname, '../../surf-spot-frontend/build'))
-
-
 app.use(express.static('public'))
 app.use(validator())
 app.use(bodyParser.json())
 app.use(cors())
 app.use(staticFiles)
+
+app.use(express.static(path.resolve(__dirname, '../surf-spot-frontend/build')));
 
 const authorization = function(req, res, next) {
     const token = req.headers.authorization || req.query.authToken || req.body.authToken
@@ -39,16 +38,16 @@ const authorization = function(req, res, next) {
     }
 }
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
   res.json({message: 'API Example App'})
 })
 
-app.get('/user',
+app.get('/api/user',
 authorization, function(req, res) {
     res.json({user: req.currentUser})
 })
 
-app.put('/user_beaches', authorization, (req, res) => {
+app.put('/api/user_beaches', authorization, (req, res) => {
     Beach.findOne({
         where: {name: req.body.name}
     }).then((beach) => {
@@ -67,7 +66,7 @@ app.put('/user_beaches', authorization, (req, res) => {
     })
 })
 
-app.put('/user_beaches/checkout', authorization, (req, res) => {
+app.put('/api/user_beaches/checkout', authorization, (req, res) => {
     Beach.findOne({
         where: {name: req.body.name}
     }).then((beach) => {
@@ -85,7 +84,7 @@ app.put('/user_beaches/checkout', authorization, (req, res) => {
     })
 })
 
-app.get('/checkin/:id', (req,res) => {
+app.get('/api/checkin/:id', (req,res) => {
     let id = req.params.id
     Beach.findOne({
         where: {api_id: id}
@@ -105,7 +104,7 @@ app.get('/checkin/:id', (req,res) => {
     })
 })
 
-app.post('/getbeach', (req, res) => {
+app.post('/api/getbeach', (req, res) => {
     var user = req.currentUser
     var id = req.body.id
     User.findOne({
@@ -145,7 +144,7 @@ app.post('/getbeach', (req, res) => {
     })
 })
 
-app.post('/login', (req, res) => {
+app.post('/api/login', (req, res) => {
     req.checkBody('username', 'Is required').notEmpty()
     req.checkBody('password', 'Is required').notEmpty()
 
@@ -201,7 +200,7 @@ app.post('/login', (req, res) => {
     })
 })
 
-app.post('/users', (req, res) => {
+app.post('/api/users', (req, res) => {
     req.checkBody('name', 'Is required').notEmpty()
     req.checkBody('username', 'Is required').notEmpty()
     req.checkBody('email', 'Is required').notEmpty()
@@ -237,8 +236,9 @@ app.post('/users', (req, res) => {
     })
 })
 
-app.listen(process.env.PORT || 3000, function () {
-    console.log('Todo Server listening on port 3000!');
+
+app.get('*', function(req, res) {
+  res.sendFile(path.resolve(__dirname, '../surf-spot-frontend/build', 'index.html'));
 });
 
 

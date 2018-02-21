@@ -1,20 +1,23 @@
 {
-  "scripts": {
-    "install": "(cd surf-spot-frontend && yarn) && (cd SD-Surfspot-Backend && yarn)",
-    "start": "concurrently \"cd surf-spot-frontend && PORT=3001 yarn start\" \"cd SD-Surfspot-Backend && PORT=3000 yarn start\"",
-    "build": "concurrently \"cd surf-spot-frontend && yarn build\" \"cd SD-Surfspot-Backend\"",
-    "start:prod": "cd SD-Surfspot-Backend && yarn start:prod",
-    "heroku-postbuild": "yarn build"
-  },
-  "dependencies": {
-    "concurrently": "^3.5.1"
-  },
-  "name": "sdsurfspot",
-  "version": "1.0",
-  "main": "index.js",
-  "repository": "https://github.com/LEARN-REACTIVITY/sdsurfspot.git",
-  "license": "MIT",
-  "engines": {
-      "node": "9.5.0"
-  }
+    "scripts": {
+        "start": "node SD-Surfspot-Backend/index.js",
+        "heroku-postbuild": "cd SD-Surfspot-Backend && sequelize db:migrate && cd .. && cd surf-spot-frontend/ && yarn install"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "cors": "^2.8.4",
+        "express": "^4.16.2",
+        "express-validator": "^5.0.1",
+        "pg": "6.1.5",
+        "sequelize": "3.30.4",
+        "sequelize-cli": "^4.0.0"
+    },
+    "name": "sdsurfspot",
+    "version": "1.0",
+    "main": "index.js",
+    "repository": "https://github.com/LEARN-REACTIVITY/sdsurfspot.git",
+    "license": "MIT",
+    "engines": {
+        "node": "9.5.0"
+    }
 }

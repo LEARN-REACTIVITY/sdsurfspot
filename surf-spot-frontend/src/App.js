@@ -12,7 +12,13 @@ import Modal from './pages/Modal'
 
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
-const backApi =  "http://localhost:3000"
+
+var backApi
+if(process.env.NODE_ENV === 'production') {
+    backApi = "/"
+} else {
+    backApi =  "http://localhost:3000"
+}
 
 class App extends Component {
     constructor(props){
@@ -92,7 +98,7 @@ class App extends Component {
             }
 
     handleNewUser(params){
-        fetch(`${backApi}/users`,
+        fetch(`${backApi}/api/users`,
             {
                 body: JSON.stringify(params),
                 headers: {
@@ -123,7 +129,7 @@ class App extends Component {
     }
 
     handleExistingUser(params) {
-        fetch(`${backApi}/login`,
+        fetch(`${backApi}/api/login`,
             {
                 body:JSON.stringify(params),
                 headers: {
