@@ -2,7 +2,7 @@
   "development": {
     "username": null,
     "password": null,
-    "database": "DATABASE_URL",
+    "database": "surfSpot",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
