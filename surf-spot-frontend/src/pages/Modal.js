@@ -12,17 +12,15 @@ class Modal extends Component {
         return (
             <div className="backdrop" >
                 <div className="modal" >
-
                     <h3 className="signInTitle">SIGN UP to access these features!</h3>
-
                     <div className="topbutton">
                         <a className="modalanchor" href={'/form'}><Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" >
                         Sign Up
-                        </Button></a>
+                    </Button></a>
                     </div>
                     <div className="bottombutton">
-                    <a href={'/signin'} className="modalanchor"><Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" >
-                    Log In
+                        <a href={'/signin'} className="modalanchor"><Button id="signUpButton" className="btn btn-primary btn-lg text-uppercase js-scroll-trigger" >
+                        Log In
                     </Button></a>
                     </div>
                     <div className="signInFooter">
