@@ -37,7 +37,7 @@ render() {
                 	<div className="collapse navbar-collapse" id="navbarResponsive">
                   		<ul className="navbar-nav text-uppercase mr-auto">
                     		<li className="nav-item">
-                      			<a className="nav-link js-scroll-trigger" href="#About">Whats Good?!</a>
+                      			<a className="nav-link js-scroll-trigger" href="#About">What's Good?!</a>
                     		</li>
                     		<li className="nav-item">
                       			<a className="nav-link js-scroll-trigger" href="#locations">Surf Locations</a>

@@ -78,6 +78,7 @@ a.invisButton {
   background-color: black;
   border-color: black;
   box-shadow: none;
+  margin-top: 35px;
 }
 #signUpButton:hover {
   color: black;
@@ -100,8 +101,10 @@ a.invisButton {
 }
 
 .About {
-    padding-top: 8%;
-    padding-bottom: 7%;
+    padding-top: 7.3%;
+    padding-bottom: 6.4%;
+    padding-left: 10%;
+    padding-right: 10%;
     background-color: #0DA9B4;
 }
 
@@ -109,21 +112,30 @@ a.invisButton {
     font-family: 'Roboto Slab', serif;
     font-weight: bold;
     letter-spacing: 10px;
-    font-size: 40px;
-    line-height: 60px;
-    margin-left: 5%;
-    margin-right: 5%;
+    font-size: 45px;
+    line-height: 65px;
     color: white;
+    margin-bottom: 2%
+}
+
+#TextAboutComb p.TextAbout, p.TextAboutBold, p.TextAbout {
+  display: inline;
+  vertical-align: center;
+  line-height: 45px;
 }
 
 .TextAbout {
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 40px;
     font-size: 27px;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    color: Black;
+}
+
+.TextAboutBold {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 40px;
+    font-size: 27px;
+    font-weight: bold;
     color: Black;
 }
 
