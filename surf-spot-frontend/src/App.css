@@ -70,7 +70,7 @@ a.invisButton {
 #signUpButton:hover {
   color: black;
   border-color: white;
-  background-color: transparent;
+  background-color: rgba(255,255,255,0.6);
 }
 #submit {
   margin-top: 20px;
@@ -84,28 +84,31 @@ a.invisButton {
   color: black;
   border-style: solid;
   border-color: black;
-  background-color: transparent;
+  background-color: rgba(255,255,255,0.6);
   box-shadow: none;
 }
 
 .About {
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 8%;
+    padding-bottom: 7%;
     background-color: #0DA9B4;
 }
 
 .TitleAbout {
     font-family: 'Roboto Slab', serif;
+    font-weight: bold;
     letter-spacing: 10px;
-    font-size: 35px;
+    font-size: 40px;
+    line-height: 60px;
     margin-left: 5%;
     margin-right: 5%;
     color: white;
 }
 
 .TextAbout {
-    font-family: 'Oswald', sans-serif;
-    font-size: 30px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 40px;
+    font-size: 27px;
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 10px;
@@ -125,12 +128,24 @@ a.invisButton {
     position: inherit;
 }
 
+.LocationTitle  {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  letter-spacing: 8px;
+  font-size: 35px;
+  padding-top: 75px;
+  line-height: 60px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: rgba(0,0,0,0.70);
+}
+
 .whiteboard {
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 3%;
     background-color: rgba(0, 231, 231, 0.4);
-    border-radius: 50px;
+    border-radius: 35px;
 }
 
 #checkinout {
@@ -180,7 +195,7 @@ a.invisButton {
 button.checkIn:hover {
     color: black;
     border-color: black;
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.6);
 }
 
 .checkIn {
@@ -194,7 +209,7 @@ button.checkIn:hover {
   color: black;
   margin-bottom: 5px;
   border-color: black;
-  background-color: transparent;
+  background-color: rgba(255,255,255,0.6);
 }
 
 .checkInLoca {
@@ -214,7 +229,7 @@ button.checkIn:hover {
   color: black;
   margin-bottom: 5px;
   border-color: black;
-  background-color: transparent;
+  background-color: rgba(255,255,255,0.6);
 }
 
 .checkOutLoca {
@@ -356,7 +371,7 @@ h3.NumSurfers {
 button.checkInBeach:hover {
     color: black;
     border-color: black;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255,0.6);
 }
 
 .checkInBeach {

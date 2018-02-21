@@ -27,8 +27,8 @@ render() {
 		return(
 
             <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
-							<div id="dropDownCont" className="container">
-                			<a href="#top">
+							<div id="dropDownCont" className="container js-scroll-trigger">
+                			<a className="js-scroll-trigger" href="#top">
 									<img className="logoNavBar" src={ require('../images/LogoNavBar_LG.png') } />
 								</a>
 								<button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
