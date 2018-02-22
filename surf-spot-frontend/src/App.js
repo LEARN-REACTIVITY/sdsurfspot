@@ -99,7 +99,7 @@ class App extends Component {
             }
 
     handleNewUser(params){
-        fetch(`${backApi}/api/users`,
+        fetch(`${backApi}api/users`,
             {
                 body: JSON.stringify(params),
                 headers: {
@@ -130,7 +130,7 @@ class App extends Component {
     }
 
     handleExistingUser(params) {
-        fetch(`${backApi}/api/login`,
+        fetch(`${backApi}api/login`,
             {
                 body:JSON.stringify(params),
                 headers: {

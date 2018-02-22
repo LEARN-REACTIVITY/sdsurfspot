@@ -58,7 +58,7 @@ export default class Home extends Component {
             var token = localStorage.getItem('authToken')
             var id = element.id
             if(true) {
-                fetch(`${backApi}/api/checkin/${id}`, {
+                fetch(`${backApi}api/checkin/${id}`, {
                     method: 'GET',  // <- Here's our verb, so the correct endpoint is invoked on the server
                     headers: {  // <- We specify that we're sending JSON, and expect JSON back
                         'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export default class Home extends Component {
                     authToken: token
                 }
 
-                fetch(`${backApi}/api/user_beaches`, {
+                fetch(`${backApi}api/user_beaches`, {
                     body: JSON.stringify(params),  // <- we need to stringify the json for fetch
                     headers: {  // <- We specify that we're sending JSON, and expect JSON back
                       'Content-Type': 'application/json'
@@ -132,7 +132,7 @@ export default class Home extends Component {
                     authToken: token
                 }
 
-                fetch(`${backApi}/api/user_beaches/checkout`, {
+                fetch(`${backApi}api/user_beaches/checkout`, {
                     body: JSON.stringify(params),  // <- we need to stringify the json for fetch
                     headers: {  // <- We specify that we're sending JSON, and expect JSON back
                       'Content-Type': 'application/json'
