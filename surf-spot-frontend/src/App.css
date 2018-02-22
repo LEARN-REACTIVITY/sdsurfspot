@@ -3,6 +3,13 @@
   overflow: hidden;
 }
 
+::selection {
+  background: #ffba26;
+}
+::-moz-selection {
+  background: #ffba26;
+}
+
 .container {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -39,6 +46,11 @@
   color: #3b3a3a;
 }
 
+a#navbarDropdownBeaches {
+    margin-top: -1.7px;
+    max-height: 36.66px;
+}
+
 .landingPage {
   background-image: url("/image/LandingPageLogo_4.jpg");
   background-color: black;
@@ -73,19 +85,18 @@ a.invisButton {
   background-color: rgba(255,255,255,0.6);
 }
 #submit {
-  margin-top: 20px;
   color: white;
   background-color: black;
   border-style: solid;
   border-color: black;
-  box-shadow: none;
+  shadow: none;
 }
 #submit:hover {
   color: black;
   border-style: solid;
   border-color: black;
   background-color: rgba(255,255,255,0.6);
-  box-shadow: none;
+  shadow: none;
 }
 
 .About {
@@ -385,10 +396,6 @@ button.checkInBeach:hover {
   padding-top: 0%;
 }
 
-.form-sign {
-    text-align: center;
-}
-
 #formBackground-signUp {
     background-image: url('./images/FormBackground.jpg');
     background-color: white;
@@ -420,31 +427,42 @@ button.checkInBeach:hover {
 }
 
 h1.form-sign {
+    text-align: center;
   font-family: 'Roboto Slab', serif;
   font-weight: bold;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  font-size: 38px;
 }
 
-
 .whiteboardForm {
-  display: inline-block;
-  max-width: 300px;
-  padding-left: 20%;
-  padding-right: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 280px;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-top: 19px;
-  padding-bottom: 35px;
+  padding-bottom: 25px;
   background-color: rgba(7, 216, 213, 0.5);
   border-radius: 25px;
 }
 
 .boxForm {
   display: inline-block;
-  margin-top: 5%;
+  margin-top: 3%;
   margin-left: -20px;
 }
 
 .form-control {
   min-width: 200px;
+  max-width: 200px;
+}
+
+.form-group{
+    text-align: center;
+    min-width: 200px;
+    max-width: 200px;
 }
 
 .form {
@@ -452,6 +470,47 @@ h1.form-sign {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-width: 200px;
+}
+
+.help-block {
+    color: #a51717;
+    font-style: italic;
+}
+
+.FormGroupSignIn {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.alert-danger {
+    color: #a51717;
+    line-height: 20px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: rgba(61,153,165,0.7);
+    max-height: 70px;
+    border: none;
+}
+
+.danger {
+    color: #a51717;
+    font-size: 14px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    background-color: rgba(61,153,165,0.7);
+    max-height:90px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 160px;
+}
+
+.control-label {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
 }
 
 a:hover {
@@ -459,7 +518,7 @@ a:hover {
 }
 
 .loading {
-    ffont-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing: 10px;
     font-weight: bold;
     font-style: italic;

@@ -59,44 +59,46 @@ export default class SignIn extends Component {
                                 <form>
                                     <h1 className="form-sign text-uppercase"> Log In! </h1>
                                     {this.props.errors &&
-                                    <Alert bsStyle="danger">
-                                        Username and/or Password is invalid.
+                                    <Alert className="danger">
+                                        Username and / or Password is invalid.
                                     </Alert>
                                     }
-                                    <FormGroup
-                                        id="username-form-group"
-                                        validationState={this.errorsFor('username') && 'error'}>
-                                        <ControlLabel id="username">
-                                            Username
-                                        </ControlLabel>
-                                        <FormControl
-                                            type="text"
-                                            name="username"
-                                            onChange={this.handleChange.bind(this)}
-                                            value={this.state.form.username}
-                                        />
-                                        {this.errorsFor('username') &&
-                                            <HelpBlock id="username-help-block">{this.errorsFor('username')}
-                                            </HelpBlock>
-                                        }
-                                    </FormGroup>
-                                    <FormGroup
-                                        id="password-form-group"
-                                        validationState={this.errorsFor('password') && 'error'}>
-                                        <ControlLabel id="password">
-                                            Password
-                                        </ControlLabel>
-                                        <FormControl
-                                            type="password"
-                                            name="password"
-                                            onChange={this.handleChange.bind(this)}
-                                            value={this.state.form.password}
-                                        />
-                                        {this.errorsFor('password') &&
-                                            <HelpBlock id="password-help-block">{this.errorsFor('password')}
-                                            </HelpBlock>
-                                        }
-                                    </FormGroup>
+                                    <div className="FormGroupSignIn">
+                                        <FormGroup
+                                            id="username-form-group"
+                                            validationState={this.errorsFor('username') && 'error'}>
+                                            <ControlLabel id="username">
+                                                Username
+                                            </ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                name="username"
+                                                onChange={this.handleChange.bind(this)}
+                                                value={this.state.form.username}
+                                            />
+                                            {this.errorsFor('username') &&
+                                                <HelpBlock id="username-help-block">{this.errorsFor('username')}
+                                                </HelpBlock>
+                                            }
+                                        </FormGroup>
+                                        <FormGroup
+                                            id="password-form-group"
+                                            validationState={this.errorsFor('password') && 'error'}>
+                                            <ControlLabel id="password">
+                                                Password
+                                            </ControlLabel>
+                                            <FormControl
+                                                type="password"
+                                                name="password"
+                                                onChange={this.handleChange.bind(this)}
+                                                value={this.state.form.password}
+                                            />
+                                            {this.errorsFor('password') &&
+                                                <HelpBlock id="password-help-block">{this.errorsFor('password')}
+                                                </HelpBlock>
+                                            }
+                                        </FormGroup>
+                                    </div>
                                     <Button id="submit" className="btn btn-primary btn-sm text-uppercase js-scroll-trigger" onClick={this.handleSubmit.bind(this)} >
                                         Log in
                                     </Button>
