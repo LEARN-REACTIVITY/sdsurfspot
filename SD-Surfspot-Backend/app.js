@@ -1,3 +1,4 @@
+let path= require('path')
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
@@ -6,15 +7,11 @@ var app = express();
 let User = require('./models').User
 let Beach = require('./models').Beach
 let UB = require('./models').user_beaches
-let path= require('path')
-
 
 app.use(express.static('public'))
 app.use(validator())
 app.use(bodyParser.json())
 app.use(cors())
-
-
 app.use(express.static(path.resolve(__dirname, '../surf-spot-frontend/build')));
 
 const authorization = function(req, res, next) {
@@ -245,74 +242,3 @@ app.get('*', function(req, res) {
 
 module.exports = app
 
-/*
-
-SELECT * FROM user_beaches
-WHERE beach_id = $1
-AND check_out IS NULL;
-
-*/
-
-// app.post('/checkin', authorization, (req, res) => {
-//     Beach.findOne({
-//         where: {name: req.body.name}
-//     }).then((beach) => {
-//         var user= req.currentUser
-//         user.getBeaches({
-//             where: {
-//                     id: beach.id
-//                     }
-//         })
-//     }).then((checkedin) => {
-//         res.json({
-//             message: "it kinda worked",
-//             checkedin: checkedin
-//         })
-//     }).catch((error) => {
-//         res.json({
-//             message: "cannot find check-ins",
-//             errors: error
-//         })
-//     })
-//
-// })
-
-// app.post('/getbeach', (req, res) => {
-//     var user = req.currentUser
-//     var id = req.body.id
-//     User.findOne({
-//         where: {id: id}
-//     }).then((user) => {
-//         var userId = user.id
-//         UB.sequelize.query(`SELECT * FROM user_beaches WHERE user_id = ${userId} AND check_in IS NOT NULL`).spread((results, metadata) => {
-//
-//             if(results.length > 0) {
-//                 var beachId = results[0].beach_id
-//                 Beach.findOne({
-//                     where: {id: beachId}
-//                 }).then((beach) => {
-//                     res.json({
-//                         beach: beach,
-//                         message: `User is checked into ${beach.name}`
-//                     })
-//                 }).catch((error) => {
-//                     res.status(400)
-//                     res.json({
-//                         error: error,
-//                         message: "Problem getting beach."
-//                     })
-//                 })
-//             } else {
-//                 res.json({
-//                     results: false
-//                 })
-//             }
-//         })
-//     }).catch((error) => {
-//         res.status(400)
-//         res.json({
-//             errors: error,
-//             message: "Problem getting user_beaches and checkin."
-//         })
-//     })
-// })
