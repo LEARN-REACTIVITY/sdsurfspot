@@ -4,10 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --watchAll",
-    "start": "nodemon -r babel-register app.js",
-
-    "start:prod": "node app.js"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
