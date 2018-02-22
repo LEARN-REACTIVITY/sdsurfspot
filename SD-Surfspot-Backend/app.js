@@ -38,8 +38,8 @@ const authorization = function(req, res, next) {
     }
 }
 
-app.get('/api/', (req, res) => {
-  res.json({message: 'API Example App'})
+app.get('/api/test', (req, res) => {
+  res.json({message: 'Successful test, api is up and running'})
 })
 
 app.get('/api/user',
