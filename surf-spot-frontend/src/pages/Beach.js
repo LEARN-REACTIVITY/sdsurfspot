@@ -192,7 +192,7 @@ export default class Beach extends Component {
         const { id, name, date, hour, swell, size, tide, wind } = this.state.beach
         let { result } = this.state
 
-        let link = "http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval="+id+"&dcat=day&embed=1"
+        let link = proxyurl+"http://www.spitcast.com/3/flash/spitcast_chart_flash.swf?lval="+id+"&dcat=day&embed=1"
 
         return (
             <div id="beach">
