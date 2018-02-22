@@ -12,6 +12,7 @@ import Modal from './pages/Modal'
 
 
 const API = "http://api.spitcast.com/api/county/spots/san-diego/"
+const proxyurl = "https://cors-anywhere.herokuapp.com/"
 
 var backApi
 if(process.env.NODE_ENV === 'production') {
@@ -75,7 +76,7 @@ class App extends Component {
    }
 
     componentWillMount() {
-        fetch(API).then((resp) => {
+        fetch(proxyurl + API).then((resp) => {
                 return resp.json()
             }).then((beaches) => {
                     var beachname = []
