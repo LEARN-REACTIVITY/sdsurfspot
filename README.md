@@ -1,3 +1,5 @@
 # sdsurfspot
 
-Built with React, JavaScript, Node.js, Express, and PostgreSQL
+Full-stack application built with React, JavaScript, Node.js, Express, PostgreSQL
+
+
